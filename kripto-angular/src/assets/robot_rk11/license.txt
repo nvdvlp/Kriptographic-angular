@@ -1,0 +1,308 @@
+:host{
+    display: flex;
+    min-height: 100%;
+    background-color: #070708;
+}
+
+.aboutUs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+/*tittle*/
+.aboutUs__secondTittle {
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Poppins;
+    background-image: linear-gradient(to right, #C2DBBE 70%, #168127 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+
+}
+
+.aboutUs__aboutUsTittle{
+    font-size: 32px;
+    font-weight: 500;
+    font-family: Medium;
+    background-image: linear-gradient(to right, #F8F1F8 50%, #798F83 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 74px;
+}
+
+/*next button*/
+.aboutUs__nextSectionContainer{
+    width: 251px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.aboutUs__circleNext{
+    width:23px;
+    height:23px;
+    border-radius: 50%;
+    border: 1px solid #BFDFBC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutUs__playIcon{
+    padding: 0;
+    height: 10px;
+    width: 10px;
+}
+
+.backward{
+    transform: rotate(-178deg);
+}
+
+.aboutUs__dottedLine{
+    width:203px;
+    height: 1px;
+    background-image: linear-gradient(to right, #BFDFBC 50%, transparent 50%);
+    background-size: 4px 1px; 
+}
+/*text*/
+.aboutUs__text{
+    font-size: 12px;
+    font-weight: 500;
+    color: #C6C6C6;
+    text-align: center;
+    padding-inline: 37px;
+    margin-bottom:27px;
+    font-family:"Poppins";
+}
+
+.dott{
+    margin-bottom:34px;
+}
+
+.columnLandscape{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.midSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:60px;
+}
+
+/*img*/
+.imgContainer{  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}    
+
+.aboutUs__3dJacket{
+    width: 843px;
+    height: 692px;
+    top: 451px;
+    left: 442px;
+    position: relative;
+    transform: translateX(-50%);
+}   
+
+
+@media (max-width: 1439px){
+    .light{
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    /*tittle*/
+    .aboutUs__secondTittle {
+        font-size: 16px;
+    }
+    
+    .aboutUs__aboutUsTittle{
+        font-size: 40px;
+        margin-bottom: 160px;
+    }
+    /*text*/
+    .aboutUs__text{
+        font-size: 20px;
+        text-align: start;
+        margin-right: 227px;
+    }
+
+    .dott{
+        margin-bottom:34px;
+    }
+
+    /*next button*/
+    .aboutUs__nextSectionContainer{
+        padding-left:37px;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .aboutUs__circleNext{
+        width: 39px;
+        height:39px;
+        border-radius: 50%;
+    }
+
+    .aboutUs__playIcon{
+        padding: 0;
+        height: 16px;
+        width: 16px;
+    }
+
+    .aboutUs__dottedLine{
+        width:334px;
+    }
+    /*center*/
+    .midSection{
+        justify-content: center;
+        z-index: 1;
+        position:relative;
+    }
+    /*img*/
+    .imgContainer{  
+        position: absolute;
+        z-index: 0;
+    }    
+    
+    .aboutUs__3dJacket{
+        width: 920px;
+        height: 754px;
+        top: 92px;
+        left: 831px;
+        transform: translateX(-50%);
+    }    
+
+}
+
+@media (min-width: 1440px) {
+    /*tittle*/
+    .aboutUs__secondTittle {
+        font-size: 20px;
+    }
+    
+    .aboutUs__aboutUsTittle{
+        font-size: 48px;
+        margin-bottom: 152px;
+    }
+    /*text*/
+    .aboutUs__text{
+        font-size: 32px;
+        text-align: start;
+        margin-right: 650px;
+    }
+
+    .dott{
+        margin-bottom:34px;
+    }
+
+    /*next button*/
+    .aboutUs__nextSectionContainer{
+        padding-left:37px;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .aboutUs__circleNext{
+        width: 54px;
+        height:54px;
+        border-radius: 50%;
+    }
+
+    .aboutUs__playIcon{
+        padding: 0;
+        height: 23px;
+        width: 23px;
+    }
+
+    .aboutUs__dottedLine{
+        width:484px;
+    }
+    /*center*/
+    .midSection{
+        justify-content: center;
+        z-index: 2;
+        position:relative;
+    }
+    /*img*/
+    .imgContainer{  
+        position: absolute;
+        z-index: 1;
+    }    
+    
+    .aboutUs__3dJacket{
+        width: 1226px;
+        height: 1005px;
+        top: 22px;
+        left: 1022px;
+        transform: translateX(-50%);
+    } 
+    .lightContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        z-index: 0;
+    }  
+    .light{
+        top: 0px;
+        left: 500px;
+        width: 1280px;
+        height: 1229px;
+        position: relative;
+        background: radial-gradient(circle, rgba(144, 187, 118, 0.21) 0%, rgba(144, 187, 118, 0) 100%);
+    }
+}
+
+<section class="aboutUs">
+        <h3 class="aboutUs__secondTittle">WHAT WE OFER</h3>
+        <h2 class="aboutUs__aboutUsTittle">ABOUT US</h2>
+
+            <div class="midSection">
+                <p class="aboutUs__text">We are changing how products can generate profit, how they are marketed, and how consumers engage with them. </p>
+                <p class="aboutUs__text">The new generations of consumers have grown up with these platforms as their main source of entertainment and interaction. </p>
+                <p class="aboutUs__text dott">The new generations of consumers have grown up with these platforms as their main source of entertainment and interaction. </p>
+                    
+                <div class="aboutUs__nextSectionContainer">
+                    <div class="aboutUs__circleNext">
+                        <img class="aboutUs__playIcon backward" src="../../../public/playIconpng.png" alt="">
+                    </div>
+                    <div class="aboutUs__dottedLine"></div>
+                    
+                    <div class="aboutUs__circleNext">
+                        <img class="aboutUs__playIcon" src="../../../public/playIconpng.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="imgContainer">
+                <img class="aboutUs__3dJacket" src="../../../public/Jacket.png" alt="">
+            </div>
+
+            <div class="lightContainer">
+                <div class="light"></div>
+            </div>
+</section>
