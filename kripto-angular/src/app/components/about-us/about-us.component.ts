@@ -2,7 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
 //@ts-ignore
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import * as THREE from 'three';
+  import * as THREE from 'three';
 
 @Component({
   selector: 'app-about-us',
@@ -20,48 +20,53 @@ export class AboutUsComponent implements AfterViewInit {
 
   }
   ngAfterViewInit(): void {
-    const width = window.innerWidth, height = window.innerHeight;
 
-    // init
-    
-    const camera = new THREE.PerspectiveCamera( 70, width / height, 0.01, 10 );
-    camera.position.z = 1;
-    
-    const scene = new THREE.Scene();
-    
-    const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-    const material = new THREE.MeshNormalMaterial();
-    
-    const mesh = new THREE.Mesh( geometry, material );
-    scene.add( mesh );
-    
+    //renderer
     const renderer = new THREE.WebGLRenderer( { antialias: true } );
-    renderer.setSize( width, height );
-    renderer.setAnimationLoop( animation );
-    document.body.appendChild( renderer.domElement );
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor(0xffffff);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    document.body.appendChild(renderer.domElement);
     
-    // animation
-    
-    function animation( time:number ) {
-    
-      mesh.rotation.x = time / 2000;
-      mesh.rotation.y = time / 1000;
-    
-      renderer.render( scene, camera );
-    
+
+    //scene & camera
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.set(4, 5, 11);
+
+
+    //geometry
+    const groundGeometry = new THREE.PlaneGeometry(20, 20, 32, 32);
+    groundGeometry.rotateX(-Math.PI / 2);
+    const groundMaterial = new THREE.MeshStandardMaterial({
+      color:0x555555,
+      side:THREE.DoubleSide
+    })
+    const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
+    scene.add(groundMesh);
+
+    // animate
+    function animate(){
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
     }
+    animate();
+    
+    //loader
+    const loader = new GLTFLoader().setPath('../../../assets/robot_rk11/');
+    loader.load('scene.gltf', (gltf: any) => {
+      const mesh = gltf.scene;
+      mesh.position.set(0, 1.05, -1);
+      scene.add(mesh);
+    }, undefined, (error: any) => {
+      console.error('An error happened', error);
+    });
+    
+  }
 
-const loader = new GLTFLoader();
 
-loader.load( '../../../assets/robot_rk11/scene.gltf', function ( gltf:any ) {
-
-	scene.add( gltf.scene );
-
-}, undefined, function ( error:any ) {
-
-	console.error( error );
-
-} );
-
-}
 }
