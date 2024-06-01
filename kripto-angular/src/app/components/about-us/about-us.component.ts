@@ -1,13 +1,18 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { AppComponent } from '../../app.component';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 //@ts-ignore
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import Stats from 'three/addons/libs/stats.module.js';
+//@ts-ignore
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// @ts-ignore
+import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
   import * as THREE from 'three';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [AppComponent],
+  imports: [CommonModule],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.css',
   providers:[
@@ -15,71 +20,211 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
   ]
 })
 
-export class AboutUsComponent implements AfterViewInit {
+// export class AboutUsComponent implements AfterViewInit {
+export class AboutUsComponent{
   constructor(private window:Window){
 
   }
-  ngAfterViewInit(): void {
 
-    //renderer
-    const renderer = new THREE.WebGLRenderer( { antialias: true } );
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
+  @ViewChild('div') divElement!: ElementRef;
+  // @ViewChild('divGrandesitoPambisito') divGrandesitoPambisitoElement!: ElementRef;
 
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    renderer.setClearColor(0xffffff);
-    renderer.setPixelRatio(window.devicePixelRatio);
+  // ngAfterViewInit(): void {
+  //   let camera: any, scene, renderer:any, stats;
+  //   let mixer;
 
-    document.body.appendChild(renderer.domElement);
+  //   //acá ponemos el renderer dentro del HTML, cambiar el body por la etiqueta CONTENEDORA
+  //   // document.body.appendChild(EL CONTENEDOR DONDE VA A IR EL RENDERER);
+  //   const container = this.divElement.nativeElement;
+  //   // const divGrandesitoPambisito = this.divGrandesitoPambisitoElement.nativeElement;
+	// 	document.body.appendChild( container );
+
+  //   camera = new THREE.PerspectiveCamera( 45, this.window.innerWidth / this.window.innerHeight, 1, 2000 );
+	// 	camera.position.set( 100, 200, 300 );
+
+  //   scene = new THREE.Scene();
+  //   scene.background = new THREE.Color( 0xa0a0a0 );
+  //   scene.fog = new THREE.Fog( 0xa0a0a0, 200, 1000 );
+
+  //   const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444, 5 );
+	// 	hemiLight.position.set( 0, 200, 0 );
+	// 	scene.add( hemiLight );
+
+  //   const dirLight = new THREE.DirectionalLight( 0xffffff, 5 );
+	// 	dirLight.position.set( 0, 200, 100 );
+	// 	dirLight.castShadow = true;
+	// 	dirLight.shadow.camera.top = 180;
+	// 	dirLight.shadow.camera.bottom = - 100;
+	// 	dirLight.shadow.camera.left = - 120;
+	// 	dirLight.shadow.camera.right = 120;
+	// 	scene.add( dirLight );
+
+  //   const mesh = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
+	// 	mesh.rotation.x = - Math.PI / 2;
+	// 	mesh.receiveShadow = true;
+	// 	scene.add( mesh );
+
+	// 	const grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
+	// 	grid.material.opacity = 0.2;
+	// 	grid.material.transparent = true;
+	// 	scene.add( grid );
     
+  //   const loader = new FBXLoader();
+	// 			loader.load('../../assets/models/Samba-Dancing.fbx', function ( object:any ) {
 
-    //scene & camera
-    const scene = new THREE.Scene();
+	// 				mixer = new THREE.AnimationMixer( object );
 
-    const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.set(1, 16, 11);
+	// 				const action = mixer.clipAction( object.animations[ 0 ] );
+	// 				action.play();
 
+	// 				object.traverse( function ( child:any ) {
 
-    //geometry
-    const groundGeometry = new THREE.PlaneGeometry(20, 20, 32, 32);
-    groundGeometry.rotateX(-Math.PI / 2);
-    const groundMaterial = new THREE.MeshStandardMaterial({
-      color:0x555555,
-      side:THREE.DoubleSide
-    })
-    const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
-    scene.add(groundMesh);
+	// 					if ( child.isMesh ) {
 
-    // animate
-    function animate(){
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
-    }
-    animate();
-    
-    //loader
-    const loader = new GLTFLoader().setPath('../../../assets/hoodie/');
-    loader.load('scene.gltf', (gltf: any) => {
-      const mesh = gltf.scene;
-      mesh.position.set(1, 10.5, -1);
-      scene.add(mesh);
-    }, undefined, (error: any) => {
-      console.error('error', error);
-    });
+	// 						child.castShadow = true;
+	// 						child.receiveShadow = true;
 
-    //control
-    //@ts-ignore
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.enablePan = false;
-    controls.minDistance = 5;
-    controls.maxDistance = 20;
-    controls.minPolarAngle = 0.5;
-    controls.autoRotate = false;
-    controls.target = new THREE.Vector3(0,1,0);
-    controls.update();
+	// 					}
 
-    
+	// 				} );
+
+	// 				scene.add( object );
+
+	// 	} );
+
+  //   renderer = new THREE.WebGLRenderer( { antialias: true } );
+	// 	renderer.setPixelRatio( window.devicePixelRatio );
+	// 	renderer.setSize( window.innerWidth, window.innerHeight );
+	// 	renderer.shadowMap.enabled = true;
+	// 	container.appendChild( renderer.domElement );
+
+	// 	const controls = new OrbitControls( camera, renderer.domElement );
+	// 	controls.target.set( 0, 100, 0 );
+	// 	controls.update();
+
+	// 	window.addEventListener( 'resize', onWindowResize );
+
+  //   function onWindowResize() {
+
+  //     camera.aspect = window.innerWidth / window.innerHeight;
+  //     camera.updateProjectionMatrix();
+
+  //     renderer.setSize( window.innerWidth, window.innerHeight );
+
+  //   }
+
+	// 	// stats
+	// 	stats = new Stats();
+	// 	container.appendChild( stats.dom );
+  // }
+
+  ngAfterViewInit(): void{
+    let camera: any, scene: any, renderer: any, stats: any;
+
+		const clock = new THREE.Clock();
+
+		let mixer: any;
+
+    const container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.set( 100, 200, 300 );
+
+				scene = new THREE.Scene();
+				scene.background = new THREE.Color( 0xa0a0a0 );
+				// scene.fog = new THREE.Fog( 0xa0a0a0, 200, 1000 );
+
+				const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444, 5 );
+				hemiLight.position.set( 0, 200, 0 );
+				scene.add( hemiLight );
+
+				const dirLight = new THREE.DirectionalLight( 0xffffff, 5 );
+				dirLight.position.set( 0, 200, 100 );
+				dirLight.castShadow = true;
+				dirLight.shadow.camera.top = 180;
+				dirLight.shadow.camera.bottom = - 100;
+				dirLight.shadow.camera.left = - 120;
+				dirLight.shadow.camera.right = 120;
+				scene.add( dirLight );
+
+				scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
+
+				// ground
+				const mesh = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
+				mesh.rotation.x = - Math.PI / 2;
+				mesh.receiveShadow = true;
+				scene.add( mesh );
+
+				const grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
+				grid.material.opacity = 0.2;
+				grid.material.transparent = true;
+				scene.add( grid );
+
+				// model
+				const loader = new FBXLoader();
+				loader.load( '../../assets/models/Samba-Dancing.fbx', function ( object:any ) {
+
+					mixer = new THREE.AnimationMixer( object );
+
+					const action = mixer.clipAction( object.animations[ 0 ] );
+					action.play();
+
+					object.traverse( function ( child:any ) {
+						if ( child.isMesh ) {
+
+							child.castShadow = true;
+							child.receiveShadow = true;
+
+						}
+
+					} );
+
+					scene.add( object );
+
+				} );
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.shadowMap.enabled = true;
+				container.appendChild( renderer.domElement );
+
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.target.set( 0, 100, 0 );
+				controls.update();
+
+				window.addEventListener( 'resize', onWindowResize );
+
+				// stats
+				stats = new Stats();
+				container.appendChild( stats.dom );
+        animate()
+
+        function onWindowResize() {
+
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+  
+          renderer.setSize( window.innerWidth, window.innerHeight );
+  
+        }
+  
+        
+  
+        function animate() {
+  
+          requestAnimationFrame( animate );
+  
+          const delta = clock.getDelta();
+  
+          if ( mixer ) mixer.update( delta );
+  
+          renderer.render( scene, camera );
+  
+          stats.update();
+  
+        }
   }
-
 
 }
