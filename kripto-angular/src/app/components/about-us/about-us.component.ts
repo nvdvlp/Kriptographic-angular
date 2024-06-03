@@ -38,54 +38,63 @@ export class AboutUsComponent implements AfterViewInit {
     const container = document.createElement('div');
     this.divElement.nativeElement.appendChild(container);
 
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-    camera.position.set(0, 150, 300);
+    // Tamaño manual del canvas
+    const canvasWidth = 320;  // Ancho deseado del canvas
+    const canvasHeight = 800; // Alto deseado del canvas
+
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(canvasWidth, canvasHeight);
+    container.appendChild(renderer.domElement);
+
+    camera = new THREE.PerspectiveCamera(45, canvasWidth / canvasHeight, 1, 2000);
+    camera.position.set(0, 600, 300);
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x09090E);
 
-    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 5);
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.5);
     hemiLight.position.set(0, 200, 0);
     scene.add(hemiLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 5);
+    const dirLight = new THREE.DirectionalLight(0x7BFDFBC, 1.5);
     dirLight.position.set(0, 200, 100);
     dirLight.castShadow = true;
     dirLight.shadow.camera.top = 180;
     dirLight.shadow.camera.bottom = -100;
     dirLight.shadow.camera.left = -120;
     dirLight.shadow.camera.right = 120;
-
-    scene.add(dirLight);	
-	
-    // scene.add(new THREE.CameraHelper(dirLight.shadow.camera));
-	
-    // Ground
-    // const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.MeshPhongMaterial({ color: 0x999999, depthWrite: false }));
-    // mesh.rotation.x = -Math.PI / 2;
-    // mesh.receiveShadow = true;
-    // scene.add(mesh);
+    scene.add(dirLight);
 
     // Model
     const loader = new FBXLoader();
     loader.load('../../assets/models/puffer.fbx', function (object: any) {
-		
-		const boundingBox = new THREE.Box3().setFromObject(object);
-		const size = new THREE.Vector3();
-		boundingBox.getSize(size);
+      const boundingBox = new THREE.Box3().setFromObject(object);
+      const size = new THREE.Vector3();
+      boundingBox.getSize(size);
+      const center = new THREE.Vector3();
+      boundingBox.getCenter(center);
 
-		// Configurar el tamaño del canvas
-		renderer.setSize(size.x, size.y);
-		console.log("Ancho del modelo:", size.x);
-		console.log("Alto del modelo:", size.y);
+      // Ajustar la cámara para que se centre y se ajuste al tamaño del modelo
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const fov = camera.fov * (Math.PI / 180);
+      const cameraDistance = maxDim / Math.tan(fov / 2);
 
-		const aspectRatio = size.x / size.y;
-		console.log("Proporción del modelo:", aspectRatio);
+      camera.position.set(0, 0, cameraDistance + 100);
+      camera.lookAt(center);
+
+      camera.near = 0.1;
+      camera.far = cameraDistance * 2;
+      camera.updateProjectionMatrix();
+      
+      //Mover la chqueta sobre sobre su propio eje y su posición en general en el canvas
+      object.rotation.x = Math.PI / 4; 
+      object.position.set(-center.x , -center.y + 175, -center.z);
 
       object.traverse(function (child: any) {
         if (child.isMesh) {
-		  child.material.flatShading = true; 
-          child.material.wireframe = true; 	
+          child.material.flatShading = true;
+          child.material.wireframe = true;
           child.castShadow = true;
           child.receiveShadow = true;
         }
@@ -93,35 +102,35 @@ export class AboutUsComponent implements AfterViewInit {
       scene.add(object);
       localThis.h1Element.nativeElement.style.display = 'none';
 
-	// TransformControls
-	transformControls = new TransformControls(camera, renderer.domElement);
-	transformControls.attach(object);
-	transformControls.setMode('rotate');
-	scene.add(transformControls);
-	let rotatingManually = false;
+      // TransformControls
+      transformControls = new TransformControls(camera, renderer.domElement);
+      transformControls.attach(object);
+      transformControls.setMode('rotate');
+      scene.add(transformControls);
+      let rotatingManually = false;
 
-	transformControls.showX = false; 
-	transformControls.showY = false; 
-	transformControls.showZ = false; 
+      transformControls.showX = false;
+      transformControls.showY = false;
+      transformControls.showZ = false;
 
-	transformControls.addEventListener('mousedown', function () {
-		mouseDownOnMesh = true;
-		rotating = false; 
-		rotatingManually = true;
-	});
-	
-	transformControls.addEventListener('mouseup', function () {
-		mouseDownOnMesh = false;
-		rotating = !rotatingManually; 
-		rotatingManually = false; 
-	});
-	
-	renderer.domElement.addEventListener('mouseleave', function () {
-		if (rotatingManually) {
-			rotatingManually = false;
-			rotating = true;
-		}
-	});
+      transformControls.addEventListener('mouseDown', function () {
+        mouseDownOnMesh = true;
+        rotating = false;
+        rotatingManually = true;
+      });
+
+      transformControls.addEventListener('mouseUp', function () {
+        mouseDownOnMesh = false;
+        rotating = !rotatingManually;
+        rotatingManually = false;
+      });
+
+      renderer.domElement.addEventListener('mouseleave', function () {
+        if (rotatingManually) {
+          rotatingManually = false;
+          rotating = true;
+        }
+      });
 
       function animate() {
         requestAnimationFrame(animate);
@@ -138,24 +147,16 @@ export class AboutUsComponent implements AfterViewInit {
       }
 
       animate();
+    }, undefined, function (error: any) {
+      console.error('An error happened', error);
     });
-
-    renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.shadowMap.enabled = true;
-    container.appendChild(renderer.domElement);
-
-    // controls = new OrbitControls(camera, renderer.domElement);
-    // controls.target.set(0, 100, 0);
-    // controls.update();
 
     window.addEventListener('resize', onWindowResize);
 
     function onWindowResize() {
-      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.aspect = canvasWidth / canvasHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(canvasWidth, canvasHeight);
       render();
     }
 
