@@ -1,0 +1,61 @@
+:host{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#sphere{
+    position: absolute;
+    z-index: 0;
+}
+
+:host > div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between  ;
+    align-items: center;
+    flex-direction: column;
+    padding-inline: 25px;
+    padding-block: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ham-menu{
+    width: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.patty{
+    width: 100%;
+    height: 3px;
+    background-color: wheat;
+}
+
+img{
+    height: 37px;
+}
+
+.splash-title{
+    font-family: 'Medium';
+    color: white;
+    width: min-content;
+    text-align: center;
+}
+
+.splash-text{
+    font-family: 'Poppins';
+    color: #6C786A;
+    text-align: center;
+    font-size: 12px;
+}
