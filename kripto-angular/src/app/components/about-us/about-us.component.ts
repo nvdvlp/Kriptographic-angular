@@ -39,8 +39,10 @@ export class AboutUsComponent implements AfterViewInit {
     this.divElement.nativeElement.appendChild(container);
 
     // Tamaño manual del canvas
-    const canvasWidth = 320;  // Ancho deseado del canvas
-    const canvasHeight = 800; // Alto deseado del canvas
+    //@ts-ignore
+    const canvasWidth = this.returnCanvasSizes()[0];  // Ancho deseado del canvas
+    //@ts-ignore
+    const canvasHeight = this.returnCanvasSizes()[1]; // Alto deseado del canvas
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -74,6 +76,11 @@ export class AboutUsComponent implements AfterViewInit {
       boundingBox.getSize(size);
       const center = new THREE.Vector3();
       boundingBox.getCenter(center);
+
+      const modelSize = 10; // Adjust as needed
+      const distance = modelSize / Math.tan(Math.PI * camera.fov / 360);
+      camera.position.set(0, 0, distance);
+      camera.lookAt(scene.position);
 
       // Ajustar la cámara para que se centre y se ajuste al tamaño del modelo
       const maxDim = Math.max(size.x, size.y, size.z);
@@ -145,15 +152,34 @@ export class AboutUsComponent implements AfterViewInit {
       function render() {
         renderer.render(scene, camera);
       }
-
+      
       animate();
     }, undefined, function (error: any) {
       console.error('An error happened', error);
     });
+    
+    window.addEventListener('resize', () => {onWindowResize(this)} );
+    function onWindowResize(thisa:any) {
+      
+      //@ts-ignore
+      const canvasWidth = thisa.returnCanvasSizes()[0];  
+      //@ts-ignore
+      const canvasHeight = thisa.returnCanvasSizes()[1];
+     
+      thisa.returnCanvasSizes();
 
-    window.addEventListener('resize', onWindowResize);
+        renderer.domElement.style.width = canvasWidth;
+        renderer.domElement.style.height = canvasHeight;
+      // renderer.domElement.style.zIndex = '0'
+      //   renderer.domElement.style.top = '0'
+      //   renderer.domElement.style.left = '0'
 
-    function onWindowResize() {
+      const modelSize = thisa.returnModelSize(); // Adjust as needed
+      const distance = modelSize / Math.tan(Math.PI * camera.fov / 360);
+      camera.position.set(0, thisa.returnModelSize(), distance);
+      
+      // camera.lookAt(scene.position);
+
       camera.aspect = canvasWidth / canvasHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(canvasWidth, canvasHeight);
@@ -164,4 +190,33 @@ export class AboutUsComponent implements AfterViewInit {
       renderer.render(scene, camera);
     }
   }
+
+  returnCanvasSizes(){
+    const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
+    console.log(width);
+    if(width >= 320 && width < 768){
+      return [320, 500];
+    }else if(width >= 768 && width < 1440){
+      return [768, 700];
+    }else if(width >= 1440){
+      return [1440, 900];
+    }else{
+      return null;
+    }
+  }
+
+  returnModelSize(){
+    const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
+    console.log(width);
+    if(width >= 320 && width < 768){
+      return 10;
+    }else if(width >= 768 && width < 1440){
+      return 80;
+    }else if(width >= 1440){
+      return 90;
+    }else{
+      return null;
+    }
+  }
+
 }
