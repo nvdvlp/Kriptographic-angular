@@ -1,15 +1,35 @@
 import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import * as THREE from 'three';
-
+import { HamMenuComponent } from '../ham-menu/ham-menu.component';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-splash',
   standalone: true,
-  imports: [],
+  imports: [HamMenuComponent, NgClass, NgIf ],
   templateUrl: './splash.component.html',
   styleUrl: './splash.component.css'
 })
 export class SplashComponent implements AfterViewInit{
+// export class SplashComponent implements AfterViewInit{
+  showMenu: boolean = false;
+  slide: boolean = false;
+
+  open(){
+      console.log("abrir")
+      this.showMenu = !this.showMenu;
+      setTimeout(() => {
+          this.slide = !this.slide
+      },300)
+  }
+  
+  close() {
+    console.log("cerrar")
+    this.slide = false;
+    setTimeout(() => {
+      this.showMenu = false;
+    }, 300)
+  }
 
   // constructor(private window: Window) { }
   canvas!: HTMLCanvasElement

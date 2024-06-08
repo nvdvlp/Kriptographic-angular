@@ -70,3 +70,9 @@ img{
         font-size: 91px;
     }
 }
+
+@media screen and (min-width: 1440px){
+    .splash-title{
+        font-size: 149px;
+    }
+}
