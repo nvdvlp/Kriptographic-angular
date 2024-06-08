@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { CommonModule } from '@angular/common';
 import { SplashComponent } from './components/splash/splash.component';
+import { HamMenuComponent } from './components/ham-menu/ham-menu.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FormsModule } from '@angular/forms'; 
 
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     SplashComponent,
     ContactUsComponent, 
     FormsModule,
+    HamMenuComponent
   ] ,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

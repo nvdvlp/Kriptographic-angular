@@ -1,13 +1,15 @@
 <div>
     <header>
-        <div class="ham-menu">
+        <div class="ham-menu" (click)="open()">
             <div class="patty"></div>
             <div class="patty"></div>
             <div class="patty"></div>
         </div>
         <img src="../../../assets/KRIPTOGRHAPIC-LOGO.png" alt="kriptographic-logo" srcset="">
     </header>
-    
+
+    <div class="light"></div>
+
     <h1 class="splash-title">
         KRIPTO
         GRAPHIC
@@ -15,4 +17,5 @@
     <p class="splash-text">
         The only gaming fashion house that creates in-game style from real-world brands.
     </p>
+    <app-ham-menu [hidden]="!showMenu" class="hidden" (closeMenu)="close()" [ngClass]="{'show': slide}"></app-ham-menu>
 </div>
