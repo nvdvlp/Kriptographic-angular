@@ -159,13 +159,12 @@ export class AboutUsComponent implements AfterViewInit {
     });
     
     window.addEventListener('resize', () => {onWindowResize(this)} );
+
     function onWindowResize(thisa:any) {
-      
       //@ts-ignore
       const canvasWidth = thisa.returnCanvasSizes()[0];  
       //@ts-ignore
       const canvasHeight = thisa.returnCanvasSizes()[1];
-     
       thisa.returnCanvasSizes();
 
         renderer.domElement.style.width = canvasWidth;
@@ -193,7 +192,6 @@ export class AboutUsComponent implements AfterViewInit {
 
   returnCanvasSizes(){
     const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
-    console.log(width);
     if(width >= 320 && width < 768){
       return [320, 500];
     }else if(width >= 768 && width < 1440){
@@ -207,7 +205,6 @@ export class AboutUsComponent implements AfterViewInit {
 
   returnModelSize(){
     const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
-    console.log(width);
     if(width >= 320 && width < 768){
       return 10;
     }else if(width >= 768 && width < 1440){

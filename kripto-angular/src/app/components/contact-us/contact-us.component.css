@@ -1,0 +1,157 @@
+h2, p{
+    margin: 0;
+    padding: 0;
+}
+
+.contactUs{
+    width: 100%;
+    height: 121%;
+    background: linear-gradient(to bottom, #09090A, #1F3325);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactUs__centerText{
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactUs__Tittle {
+    margin-top: 38px;
+    padding-right: 40px;
+    margin-bottom:68px;
+    font-size: 32px;
+    font-weight: 500;
+    font-family: "Medium";
+    background: linear-gradient(to right, #F8F1F8, #798F83);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.bottom{
+    margin-bottom: 37px
+}
+
+.bottomForm{
+    margin-bottom: 24px
+}
+
+.contactUs__text{
+    line-height: 157%;
+    padding-inline: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Poppins";
+    color: #B9C3B8;
+}
+
+span{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Poppins";
+    color: #C6C6C6;
+}
+
+form{
+    padding-inline: 35px;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Poppins";
+    color: #B2B2B2;
+    margin-bottom: 21px;
+}
+
+.input, select{
+    width: 255px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 1px solid #B2B2B2;
+    margin-bottom: 37px;
+    color: #FFF;
+    font-weight: 500;
+    font-family: "Poppins";
+}
+
+select option{
+    color: #747171; 
+    font-weight: 500;
+    font-family: "Poppins";
+}
+
+.contactUs__centerCheckbox{
+    display: flex;
+    width: 320px;
+    flex-direction: row;
+    align-items: center;
+    padding-left:35px ;
+    margin-bottom:37px;
+}
+
+#aceptTermsConditions{
+    margin-left: 11px;
+    color: #FFFFFF; 
+    font-weight: 500;
+    font-size: 12px;
+    font-family: "Poppins";
+    text-decoration-line: underline;
+}
+
+#checkb {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    border: 1px solid #B2B2B2; 
+    border-radius: 3px; 
+}
+
+.contactUs__centerButton{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width:237px;
+    height:41px;
+    border-radius: 11px;
+    background-color: #878C88;
+    color: #fdfdfd;
+    border-style: none;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: "Poppins";
+    margin-bottom: 18px;   
+}
+
+#button_text{
+    font-weight: 500;
+    font-size: 14px;
+    font-family: "Poppins";
+    margin-bottom: 92px; 
+    color: #fff; 
+}
+
+#button__termsConditions{
+    font-weight: 500;
+    font-size: 10px;
+    font-family: "Poppins";
+    margin-bottom: 15px; 
+    color: #fff; 
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
