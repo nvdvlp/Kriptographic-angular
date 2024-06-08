@@ -5,7 +5,7 @@ h2, p{
 
 .contactUs{
     width: 100%;
-    height: 121%;
+    height: 127%;
     background: linear-gradient(to bottom, #09090A, #1F3325);
     display: flex;
     flex-direction: column;
@@ -57,7 +57,7 @@ span{
 }
 
 form{
-    padding-inline: 35px;
+    padding-left: 35px;
     display: flex;
     flex-direction: column;
 }
@@ -92,8 +92,8 @@ select option{
     width: 320px;
     flex-direction: row;
     align-items: center;
-    padding-left:35px ;
     margin-bottom:37px;
+    padding-left:40px;
 }
 
 #aceptTermsConditions{
@@ -142,7 +142,7 @@ button{
     color: #fff; 
 }
 
-#button__termsConditions{
+#termsConditionsText{
     font-weight: 500;
     font-size: 10px;
     font-family: "Poppins";
@@ -150,8 +150,131 @@ button{
     color: #fff; 
 }
 
+.iconsContainer{
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    padding-inline: 10px;
+    margin-bottom:27px ;
+}
+
+.none{
+    display: none;
+}
+
+#submitted{
+    background-color: #F2F9F4;
+    color: #1F2122;
+}
+
 @media screen and (min-width: 768px) {
-    body {
+    .contactUs{
+        position: relative;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .contactUs__Tittle{
+        font-size: 40px;
+        margin: 0;
+    }
+
+    .contactUs__text{
+        text-align: end;
+    }
+
+    .contactUs__centerText{
+        align-items: flex-end;
+    }
+
+    #termsConditionsText {
+        display:none;
+        /* position: absolute;
+        top: 37%;
+        right: 54%;
+        transform: translateY(-50%); */
+    }
+
+    .iconsContainer {
+        display:none;
+        /* position: absolute;
+        top: 43%;
+        right: 48%;
+        transform: translateY(-50%); */
+    }
+
+    .termsConditionsTextLandscape{
+        display: block;
+        font-weight: 500;
+        font-size: 10px;
+        font-family: "Poppins";
+        color: #fff; 
+        padding-right:40px;
+        margin-bottom:19px;
+    }
+
+    .iconsContainerLandscape {
+        width: 320px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top:20px;
+        padding-right: 40px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .termsConditionsTextLandscape{
+        font-size: 13px;
+        padding-right:20px;
+    }
+
+    .contactUs__Tittle{
+        padding-right:20px;
+        font-size: 48px;
+        margin: 0;
+    }
+
+    .iconsContainerLandscape {
+        padding-right: 20px;
+    }
+
+    .contactUs__centerText{
+        font-size:20px;
+        padding-right: 20px;
+    }
+
+    .contactUs__centerText{
+        padding: 0;
+    }
+
+    label{
+        font-size: 20px;
+    }
+
+    select, .input{
+        font-size: 25px;
+    }
+
+    button{
+        height: 50px;
+        font-size:18px;
+    }
+
+    #button_text{
         font-size: 16px;
+    }
+
+    #checkb{
+        width: 20px;
+        height: 20px;
+    }
+
+    #aceptTermsConditions{
+        font-size: 14px;
     }
 }
