@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ContactUsComponent {
   typeSelector = 'Brand';
-  typeName = 'dasd';
+  typeName = '';
   userName = '';
   email = '';
   terms = false;

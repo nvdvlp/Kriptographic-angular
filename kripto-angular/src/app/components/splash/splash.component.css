@@ -59,3 +59,14 @@ img{
     text-align: center;
     font-size: 12px;
 }
+
+#splashCanvas{
+    position: absolute;
+    top: 0;
+}
+
+@media screen and (min-width: 768px){
+    .splash-title{
+        font-size: 91px;
+    }
+}

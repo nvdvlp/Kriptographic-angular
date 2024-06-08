@@ -9,6 +9,12 @@ body{
     background-color: #09090E;
 }
 
+html,
+body,
+canvas{
+    touch-action: auto !important;
+}
+
 *{
     margin: 0;
     box-sizing: border-box;

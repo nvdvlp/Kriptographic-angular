@@ -5,7 +5,7 @@ h2, p{
 
 .contactUs{
     width: 100%;
-    height: 127%;
+    min-height: 100%;
     background: linear-gradient(to bottom, #09090A, #1F3325);
     display: flex;
     flex-direction: column;
@@ -119,6 +119,7 @@ select option{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 92px;
 }
 
 button{
@@ -138,7 +139,6 @@ button{
     font-weight: 500;
     font-size: 14px;
     font-family: "Poppins";
-    margin-bottom: 92px; 
     color: #fff; 
 }
 
@@ -155,11 +155,11 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 27px;
 }
 
 img{
     padding-inline: 10px;
-    margin-bottom:27px ;
 }
 
 .none{
