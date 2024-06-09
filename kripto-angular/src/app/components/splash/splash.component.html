@@ -1,6 +1,6 @@
 <div>
     <header>
-        <div class="ham-menu" (click)="open()">
+        <div class="ham-menu" (click)="slide = true">
             <div class="patty"></div>
             <div class="patty"></div>
             <div class="patty"></div>
@@ -14,7 +14,7 @@
     <p class="splash-text">
         The only gaming fashion house that creates in-game style from real-world brands.
     </p>
-<app-ham-menu [hidden]="!showMenu" class="hidden" [ngClass]="{'show': slide}"></app-ham-menu>
+<app-ham-menu [ngClass]="{'show': slide}" (hideEvent)="close($event)"></app-ham-menu>
 </div>
 
 <canvas id="splashCanvas">

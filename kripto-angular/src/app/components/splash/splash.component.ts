@@ -11,19 +11,8 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrl: './splash.component.css'
 })
 export class SplashComponent implements AfterViewInit{
-// export class SplashComponent implements AfterViewInit{
-  showMenu: boolean = false;
+// export class SplashComponent implements AfterViewInit
   slide: boolean = false;
-
-  open(){
-      console.log("abrir")
-      this.showMenu = !this.showMenu;
-      setTimeout(() => {
-          this.slide = !this.slide
-      },300)
-  }
-
-
   // constructor(private window: Window) { }
   canvas!: HTMLCanvasElement
 
@@ -133,5 +122,8 @@ export class SplashComponent implements AfterViewInit{
   // }- CODIGO FUNCIONAL DE RESIZE EN THREE JS
 
   
-
+  close(closeBool: boolean){
+    console.log(closeBool)
+    this.slide = !closeBool
+  }
 }

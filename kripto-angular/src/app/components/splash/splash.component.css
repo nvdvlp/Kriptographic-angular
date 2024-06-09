@@ -76,3 +76,13 @@ img{
         font-size: 149px;
     }
 }
+
+app-ham-menu{
+    transition: 300ms left;
+    left: -100%;
+    position: fixed;
+}
+
+.show{
+    left: 0;
+}

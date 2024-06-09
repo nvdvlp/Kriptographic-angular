@@ -10,12 +10,9 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrl: './ham-menu.component.css'
 })
 export class HamMenuComponent {
-  @Input() showMenu: boolean = true;
+  @Output() hideEvent = new EventEmitter<boolean>();
 
-  close() {
-    console.log("cerrar")
-    setTimeout(() => {
-        this.showMenu = false;
-    }, 300)
+  close(){
+    this.hideEvent.emit(true)
   }
 }
