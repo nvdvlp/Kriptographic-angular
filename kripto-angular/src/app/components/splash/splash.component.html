@@ -14,8 +14,8 @@
     <p class="splash-text">
         The only gaming fashion house that creates in-game style from real-world brands.
     </p>
+<app-ham-menu [hidden]="!showMenu" class="hidden" [ngClass]="{'show': slide}"></app-ham-menu>
 </div>
-<canvas id="splashCanvas">
 
+<canvas id="splashCanvas">
 </canvas>
-<app-ham-menu [hidden]="!showMenu" class="hidden" (closeMenu)="close()" [ngClass]="{'show': slide}"></app-ham-menu>

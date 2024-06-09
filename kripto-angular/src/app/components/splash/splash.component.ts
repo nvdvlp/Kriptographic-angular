@@ -22,14 +22,7 @@ export class SplashComponent implements AfterViewInit{
           this.slide = !this.slide
       },300)
   }
-  
-  close() {
-    console.log("cerrar")
-    this.slide = false;
-    setTimeout(() => {
-      this.showMenu = false;
-    }, 300)
-  }
+
 
   // constructor(private window: Window) { }
   canvas!: HTMLCanvasElement

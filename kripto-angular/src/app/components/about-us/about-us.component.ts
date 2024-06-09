@@ -40,16 +40,17 @@ export class AboutUsComponent implements AfterViewInit {
 
     // Tamaño manual del canvas
     //@ts-ignore
-    const canvasWidth = this.returnCanvasSizes()[0];  // Ancho deseado del canvas
+    const width = Math.min(window.outerWidth, document.documentElement.clientWidth);   // Ancho deseado del canvas
     //@ts-ignore
-    const canvasHeight = this.returnCanvasSizes()[1]; // Alto deseado del canvas
+    const height = Math.min(window.outerHeight, document.documentElement.clientHeight);
+    // Alto deseado del canvas
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(canvasWidth, canvasHeight);
+    renderer.setSize(width, height);
     container.appendChild(renderer.domElement);
 
-    camera = new THREE.PerspectiveCamera(45, canvasWidth / canvasHeight, 1, 2000);
+    camera = new THREE.PerspectiveCamera(45, width / height, 1, 2000);
     camera.position.set(0, 600, 300);
 
     scene = new THREE.Scene();
@@ -158,30 +159,48 @@ export class AboutUsComponent implements AfterViewInit {
       console.error('An error happened', error);
     });
     
+
     window.addEventListener('resize', () => {onWindowResize(this)} );
+
+    // function onWindowResize(event: any) {
+      
+    //       const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
+    //       const height = Math.min(window.innerHeight, document.documentElement.clientHeight);
+    //       setTimeout(() => {
+    //         console.log("width")
+    //         console.log(width)
+    //       })
+    //       camera.aspect = width / height;
+    //       camera.updateProjectionMatrix();
+    //       renderer.setSize(width, height);
+    //       render();
+    //     }
+
+
 
     function onWindowResize(thisa:any) {
       //@ts-ignore
-      const canvasWidth = thisa.returnCanvasSizes()[0];  
+      const width = Math.min(window.innerWidth, document.documentElement.clientWidth); 
       //@ts-ignore
-      const canvasHeight = thisa.returnCanvasSizes()[1];
+      const height = Math.min(window.innerHeight, document.documentElement.clientHeight);
       thisa.returnCanvasSizes();
-
-        renderer.domElement.style.width = canvasWidth;
-        renderer.domElement.style.height = canvasHeight;
+      thisa.returnModelSize();
+        renderer.domElement.style.width = width;
+        renderer.domElement.style.height = height;
       // renderer.domElement.style.zIndex = '0'
       //   renderer.domElement.style.top = '0'
       //   renderer.domElement.style.left = '0'
-
+      console.log(thisa.returnModelSize());
+      
       const modelSize = thisa.returnModelSize(); // Adjust as needed
       const distance = modelSize / Math.tan(Math.PI * camera.fov / 360);
       camera.position.set(0, thisa.returnModelSize(), distance);
       
       // camera.lookAt(scene.position);
-
-      camera.aspect = canvasWidth / canvasHeight;
+      
+      camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      renderer.setSize(canvasWidth, canvasHeight);
+      renderer.setSize(width, height);
       render();
     }
 
@@ -191,7 +210,7 @@ export class AboutUsComponent implements AfterViewInit {
   }
 
   returnCanvasSizes(){
-    const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
+    const width = Math.min(window.outerWidth, document.documentElement.clientWidth);
     if(width >= 320 && width < 768){
       return [320, 500];
     }else if(width >= 768 && width < 1440){
@@ -204,7 +223,8 @@ export class AboutUsComponent implements AfterViewInit {
   }
 
   returnModelSize(){
-    const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
+    const width = Math.min(window.outerWidth, document.documentElement.clientWidth);
+    
     if(width >= 320 && width < 768){
       return 10;
     }else if(width >= 768 && width < 1440){

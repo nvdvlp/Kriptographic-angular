@@ -11,7 +11,6 @@ import { NgClass, NgIf } from '@angular/common';
 })
 export class HamMenuComponent {
   @Input() showMenu: boolean = true;
-  @Output() closeMenu = new EventEmitter<void>();
 
   close() {
     console.log("cerrar")
