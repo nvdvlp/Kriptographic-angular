@@ -19,7 +19,7 @@ h1{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -94,9 +94,24 @@ h1{
     background-size: 4px 1px; 
 }
 
+.imgContainer{  
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}    
+
+.aboutUs__3dJacket{
+    width: 300px;
+}   
+
 @media (min-width: 768px) {
     .aboutUs{
         flex-direction: row;
+        height: auto;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
     /*tittle*/
     .aboutUs__secondTittle {
@@ -150,20 +165,33 @@ h1{
         position:relative;
     }
     /*img*/
-    .imgContainer{  
-        position: absolute;
-        z-index: 0;
-    }    
-    
     .aboutUs__3dJacket{
-        width: 920px;
-        height: 754px;
-        top: 92px;
-        left: 831px;
-        transform: translateX(-50%);
+        position: absolute;
+        overflow-x: hidden;
+        width: 694px;
+        height: 665px;
+        top: -34px;
+        right: -311px;
     }    
     #div{
         position: absolute;
         top: 40px;
     }
+}
+
+@media (min-width: 1440px){
+
+    .aboutUs__text{
+        font-size: 28px;
+        text-align: start;
+        padding-right: 13px;
+    }
+    
+    .aboutUs__3dJacket{
+        position: relative;
+        width: 3079px;
+        height: auto;
+        top: 0px;
+        left: 60px;
+    }    
 }
