@@ -17,13 +17,17 @@
 
 .close{
     position: absolute;
-    top: 26px;
-    right: 19px;
+    top: 5px;
+    right: 25px;
+    cursor: pointer;
 }
 
 
 .views{
-    width:267px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width:267px;
 }
 
 .view{
@@ -31,9 +35,13 @@
     font-family: 'Medium', sans-serif;
     font-size: 32px;
     color: #D4E4D8;
-    margin-top: 24px;
-    padding-bottom:32px;
     border-bottom: 1px solid #7A9896;
+    text-decoration: none;
+    padding-bottom: 20px;
+}
+
+.disabled{
+  color: #4e5650;
 }
 
 .joinUs{
@@ -68,7 +76,7 @@
         background: #90BB76;
         filter: blur(3px);
     }
-      
+
     .views{
         width: 424px;
         padding-left: 32px;

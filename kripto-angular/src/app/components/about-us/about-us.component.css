@@ -26,7 +26,7 @@ h1{
 .aboutUs-container{
     z-index: 1;
     max-width: 653px;
-    padding-left: 20px;
+    padding-inline: 25px;
 }
 
 #div{
@@ -89,19 +89,19 @@ h1{
     width:203px;
     height: 1px;
     background-image: linear-gradient(to right, #BFDFBC 50%, transparent 50%);
-    background-size: 4px 1px; 
+    background-size: 4px 1px;
 }
 
-.imgContainer{  
+.imgContainer{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}    
+}
 
 .aboutUs__3dJacket{
     width: 300px;
-}   
+}
 
 @media (min-width: 768px) {
     .aboutUs{
@@ -115,7 +115,7 @@ h1{
     .aboutUs__secondTittle {
         font-size: 16px;
     }
-    
+
     .aboutUs__tittle{
         font-size: 40px;
         margin-bottom: 95px;
@@ -126,7 +126,7 @@ h1{
     .aboutUs__text{
         font-size: 20px;
         text-align: start;
-        
+
     }
 
     .dott{
@@ -172,25 +172,37 @@ h1{
         top: 50%;
         right: -328px;
         transform: translateY(-50%);
-    }    
+    }
     #div{
         position: absolute;
         top: 40px;
     }
 }
+@media(min-width: 1024px){
+  .aboutUs__3dJacket{
+    position: absolute;
+      width: 630px;
+      height: auto;
+      top: 50%;
+      right: -77px;
+      transform: translateY(-50%);
+  }
+}
 
 @media (min-width: 1440px){
 
     .aboutUs__text{
-        font-size: 28px;
-        text-align: start;
+      font-size: 28px;
+      text-align: left;
+      height: auto;
+      width: 144%;
     }
-    
+
     .aboutUs__3dJacket{
-        position: relative;
-        width: 3079px;
-        height: auto;
-        top: 0px;
-        left: 60px;
-    }    
+      position: absolute;
+      width: 827px;
+      height: auto;
+      top: 50%;
+      right: -100px;
+    }
 }

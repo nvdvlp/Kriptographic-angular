@@ -1,5 +1,5 @@
-<section class="contactUs">
-    
+<section class="contactUs" id="joinUs">
+
     <div class="contactUs__centerText">
         <p class="termsConditionsTextLandscape none">© 2024 INFINITE ON THE UPSIDE INC.  </p>
 
@@ -11,7 +11,7 @@
             <img src="../../../assets/img/instagram.png" alt="">
             <img src="../../../assets/img/twitt.png" alt="">
         </div>
-    
+
 
         <p class="contactUs__text bottom">
             Want to explore or otherwise stay on top of the latest developments in <span>virtual branding?</span>
@@ -35,8 +35,8 @@
             <input class="input" type="text" [(ngModel)]="typeName" [ngModelOptions]="{standalone: true}">
 
             <label for="">Your Name*</label>
-            <input class="input" type="text" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}"> 
-            
+            <input class="input" type="text" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}">
+
             <label for="">Email*</label>
             <input class="input" type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
         </form>
@@ -52,7 +52,7 @@
             <button *ngIf="disapair" id="submitted" (click)="submit(typeName, userName, email)" >Submit</button>
             <!-- <p id="button_text">JUST SUBMIT, FOR NOW</p> -->
         </div>
-    </main>    
+    </main>
 
 
     <div class="iconsContainer">
