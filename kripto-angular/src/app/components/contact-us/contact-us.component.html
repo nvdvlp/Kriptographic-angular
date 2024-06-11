@@ -32,7 +32,7 @@
             </select>
 
             <label for="">{{typeSelector}} Name*</label>
-            <input class="input" type="text" [(ngModel)]="typeName" [ngModelOptions]="{standalone: true}">
+            <input class="input" type="text" [(ngModel)]="typeName" [ngModelOptions]="{standalone: true}"> 
 
             <label for="">Your Name*</label>
             <input class="input" type="text" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}">
@@ -41,25 +41,25 @@
             <input class="input" type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
         </form>
 
-        <div class="contactUs__centerCheckbox">
+        <!-- <div class="contactUs__centerCheckbox">
             <input type="checkbox" id="checkb" [(ngModel)]="terms" [ngModelOptions]="{standalone: true}">
             <label for="checkb"></label>
             <p id="aceptTermsConditions">Terms and Conditions</p>
-        </div>
+        </div> -->
 
         <div class="contactUs__centerButton">
-            <button *ngIf="!disapair" (click)="submit(typeName, userName, email)" >Submit</button>
-            <button *ngIf="disapair" id="submitted" (click)="submit(typeName, userName, email)" >Submit</button>
+            <button *ngIf="!dissapear" (click)="submit(typeName, userName, email)" >Submit</button>
+            <button *ngIf="dissapear" id="submitted" (click)="submit(typeName, userName, email)" >Submit</button>
             <!-- <p id="button_text">JUST SUBMIT, FOR NOW</p> -->
         </div>
     </main>
 
 
     <div class="iconsContainer">
-        <img src="../../../assets/img/linkedIn.png" alt="">
-        <img src="../../../assets/img/discord.png" alt="">
-        <img src="../../../assets/img/instagram.png" alt="">
-        <img src="../../../assets/img/twitt.png" alt="">
+        <ion-icon name="logo-linkedin" class="icon linkedin"></ion-icon>
+        <ion-icon name="logo-discord" class="icon discord disabled"></ion-icon>
+        <ion-icon name="logo-instagram" class="icon instagram disabled"></ion-icon>
+        <ion-icon name="logo-twitter" class="icon twitter disabled"></ion-icon>
     </div>
 
         <p id="termsConditionsText">© 2024 INFINITE ON THE UPSIDE INC.  </p>

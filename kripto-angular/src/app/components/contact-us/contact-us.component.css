@@ -3,6 +3,11 @@ h2, p{
     padding: 0;
 }
 
+main{
+    width: 100%;
+    max-width: 497px;
+}
+
 .contactUs{
     width: 100%;
     min-height: 100%;
@@ -13,16 +18,16 @@ h2, p{
 }
 
 .contactUs__centerText{
-    width: 320px;
+    width: 100%;
+    max-width: 497px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .contactUs__Tittle {
-    margin-top: 38px;
     padding-right: 40px;
-    margin-bottom:68px;
+    margin-block:35px;
     font-size: 32px;
     font-weight: 500;
     font-family: "Medium";
@@ -30,10 +35,12 @@ h2, p{
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    position: sticky;
+    top: 30px;
 }
 
 .bottom{
-    margin-bottom: 37px
+    margin-bottom: 15px;
 }
 
 .bottomForm{
@@ -42,11 +49,17 @@ h2, p{
 
 .contactUs__text{
     line-height: 157%;
-    padding-inline: 40px;
+    padding-inline: 35px;
     font-size: 16px;
     font-weight: 400;
     font-family: "Poppins";
     color: #B9C3B8;
+}
+
+@media screen and (min-width: 432px) and (max-width: 768px){
+    .contactUs__text{
+        text-align: center;
+    }   
 }
 
 span{
@@ -56,10 +69,25 @@ span{
     color: #C6C6C6;
 }
 
+.icon{
+    font-size: 29px;
+    color: white;
+}
+
+.disabled{
+    color: #4e5650;
+}
+
+.icon.disabled{
+    color: #4e5650;
+}
+
 form{
-    padding-left: 35px;
+    width: 100%;
+    padding-inline: 35px;
     display: flex;
     flex-direction: column;
+    margin-top: 30px;
 }
 
 label{
@@ -71,7 +99,7 @@ label{
 }
 
 .input, select{
-    width: 255px;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     border-bottom: 1px solid #B2B2B2;
@@ -79,6 +107,10 @@ label{
     color: #FFF;
     font-weight: 500;
     font-family: "Poppins";
+}
+
+input:focus{
+    outline: none;
 }
 
 select option{
@@ -156,6 +188,7 @@ button{
     justify-content: center;
     align-items: center;
     margin-bottom: 27px;
+    gap: 30px;
 }
 
 img{

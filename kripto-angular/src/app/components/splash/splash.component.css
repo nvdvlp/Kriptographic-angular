@@ -1,7 +1,7 @@
 :host{
+    display: block;
     height: 100%;
     width: 100%;
-    position: relative;
 }
 
 #sphere{
@@ -13,13 +13,11 @@
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: space-between  ;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: column;
     padding-inline: 25px;
     padding-block: 30px;
-    position: relative;
-    z-index: 1;
 }
 
 header{
@@ -27,6 +25,23 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0px;
+    padding-block: 30px;
+    padding-inline: 25px;
+    z-index: 2;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust this to match the desired background color */
+    backdrop-filter: blur(2px); 
+    z-index: -1;
 }
 
 .ham-menu{
@@ -52,6 +67,10 @@ img{
     color: white;
     width: min-content;
     text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
 }
 
 .splash-text{
@@ -82,6 +101,7 @@ app-ham-menu{
     transition: 300ms left;
     left: -100%;
     position: fixed;
+    top: 0
 }
 
 .show{

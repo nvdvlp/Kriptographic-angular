@@ -16,6 +16,13 @@ export class SplashComponent implements AfterViewInit{
   // constructor(private window: Window) { }
   canvas!: HTMLCanvasElement
 
+  toggleHam(){
+    this.slide = true;
+    if(window.outerWidth <= 768){
+      document.body.style.touchAction = "none";
+    }
+  }
+
   ngAfterViewInit(): void {
     //@ts-ignore
     this.canvas = document.getElementById("splashCanvas");

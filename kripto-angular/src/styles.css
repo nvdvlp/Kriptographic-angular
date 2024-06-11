@@ -9,8 +9,6 @@ body{
     background-color: #09090A;
 }
 
-html,
-body,
 canvas{
     touch-action: auto !important;
 }
