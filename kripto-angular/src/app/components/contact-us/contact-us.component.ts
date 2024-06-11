@@ -1,37 +1,50 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css'
 })
 export class ContactUsComponent {
-  typeSelector = 'Brand';
+  constructor(private fb: FormBuilder){
+  }
+
+  defaultUser = 'Brand';
   typeName = '';
   userName = '';
   email = '';
   terms = false;
   dissapear = false;
 
-  openLinkedin(){
-    window.open('https://www.linkedin.com/company/mobilemetamarketing/' , '_blank')
+  userForm: FormGroup = this.fb.group({})
+
+  arraySelect: any[] = [
+    "Brand",
+    "Studio",
+    "Gamer"
+  ]
+
+  ngOnInit(){
+    this.userForm = this.fb.group({
+      userEmail: ['', [Validators.required, Validators.email]],
+      templateName: ['', Validators.required],
+      userName: ['', Validators.required],
+      typeSelect: [this.defaultUser],
+    })
+
+    this.userForm.get('typeSelect')?.valueChanges.subscribe(value => {
+      this.defaultUser = value;
+    })
+
+    console.log(this.userForm)
   }
 
-  submit(typeName:String, userName:String, email:String){
-    if(typeName === '' || userName === '' || email === ''){
-      window.alert('Enter all fields');
-    // }else if(this.terms === false){
-    //     window.alert('Accepts the Terms and Conditions');
-    }else{
-      this.dissapear = true;
-      setTimeout(() => {
-        window.alert('submitted');
-      }, 1000);
-      }
+  openLinkedin(){
+    window.open('https://www.linkedin.com/company/mobilemetamarketing/' , '_blank')
   }
 }

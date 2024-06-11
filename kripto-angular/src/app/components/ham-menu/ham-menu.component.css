@@ -72,21 +72,13 @@
 @media screen and (min-width: 768px){
     .blackBackround{
         right: 208px;
+        -webkit-box-shadow: 6px 1px 10px -2px rgba(104,104,104,1);
+        -moz-box-shadow: 6px 1px 10px -2px rgba(104,104,104,1);
+        box-shadow: 6px 1px 10px -2px rgba(104,104,104,1);
     }
 
     :host{
         width: 564px;
-    }
-
-    .blackBackround::after{
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        width: 2px;
-        background: #90BB76;
-        filter: blur(3px);
     }
 
     .views{
