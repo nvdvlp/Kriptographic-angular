@@ -48,7 +48,7 @@ h1{
     margin-bottom: 35px;
 }
 
-@media screen and (min-width: 520px){
+@media screen and (min-width: 520px) and (max-width: 1235px){
     .aboutUs__tittle{
         position: sticky;
         top: 30px; 
@@ -112,14 +112,13 @@ h1{
 }
 
 @media (min-width: 768px) {
-    .aboutUs{
+    /* .aboutUs{
         flex-direction: row;
         height: auto;
         position: relative;
         overflow-x: hidden;
         overflow-y: hidden;
-    }
-    /*tittle*/
+    } */
     .aboutUs__secondTittle {
         font-size: 16px;
     }
@@ -127,21 +126,17 @@ h1{
     .aboutUs__tittle{
         font-size: 40px;
         margin-bottom: 95px;
-        position: relative;
-        left: 1px;
     }
-    /*text*/
+
     .aboutUs__text{
         font-size: 20px;
-        text-align: start;
-
+        /* text-align: start; */
     }
 
     .dott{
         margin-bottom:34px;
     }
 
-    /*next button*/
     .aboutUs__nextSectionContainer{
         padding-left: 37px;
         width: 100%;
@@ -166,21 +161,23 @@ h1{
     .aboutUs__dottedLine{
         width:334px;
     }
-    /*center*/
+
     .midSection{
         justify-content: center;
         z-index: 1;
         position:relative;
     }
-    /*img*/
+
     .aboutUs__3dJacket{
-        position: absolute;
-        width: 800px;
+        width: 570px;
         height: auto;
+        /* position: absolute;
         top: 50%;
         right: -328px;
-        transform: translateY(-50%);
+        transform: translateY(-50%); */
+        margin-top: 80px;
     }
+
     #div{
         position: absolute;
         top: 40px;
@@ -188,29 +185,38 @@ h1{
 }
 @media(min-width: 1024px){
   .aboutUs__3dJacket{
-    position: absolute;
-      width: 630px;
+      width: 510px;
       height: auto;
+      /* position: absolute;
       top: 50%;
       right: -77px;
-      transform: translateY(-50%);
+      transform: translateY(-50%); */
   }
 }
 
-@media (min-width: 1440px){
+@media (min-width: 1235px) {
+    .aboutUs{
+        flex-direction: row;
+        height: auto;
+        position: relative;
+        justify-content: center;
+        gap: 55px;
+        align-items: center;
+    }
 
     .aboutUs__text{
-      font-size: 28px;
-      text-align: left;
-      height: auto;
-      width: 144%;
+        font-size: 20px;
+        text-align: start;
+    }
+
+    .aboutUs__tittle{
+        font-size: 54px;
+        text-align: start;
+        margin-bottom: 55px;
     }
 
     .aboutUs__3dJacket{
-      position: absolute;
-      width: 827px;
-      height: auto;
-      top: 50%;
-      right: -100px;
+        position: relative;
+        top: 50px;
     }
 }

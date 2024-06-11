@@ -18,6 +18,10 @@ export class ContactUsComponent {
   terms = false;
   dissapear = false;
 
+  openLinkedin(){
+    window.open('https://www.linkedin.com/company/mobilemetamarketing/' , '_blank')
+  }
+
   submit(typeName:String, userName:String, email:String){
     if(typeName === '' || userName === '' || email === ''){
       window.alert('Enter all fields');

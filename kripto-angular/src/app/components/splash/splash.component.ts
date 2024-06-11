@@ -42,7 +42,7 @@ export class SplashComponent implements AfterViewInit{
   returnCircleRadius(windowWidth: number): number{
     if(windowWidth >= 320 && windowWidth < 768){
       return 90
-    } else if(windowWidth >= 768 && windowWidth < 1440){
+    } else if(windowWidth >= 768){
       return 160
     } else{
       return 200

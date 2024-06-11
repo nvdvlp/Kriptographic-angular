@@ -30,6 +30,7 @@ header{
     padding-block: 30px;
     padding-inline: 25px;
     z-index: 2;
+    max-width: 1300px;
 }
 
 header::before {
@@ -39,7 +40,7 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust this to match the desired background color */
+    background-color: rgba(9, 9, 10, 0.5);
     backdrop-filter: blur(2px); 
     z-index: -1;
 }
@@ -88,12 +89,6 @@ img{
 @media screen and (min-width: 768px){
     .splash-title{
         font-size: 91px;
-    }
-}
-
-@media screen and (min-width: 1440px){
-    .splash-title{
-        font-size: 149px;
     }
 }
 
