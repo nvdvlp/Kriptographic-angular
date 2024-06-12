@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+declare var Email: any;
 
 @Component({
   selector: 'app-contact-us',
@@ -20,7 +21,7 @@ export class ContactUsComponent {
   email = '';
   terms = false;
   dissapear = false;
-
+  EmailSended: any;
   userForm: FormGroup = this.fb.group({})
 
   arraySelect: any[] = [
@@ -28,6 +29,35 @@ export class ContactUsComponent {
     "Studio",
     "Gamer"
   ]
+  
+  sendEmail() {
+    if (this.userForm.valid) {
+      const { userEmail, templateName, userName, typeSelect } = this.userForm.value;
+      const emailBody = 
+      `Nombre: ${userName}\n
+      Empresa: ${templateName}\n
+      Email: ${userEmail}\n
+      Tipo: ${typeSelect}`;
+
+      Email.send({
+        Host: 'smtp.elasticemail.com', // Cambia esto a tu servidor SMTP
+        Username: 'snieves056@domain.com', // Cambia esto a tu correo
+        Password: 'Takamura346', // Cambia esto a tu contraseña
+        To: 'kurathoo1@gmail.com', // Cambia esto al correo destino
+        From: userEmail,
+        Subject: 'new data form',
+        Body: emailBody
+      }).then((message:any) => {
+        alert('Correo enviado exitosamente');
+      }).catch((error:any) => {
+        console.error('Error al enviar el correo:', error);
+        alert('Ocurrió un error al enviar el correo');
+      });
+    } else {
+      alert('Por favor, completa todos los campos requeridos.');
+    }
+  }
+
 
   ngOnInit(){
     this.userForm = this.fb.group({
@@ -42,6 +72,7 @@ export class ContactUsComponent {
     })
 
     console.log(this.userForm)
+    
   }
 
   openLinkedin(){

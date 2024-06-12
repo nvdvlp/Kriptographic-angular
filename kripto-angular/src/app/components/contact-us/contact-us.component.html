@@ -23,7 +23,7 @@
     </div>
 
     <main>
-        <form [formGroup]="userForm">
+        <form [formGroup]="userForm" (ngSubmit)="sendEmail()">
             <label for="">Brand, Studio, Gamer?</label>
             <select name="typeBrandStudio&Game" id="" formControlName="typeSelect">
                 <option *ngFor="let option of arraySelect" [value]="option">{{option}}</option>
