@@ -23,7 +23,7 @@
     </div>
 
     <main>
-        <form [formGroup]="userForm" (ngSubmit)="sendEmail()">
+        <form [formGroup]="userForm">
             <label for="">Brand, Studio, Gamer?</label>
             <select name="typeBrandStudio&Game" id="" formControlName="typeSelect">
                 <option *ngFor="let option of arraySelect" [value]="option">{{option}}</option>
@@ -46,7 +46,7 @@
         </div> -->
 
         <div class="contactUs__centerButton">
-            <button [disabled]="userForm.invalid">Submit</button>
+            <button [disabled]="userForm.invalid" (click)="sendEmail()" >Submit</button>
             <!-- <p id="button_text">JUST SUBMIT, FOR NOW</p> -->
         </div>
     </main>

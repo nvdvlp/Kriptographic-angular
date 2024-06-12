@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     SplashComponent,
     ContactUsComponent, 
     FormsModule,
-    HamMenuComponent
+    HamMenuComponent,
   ] ,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

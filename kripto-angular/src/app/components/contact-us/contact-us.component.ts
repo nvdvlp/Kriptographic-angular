@@ -1,12 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-declare var Email: any;
+import emailjs,{ EmailJSResponseStatus } from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css'
@@ -29,33 +29,16 @@ export class ContactUsComponent {
     "Studio",
     "Gamer"
   ]
-  
+ 
   sendEmail() {
-    if (this.userForm.valid) {
-      const { userEmail, templateName, userName, typeSelect } = this.userForm.value;
-      const emailBody = 
-      `Nombre: ${userName}\n
-      Empresa: ${templateName}\n
-      Email: ${userEmail}\n
-      Tipo: ${typeSelect}`;
-
-      Email.send({
-        Host: 'smtp.elasticemail.com', // Cambia esto a tu servidor SMTP
-        Username: 'snieves056@domain.com', // Cambia esto a tu correo
-        Password: 'Takamura346', // Cambia esto a tu contraseña
-        To: 'kurathoo1@gmail.com', // Cambia esto al correo destino
-        From: userEmail,
-        Subject: 'new data form',
-        Body: emailBody
-      }).then((message:any) => {
-        alert('Correo enviado exitosamente');
-      }).catch((error:any) => {
-        console.error('Error al enviar el correo:', error);
-        alert('Ocurrió un error al enviar el correo');
-      });
-    } else {
-      alert('Por favor, completa todos los campos requeridos.');
-    }
+    const { userEmail, templateName, userName, typeSelect } = this.userForm.value;
+    emailjs.sendForm("service_kfofa1a", "template_mkkcsmy", this.userForm.value).then((result: EmailJSResponseStatus ) =>{
+      console.log(result.text);
+      alert('Email Send');   
+    }, (error) =>{
+      console.log(error.text);
+      alert('email Failed')
+    } );
   }
 
 
