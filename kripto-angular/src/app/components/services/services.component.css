@@ -67,7 +67,7 @@ main{
 
   .card3 {
     z-index: 1;
-    top: 86px; /* Ajusta este valor según el tamaño y el solapamiento deseado */;
+    top: 86px; 
   }
 
 .showCard__rowCard{
@@ -141,4 +141,73 @@ main{
     justify-content: center;
     align-items: center;
     margin-right:44px ;
+}
+
+
+.services__tabletBackground{
+    display: none;
+}
+
+.stackedCards{
+    display: none;
+  }
+
+@media screen and (min-width: 767px){
+    .services{
+        position: relative;
+        overflow: visible; 
+        width: 100%; 
+        z-index: 1;
+    }
+
+    .services__cards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stackedCards{
+        display: block;
+        position: absolute;
+        z-index: 3;
+        left: 453px;
+      }
+
+    .services__tabletBackground{
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.5); 
+        width: 67%;
+        z-index: 0;
+    }
+
+    .services__showCard{
+        position: absolute;
+        z-index: 1;
+    }
+
+    .card1 {
+        z-index: 3;
+        top: 85px;
+      }
+    
+      .card2 {
+        z-index: 2;
+        top: 42px; 
+      }
+    
+      .card3 {
+        z-index: 1;
+        top: 86px; 
+      }
+
+      .services__buttons{
+        position: absolute;
+        z-index: 3;
+        top: 700px;
+      }
+
+
 }
