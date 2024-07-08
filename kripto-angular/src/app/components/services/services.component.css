@@ -1,0 +1,144 @@
+@font-face {
+    font-family:'Hypermarket';
+    src: url('../../../assets/fonts/hypermarket/Hypermarket-Exp.ttf') format('truetype');
+}
+
+h2, p{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    width: 100%;
+    max-width: 497px;
+}
+
+.services{
+    width: 100%;
+    height: 100%;
+    background-color: #09090A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services__tittle{
+    font-size: 32px;
+    font-weight: 500;
+    font-family: Medium;
+    background-image: linear-gradient(to right, #F8F1F8 50%, #798F83 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 86px;
+}
+
+.services__cards{
+    width: 100%;
+    height: 68%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    
+}
+
+.services__showCard{
+    width: 256px;
+    height: 425px;
+    background-color: #FFFFFF;
+    margin-bottom: 76px;
+    position: absolute;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    
+}
+
+.card1 {
+    z-index: 3;
+    top: 0;
+  }
+
+  .card2 {
+    z-index: 2;
+    top: 42px; 
+  }
+
+  .card3 {
+    z-index: 1;
+    top: 86px; /* Ajusta este valor según el tamaño y el solapamiento deseado */;
+  }
+
+.showCard__rowCard{
+    margin-top: 22px;
+    width: 256px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rowCard__xl{
+    padding-left: 28px;
+}
+
+.rowCard__qr{
+    padding-right:20px ;
+}
+
+.rowCard__circle{
+    width:28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #0B090E;
+}
+
+.showCard__columnCard{
+    width: 256px;
+    display: flex;
+    flex-direction: column;
+}
+
+.columnCard__tittle{
+    font-size: 32px;
+    font-weight:500;
+    font-family: 'Hypermarket';
+    color: #000000;
+    padding-left: 18px;
+    margin-bottom: 20px;
+}
+
+.columnCard__text{
+    font-size: 12px;
+    font-weight:500;
+    font-family: 'Hypermarket';
+    align-content: start;
+    color: #050505;
+    padding-inline: 18px;
+}
+
+.columnCard__barcode{
+    position: relative;
+    top: -89px;
+}
+
+.services__buttons{
+    width: 100%;
+    height: 37px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+.services__left{
+    width:36px;
+    height:36px;
+    border-radius: 50%;
+    background-color: #09090A;
+    border: 1px solid #fff ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:44px ;
+}
