@@ -44,32 +44,6 @@ main{
     position: relative;
     
 }
-
-.services__showCard{
-    width: 256px;
-    height: 425px;
-    background-color: #FFFFFF;
-    margin-bottom: 76px;
-    position: absolute;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    
-}
-
-.card1 {
-    z-index: 3;
-    top: 0;
-  }
-
-  .card2 {
-    z-index: 2;
-    top: 42px; 
-  }
-
-  .card3 {
-    z-index: 1;
-    top: 86px; 
-  }
-
 .showCard__rowCard{
     margin-top: 22px;
     width: 256px;
@@ -98,6 +72,7 @@ main{
     width: 256px;
     display: flex;
     flex-direction: column;
+    align-items: center ;
 }
 
 .columnCard__tittle{
@@ -116,11 +91,11 @@ main{
     align-content: start;
     color: #050505;
     padding-inline: 18px;
+    margin-bottom:17px;
 }
 
 .columnCard__barcode{
-    position: relative;
-    top: -89px;
+    width: 218px;
 }
 
 .services__buttons{
@@ -140,17 +115,59 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right:44px ;
+    margin-right:44px;
+    transform: rotate(90deg);
 }
 
+.services__right{
+    transform: rotate(90deg);
+}
 
 .services__tabletBackground{
     display: none;
 }
 
-.stackedCards{
-    display: none;
+.services__showCard{
+    width: 256px;
+    height: 425px;
+    background-color: #FFFFFF;
+    margin-bottom: 76px;
+    position: absolute;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: z-index 0.2s; 
+}
+
+.card1 {
+    z-index: 3;
+    top: 0;
+    transition: transform 0.2s;
   }
+
+  .card2 {
+    z-index: 2;
+    top: 33px; 
+    transition: transform 0.2s;
+  }
+
+  .card3 {
+    z-index: 1;
+    transition: transform 0.2s;
+  }
+
+.animacion{
+    animation: cardAnimation 2s ease-in-out infinite alternate;
+}
+
+@keyframes cardAnimation{
+    0%{
+        transform: translateY(0);
+    }50%{
+        transform:translateY(-400px);
+    }100%{
+        transform: translateY(0);
+    }
+}
+
 
 @media screen and (min-width: 767px){
     .services{
@@ -208,6 +225,4 @@ main{
         z-index: 3;
         top: 700px;
       }
-
-
 }

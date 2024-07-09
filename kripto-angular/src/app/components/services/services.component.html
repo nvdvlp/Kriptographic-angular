@@ -3,7 +3,7 @@
 
     <div class="services__cards ">
 
-        <div class="services__showCard card1">
+        <div class="services__showCard card1 " [ngClass]="{'animacion': animacionActiva && tarjetaActiva === 1}">
             <div class="showCard__rowCard">
                 <img class="rowCard__xl" src="../../../assets/img/XL.png" alt="xlImg">
                 <div class="rowCard__circle"></div>
@@ -21,7 +21,7 @@
         </div>
 
 
-        <div class="services__showCard card2">
+        <div class="services__showCard card2" [ngClass]="{'animacion': animacionActiva && tarjetaActiva === 2}">
             <div class="showCard__rowCard">
                 <img class="rowCard__xl" src="../../../assets/img/XL.png" alt="xlImg">
                 <div class="rowCard__circle"></div>
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div class="services__showCard card3">
+        <div class="services__showCard card3" [ngClass]="{'animacion': animacionActiva && tarjetaActiva === 3}">
             <div class="showCard__rowCard">
                 <img class="rowCard__xl" src="../../../assets/img/XL.png" alt="xlImg">
                 <div class="rowCard__circle"></div>
@@ -54,8 +54,6 @@
                 <img class="columnCard__barcode" src="../../../assets/img/barcode.png" alt="barcode">
             </div>
         </div>
-
-        <img src="../../../assets/img/cards.png" class="stackedCards" alt="">
     </div>
 
 
@@ -63,7 +61,7 @@
         <button class="services__left">
             <img src="../../../assets/img/left card button.png" alt="left">
         </button>   
-        <img class="services__right" src="../../../assets/img/right card button.png" alt="right">
+        <img (click)="iniciarAnimacion()" class="services__right" src="../../../assets/img/right card button.png" alt="right">
     </div>
     <img class="services__tabletBackground" src="../../../assets/img/backgorund empty.png" alt="">
 </section>
