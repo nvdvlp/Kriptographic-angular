@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 //@ts-ignore
 import Stats from 'three/addons/libs/stats.module.js';
 //@ts-ignore
@@ -21,193 +21,199 @@ import { CommonModule } from '@angular/common';
     { provide: Window, useValue: window }
   ]
 })
-export class AboutUsComponent implements AfterViewInit {
+// export class AboutUsComponent implements AfterViewInit {
+export class AboutUsComponent {
   constructor(private window: Window) { }
 
   @ViewChild('div') divElement!: ElementRef;
   @ViewChild('h1') h1Element!: ElementRef;
+  @Output() loadedEvent = new EventEmitter<boolean>()
 
-  ngAfterViewInit(): void {
-    let camera: any, scene: any, renderer: any, controls: any;
-    let transformControls: any;
-    let rotating = true;
-    let mouseDownOnMesh = false;
-    const localThis = this;
+  gifHasLoaded(){
+    this.loadedEvent.emit(true)
+  }
 
-    // Crear canvas y ponerlo dentro del div del about-us
-    const container = document.createElement('div');
-    this.divElement.nativeElement.appendChild(container);
+  // ngAfterViewInit(): void {
+  //   let camera: any, scene: any, renderer: any, controls: any;
+  //   let transformControls: any;
+  //   let rotating = true;
+  //   let mouseDownOnMesh = false;
+  //   const localThis = this;
 
-    // Tamaño manual del canvas
-    //@ts-ignore
-    const width = Math.min(window.outerWidth, document.documentElement.clientWidth);   // Ancho deseado del canvas
-    //@ts-ignore
-    const height = Math.min(window.outerHeight, document.documentElement.clientHeight);
-    // Alto deseado del canvas
+  //   // Crear canvas y ponerlo dentro del div del about-us
+  //   const container = document.createElement('div');
+  //   this.divElement.nativeElement.appendChild(container);
 
-    renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(width, height);
-    container.appendChild(renderer.domElement);
+  //   // Tamaño manual del canvas
+  //   //@ts-ignore
+  //   const width = Math.min(window.outerWidth, document.documentElement.clientWidth);   // Ancho deseado del canvas
+  //   //@ts-ignore
+  //   const height = Math.min(window.outerHeight, document.documentElement.clientHeight);
+  //   // Alto deseado del canvas
 
-    camera = new THREE.PerspectiveCamera(45, width / height, 1, 2000);
-    camera.position.set(0, 600, 300);
+  //   renderer = new THREE.WebGLRenderer({ antialias: true });
+  //   renderer.setPixelRatio(window.devicePixelRatio);
+  //   renderer.setSize(width, height);
+  //   container.appendChild(renderer.domElement);
 
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x09090E);
+  //   camera = new THREE.PerspectiveCamera(45, width / height, 1, 2000);
+  //   camera.position.set(0, 600, 300);
 
-    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.5);
-    hemiLight.position.set(0, 200, 0);
-    scene.add(hemiLight);
+  //   scene = new THREE.Scene();
+  //   scene.background = new THREE.Color(0x09090E);
 
-    const dirLight = new THREE.DirectionalLight(0x7BFDFBC, 1.5);
-    dirLight.position.set(0, 200, 100);
-    dirLight.castShadow = true;
-    dirLight.shadow.camera.top = 180;
-    dirLight.shadow.camera.bottom = -100;
-    dirLight.shadow.camera.left = -120;
-    dirLight.shadow.camera.right = 120;
-    scene.add(dirLight);
+  //   const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.5);
+  //   hemiLight.position.set(0, 200, 0);
+  //   scene.add(hemiLight);
 
-    // Model
-    const loader = new FBXLoader();
-    loader.load('../../assets/models/puffer.fbx', function (object: any) {
-      const boundingBox = new THREE.Box3().setFromObject(object);
-      const size = new THREE.Vector3();
-      boundingBox.getSize(size);
-      const center = new THREE.Vector3();
-      boundingBox.getCenter(center);
+  //   const dirLight = new THREE.DirectionalLight(0x7BFDFBC, 1.5);
+  //   dirLight.position.set(0, 200, 100);
+  //   dirLight.castShadow = true;
+  //   dirLight.shadow.camera.top = 180;
+  //   dirLight.shadow.camera.bottom = -100;
+  //   dirLight.shadow.camera.left = -120;
+  //   dirLight.shadow.camera.right = 120;
+  //   scene.add(dirLight);
 
-      const modelSize = 10; // Adjust as needed
-      const distance = modelSize / Math.tan(Math.PI * camera.fov / 360);
-      camera.position.set(0, 0, distance);
-      camera.lookAt(scene.position);
+  //   // Model
+  //   const loader = new FBXLoader();
+  //   loader.load('../../assets/models/puffer.fbx', function (object: any) {
+  //     const boundingBox = new THREE.Box3().setFromObject(object);
+  //     const size = new THREE.Vector3();
+  //     boundingBox.getSize(size);
+  //     const center = new THREE.Vector3();
+  //     boundingBox.getCenter(center);
 
-      // Ajustar la cámara para que se centre y se ajuste al tamaño del modelo
-      const maxDim = Math.max(size.x, size.y, size.z);
-      const fov = camera.fov * (Math.PI / 180);
-      const cameraDistance = maxDim / Math.tan(fov / 2);
+  //     const modelSize = 10; // Adjust as needed
+  //     const distance = modelSize / Math.tan(Math.PI * camera.fov / 360);
+  //     camera.position.set(0, 0, distance);
+  //     camera.lookAt(scene.position);
 
-      camera.position.set(0, 0, cameraDistance + 100);
-      camera.lookAt(center);
+  //     // Ajustar la cámara para que se centre y se ajuste al tamaño del modelo
+  //     const maxDim = Math.max(size.x, size.y, size.z);
+  //     const fov = camera.fov * (Math.PI / 180);
+  //     const cameraDistance = maxDim / Math.tan(fov / 2);
 
-      camera.near = 0.1;
-      camera.far = cameraDistance * 2;
-      camera.updateProjectionMatrix();
+  //     camera.position.set(0, 0, cameraDistance + 100);
+  //     camera.lookAt(center);
+
+  //     camera.near = 0.1;
+  //     camera.far = cameraDistance * 2;
+  //     camera.updateProjectionMatrix();
       
-      //Mover la chqueta sobre sobre su propio eje y su posición en general en el canvas
-      object.rotation.x = Math.PI / 4; 
-      object.position.set(-center.x , -center.y + 175, -center.z);
+  //     //Mover la chqueta sobre sobre su propio eje y su posición en general en el canvas
+  //     object.rotation.x = Math.PI / 4; 
+  //     object.position.set(-center.x , -center.y + 175, -center.z);
 
-      object.traverse(function (child: any) {
-        if (child.isMesh) {
-          child.material.flatShading = true;
-          child.material.wireframe = true;
-          child.castShadow = true;
-          child.receiveShadow = true;
-        }
-      });
-      scene.add(object);
-      localThis.h1Element.nativeElement.style.display = 'none';
+  //     object.traverse(function (child: any) {
+  //       if (child.isMesh) {
+  //         child.material.flatShading = true;
+  //         child.material.wireframe = true;
+  //         child.castShadow = true;
+  //         child.receiveShadow = true;
+  //       }
+  //     });
+  //     scene.add(object);
+  //     localThis.h1Element.nativeElement.style.display = 'none';
 
-      // TransformControls
-      transformControls = new TransformControls(camera, renderer.domElement);
-      transformControls.attach(object);
-      transformControls.setMode('rotate');
-      scene.add(transformControls);
-      let rotatingManually = false;
+  //     // TransformControls
+  //     transformControls = new TransformControls(camera, renderer.domElement);
+  //     transformControls.attach(object);
+  //     transformControls.setMode('rotate');
+  //     scene.add(transformControls);
+  //     let rotatingManually = false;
 
-      transformControls.showX = false;
-      transformControls.showY = false;
-      transformControls.showZ = false;
+  //     transformControls.showX = false;
+  //     transformControls.showY = false;
+  //     transformControls.showZ = false;
 
-      transformControls.addEventListener('mouseDown', function () {
-        mouseDownOnMesh = true;
-        rotating = false;
-        rotatingManually = true;
-      });
+  //     transformControls.addEventListener('mouseDown', function () {
+  //       mouseDownOnMesh = true;
+  //       rotating = false;
+  //       rotatingManually = true;
+  //     });
 
-      transformControls.addEventListener('mouseUp', function () {
-        mouseDownOnMesh = false;
-        rotating = !rotatingManually;
-        rotatingManually = false;
-      });
+  //     transformControls.addEventListener('mouseUp', function () {
+  //       mouseDownOnMesh = false;
+  //       rotating = !rotatingManually;
+  //       rotatingManually = false;
+  //     });
 
-      renderer.domElement.addEventListener('mouseleave', function () {
-        if (rotatingManually) {
-          rotatingManually = false;
-          rotating = true;
-        }
-      });
+  //     renderer.domElement.addEventListener('mouseleave', function () {
+  //       if (rotatingManually) {
+  //         rotatingManually = false;
+  //         rotating = true;
+  //       }
+  //     });
 
-      function animate() {
-        requestAnimationFrame(animate);
+  //     function animate() {
+  //       requestAnimationFrame(animate);
 
-        if (rotating && !mouseDownOnMesh) {
-          object.rotation.y += 0.009;
-        }
+  //       if (rotating && !mouseDownOnMesh) {
+  //         object.rotation.y += 0.009;
+  //       }
 
-        render();
-      }
+  //       render();
+  //     }
 
-      function render() {
-        renderer.render(scene, camera);
-      }
+  //     function render() {
+  //       renderer.render(scene, camera);
+  //     }
       
-      animate();
-    }, undefined, function (error: any) {
-      console.error('An error happened', error);
-    });
+  //     animate();
+  //   }, undefined, function (error: any) {
+  //     console.error('An error happened', error);
+  //   });
     
 
-    window.addEventListener('resize', () => {onWindowResize(this)} );
+  //   window.addEventListener('resize', () => {onWindowResize(this)} );
 
-    // function onWindowResize(event: any) {
+  //   // function onWindowResize(event: any) {
       
-    //       const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
-    //       const height = Math.min(window.innerHeight, document.documentElement.clientHeight);
-    //       setTimeout(() => {
-    //         console.log("width")
-    //         console.log(width)
-    //       })
-    //       camera.aspect = width / height;
-    //       camera.updateProjectionMatrix();
-    //       renderer.setSize(width, height);
-    //       render();
-    //     }
+  //   //       const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
+  //   //       const height = Math.min(window.innerHeight, document.documentElement.clientHeight);
+  //   //       setTimeout(() => {
+  //   //         console.log("width")
+  //   //         console.log(width)
+  //   //       })
+  //   //       camera.aspect = width / height;
+  //   //       camera.updateProjectionMatrix();
+  //   //       renderer.setSize(width, height);
+  //   //       render();
+  //   //     }
 
 
 
-    function onWindowResize(thisa:any) {
-      //@ts-ignore
-      const width = Math.min(window.innerWidth, document.documentElement.clientWidth); 
-      //@ts-ignore
-      const height = Math.min(window.innerHeight, document.documentElement.clientHeight);
-      thisa.returnCanvasSizes();
-      thisa.returnModelSize();
-        renderer.domElement.style.width = width;
-        renderer.domElement.style.height = height;
-      // renderer.domElement.style.zIndex = '0'
-      //   renderer.domElement.style.top = '0'
-      //   renderer.domElement.style.left = '0'
-      console.log(thisa.returnModelSize());
+  //   function onWindowResize(thisa:any) {
+  //     //@ts-ignore
+  //     const width = Math.min(window.innerWidth, document.documentElement.clientWidth); 
+  //     //@ts-ignore
+  //     const height = Math.min(window.innerHeight, document.documentElement.clientHeight);
+  //     thisa.returnCanvasSizes();
+  //     thisa.returnModelSize();
+  //       renderer.domElement.style.width = width;
+  //       renderer.domElement.style.height = height;
+  //     // renderer.domElement.style.zIndex = '0'
+  //     //   renderer.domElement.style.top = '0'
+  //     //   renderer.domElement.style.left = '0'
+  //     console.log(thisa.returnModelSize());
       
-      const modelSize = thisa.returnModelSize(); // Adjust as needed
-      const distance = modelSize / Math.tan(Math.PI * camera.fov / 360);
-      camera.position.set(0, thisa.returnModelSize(), distance);
+  //     const modelSize = thisa.returnModelSize(); // Adjust as needed
+  //     const distance = modelSize / Math.tan(Math.PI * camera.fov / 360);
+  //     camera.position.set(0, thisa.returnModelSize(), distance);
       
-      // camera.lookAt(scene.position);
+  //     // camera.lookAt(scene.position);
       
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
-      render();
-    }
+  //     camera.aspect = width / height;
+  //     camera.updateProjectionMatrix();
+  //     renderer.setSize(width, height);
+  //     render();
+  //   }
 
-    function render() {
-      renderer.render(scene, camera);
-    }
-  }
+  //   function render() {
+  //     renderer.render(scene, camera);
+  //   }
+  // }
 
   returnCanvasSizes(){
     const width = Math.min(window.outerWidth, document.documentElement.clientWidth);

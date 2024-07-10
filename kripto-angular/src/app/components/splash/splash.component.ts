@@ -58,10 +58,11 @@ export class SplashComponent implements AfterViewInit{
       //@ts-ignore
       const ctx = this.canvas.getContext("2d");
       //@ts-ignore
-      ctx.filter = 'blur(50px)'
+      console.log(ctx.filter)
       //@ts-ignore
       ctx.fillStyle = 'rgba(144, 187, 118, 0.5)';
       //@ts-ignore
+      
       ctx.beginPath();
       //@ts-ignore
       ctx.arc(width / 2,height / 2,circleRadius,0,2*Math.PI);
