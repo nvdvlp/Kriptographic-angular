@@ -3,7 +3,21 @@
 
     <div class="services__cards ">
 
-        <div class="services__showCard card1 " [ngClass]="{'animacion': animacionActiva && tarjetaActiva === 1}">
+        <div class="services__showCard " *ngFor="let card of cardArray">
+            <div class="showCard__rowCard">
+                <img class="rowCard__xl" src="../../../assets/img/XL.png" alt="xlImg">
+                <div class="rowCard__circle"></div>
+                <img class="rowCard__qr" src="../../../assets/img/qrcode 1.png" alt="qrCode">
+            </div>
+            <div class="showCard__columnCard">
+                <h2 class="columnCard__tittle">{{card.title}}</h2>
+                <h2 class="columnCard__text">
+                    {{card.content}}
+                </h2>
+                <img class="columnCard__barcode" src="../../../assets/img/barcode.png" alt="barcode">
+            </div>
+        </div>
+        <!-- <div class="services__showCard card1 " [ngClass]="{'animacion': animacionActiva && tarjetaActiva === 1}">
             <div class="showCard__rowCard">
                 <img class="rowCard__xl" src="../../../assets/img/XL.png" alt="xlImg">
                 <div class="rowCard__circle"></div>
@@ -19,8 +33,6 @@
                 <img class="columnCard__barcode" src="../../../assets/img/barcode.png" alt="barcode">
             </div>
         </div>
-
-
         <div class="services__showCard card2" [ngClass]="{'animacion': animacionActiva && tarjetaActiva === 2}">
             <div class="showCard__rowCard">
                 <img class="rowCard__xl" src="../../../assets/img/XL.png" alt="xlImg">
@@ -37,7 +49,6 @@
                 <img class="columnCard__barcode" src="../../../assets/img/barcode.png" alt="barcode">
             </div>
         </div>
-
         <div class="services__showCard card3" [ngClass]="{'animacion': animacionActiva && tarjetaActiva === 3}">
             <div class="showCard__rowCard">
                 <img class="rowCard__xl" src="../../../assets/img/XL.png" alt="xlImg">
@@ -53,7 +64,7 @@
                 </h2>
                 <img class="columnCard__barcode" src="../../../assets/img/barcode.png" alt="barcode">
             </div>
-        </div>
+        </div> -->
     </div>
 
 
