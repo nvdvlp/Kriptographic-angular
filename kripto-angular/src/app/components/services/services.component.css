@@ -42,8 +42,8 @@ main{
     flex-direction: column;
     justify-content: center;
     position: relative;
-    
 }
+
 .showCard__rowCard{
     margin-top: 22px;
     width: 256px;
@@ -123,7 +123,7 @@ main{
     transform: rotate(90deg);
 }
 
-.services__tabletBackground{
+.services__background{
     display: none;
 }
 
@@ -159,6 +159,10 @@ main{
     animation: cardAnimation 2s ease-in-out infinite alternate;
 }
 
+.services__cardkeeper{
+    display: none;
+}
+
 @keyframes cardAnimation{
     0%{
         transform: translateY(0);
@@ -179,9 +183,52 @@ main{
     }
 
     .services__cards{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center
+    }
+
+    .services__showCard{
+        position: static;
+    }
+
+    .services__cardkeeper{
+        width: 212px;
+        height: 339px;
+        background-color: #FFF;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
+        z-index: 1;
+    }
+
+    .services__circle{
+        width:28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: #0B090E;
+        margin-top: 20px;
+    }
+
+    .services__ia{
+        font-size: 21px;
+        font-weight:500;
+        font-family: 'Hypermarket';
+        align-content: start;
+        color: #000;
+        text-align: center;
+    }
+
+    .services__kriptographic{
+        font-size: 8px;
+        font-weight:500;
+        font-family: 'Hypermarket';
+        align-content: start;
+        color: #050505;
+        margin-bottom:14px;
     }
 
     .stackedCards{
@@ -189,9 +236,9 @@ main{
         position: absolute;
         z-index: 3;
         left: 453px;
-      }
+    }
 
-    .services__tabletBackground{
+    .services__background{
         display: block;
         position: absolute;
         top: 50%;
@@ -201,12 +248,7 @@ main{
         z-index: 0;
     }
 
-    .services__showCard{
-        position: absolute;
-        z-index: 1;
-    }
-
-    .card1 {
+    /* .card1 {
         z-index: 3;
         top: 85px;
       }
@@ -219,11 +261,12 @@ main{
       .card3 {
         z-index: 1;
         top: 86px; 
-      }
+      } */
 
       .services__buttons{
         position: absolute;
         z-index: 3;
         top: 700px;
       }
+
 }

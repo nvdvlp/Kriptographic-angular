@@ -30,6 +30,7 @@ export class ServicesComponent implements AfterViewInit{
   ]
 
   ngAfterViewInit() {
+    this.biggerResolutions();
     const cardsNodeList = document.querySelectorAll('.services__showCard');
     let startingPosition = 20;
     let zIndexStartingPosition = cardsNodeList.length;
@@ -58,6 +59,13 @@ export class ServicesComponent implements AfterViewInit{
   cambiarTarjetaActiva() {
     // pasa a la siguiente carta
     this.tarjetaActiva = this.tarjetaActiva % 3 + 1;
+  }
+
+  biggerResolutions(){
+    const width = window.innerWidth;
+    if(width >= 767){
+      this.cardArray.splice(this.cardArray.length -2 , 2);
+    }
   }
 
 } 
