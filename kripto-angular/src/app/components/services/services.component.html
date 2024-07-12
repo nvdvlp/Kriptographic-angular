@@ -79,10 +79,10 @@
 
 
     <div class="services__buttons">
-        <button class="services__left">
-            <img src="../../../assets/img/left card button.png" alt="left">
-        </button>   
-        <img (click)="iniciarAnimacion()" class="services__right" src="../../../assets/img/right card button.png" alt="right">
+        <ion-icon name="chevron-back-circle-outline" *ngIf="cardPosition == cardArray.length - 1"></ion-icon>
+        <ion-icon name="chevron-back-circle" (click)="goLeft()" *ngIf="cardPosition < cardArray.length - 1"></ion-icon>
+        <ion-icon name="chevron-forward-circle-outline" *ngIf="cardPosition == 0"></ion-icon>
+        <ion-icon name="chevron-forward-circle" (click)="goRight()" *ngIf="cardPosition > 0"></ion-icon>
     </div>
     <img class="services__background" src="../../../assets/img/bkgrnd services.png" alt="">
 </section>

@@ -37,11 +37,10 @@ main{
 
 .services__cards{
     width: 100%;
+    max-width: 100%;
     min-height: 425px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     position: relative;
+    overflow: hidden;
 }
 
 .showCard__rowCard{
@@ -132,10 +131,6 @@ main{
     height: 425px;
     background-color: #FFFFFF;
     position: absolute;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: z-index 0.2s; 
-    Left: 50%;
-    transform: translateX(-50%);
 }
 
 .card1 {
@@ -155,24 +150,93 @@ main{
     transition: transform 0.2s;
   }
 
-.animacion{
-    animation: cardAnimation 2s ease-in-out infinite alternate;
-}
-
 .services__cardkeeper{
     display: none;
 }
 
-@keyframes cardAnimation{
+ion-icon{
+    font-size: 51px;
+    color: white;
+}
+
+@keyframes shownToLeft{
     0%{
-        transform: translateY(0);
-    }50%{
-        transform:translateY(-400px);
-    }100%{
-        transform: translateY(0);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    100%{
+        left: 0;
+        transform: translateX(-100%);
     }
 }
 
+@keyframes rightToShown{
+    0%{
+        left: 0;
+        transform: translateX(100vw);
+    }
+    100%{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.shown.goLeft{
+    animation: shownToLeft 500ms ease-out;
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.left{
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.right.goLeft{
+    animation: rightToShown 500ms ease-out;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes leftToShown {
+    0%{
+        left: 0;
+        transform: translateX(-100%);
+    }
+    100%{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.left.goRight{
+    animation: leftToShown 500ms ease-out;
+}
+
+@keyframes shownToRight {
+    0%{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    100%{
+        left: 0;
+        transform: translateX(100vw);
+    }
+}
+
+.shown.goRight{
+    animation: shownToRight 500ms ease-out;
+}
+
+.right{
+    left: 0;
+    transform: translateX(100vw);
+}
+
+.shown{
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 @media screen and (min-width: 767px){
     .services{

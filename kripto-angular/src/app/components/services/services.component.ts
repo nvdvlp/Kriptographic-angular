@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import {FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -7,13 +7,13 @@ import { CommonModule } from '@angular/common';
   selector: 'app-services',
   standalone: true,
   imports: [AppComponent, FormsModule, CommonModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './services.component.html',
   styleUrl: './services.component.css'
 })
 export class ServicesComponent implements AfterViewInit{
   animacionActiva: boolean = false;
   tarjetaActiva: number = 1;
-
   cardArray: any[] = [
     {
       title: 'GAMER INSIGHTS',
@@ -28,44 +28,96 @@ export class ServicesComponent implements AfterViewInit{
       content: 'Navigate the complexities of brand licensing with confidence, ensuring access to coveted intellectual property. From iconic fashion houses to trendsetting labels, we secure rights that enhance authenticity and enrich gameplay, empowering studios to create immersive virtual worlds.'
     },
   ]
+  cardPosition: number = 0;
+  cardsNodeList: any[] = [];
+  cardsArray: any[] = []
 
   ngAfterViewInit() {
-    this.biggerResolutions();
-    const cardsNodeList = document.querySelectorAll('.services__showCard');
-    let startingPosition = 20;
-    let zIndexStartingPosition = cardsNodeList.length;
-    cardsNodeList.forEach((card: any, index) => {
-      card.style.zIndex = zIndexStartingPosition
-      if(index > 0){
-        card.style.top = `${startingPosition}px`
-        startingPosition += 20
-      } else{
-        card.style.top = `0px`
-      }
-      zIndexStartingPosition -= 1;
-    })
+    const windowWidth = window.innerWidth
     //@ts-ignore
-    document.querySelector('.services__cards').style.minHeight = `${425 + (20 * cardsNodeList.length)}px`
+    this.cardsNodeList = document.querySelectorAll('.services__showCard');
+    this.cardsNodeList.forEach((card: any, index) => {
+      if(index > 0){
+        card.style.left = `0`
+        card.style.transform = `translateX(100vw)`
+        card.classList.add('right')
+      } else{
+        card.classList.add('shown')
+      }
+    })
+
+    this.fillArrayFromNodeList()
   }
 
-  iniciarAnimacion() {
-    this.animacionActiva = true;
-    setTimeout(() =>{
-      this.animacionActiva = false;
-      this.cambiarTarjetaActiva(); 
-    }, 2000); 
-  }
-
-  cambiarTarjetaActiva() {
-    // pasa a la siguiente carta
-    this.tarjetaActiva = this.tarjetaActiva % 3 + 1;
-  }
-
-  biggerResolutions(){
-    const width = window.innerWidth;
-    if(width >= 767){
-      this.cardArray.splice(this.cardArray.length -2 , 2);
+  fillArrayFromNodeList(){
+    for (let i = 0; i < this.cardsNodeList.length; i++) {
+      this.cardsArray.push(this.cardsNodeList[i])
     }
+  }
+
+  cardFromLeft: any;
+  goRight(){
+    const thisa = this;
+    function handleRightAnimation(){
+      thisa.fillArrayFromNodeList()
+      thisa.shownCard = document.querySelector('.shown') 
+      const nextIndex = thisa.cardsArray.indexOf(thisa.shownCard);
+      thisa.cardFromLeft = thisa.cardsArray[nextIndex - 1]
+      thisa.shownCard?.classList.add('right')
+      thisa.shownCard?.classList.remove('goRight')
+      thisa.shownCard?.classList.remove('left')
+      thisa.shownCard?.classList.remove('shown')
+  
+      thisa.cardFromLeft.style.left = ''
+      thisa.cardFromLeft.style.transform = ''
+      thisa.cardFromLeft.classList.remove('right')
+      thisa.cardFromLeft.classList.remove('left')
+      thisa.cardFromLeft.classList.remove('goRight')
+      thisa.cardFromLeft.classList.add('shown')
+      thisa.cardFromLeft.removeEventListener('animationend', handleRightAnimation)
+    }
+
+    this.shownCard = document.querySelector('.shown') 
+    const nextIndex = this.cardsArray.indexOf(this.shownCard);
+    this.cardFromLeft = this.cardsArray[nextIndex - 1]
+    this.shownCard?.classList.add('goRight')
+    this.cardFromLeft.classList.add('goRight')
+    this.cardFromLeft.addEventListener('animationend', handleRightAnimation)
+    this.cardPosition = nextIndex - 1;
+  }
+
+  shownCard: any;
+  cardFromRight: any;
+  goLeft(){
+    const thisa = this;
+    function handleLeftAnimationEnd(){
+      thisa.fillArrayFromNodeList()
+      thisa.shownCard = document.querySelector('.shown') 
+      const nextIndex = thisa.cardsArray.indexOf(thisa.shownCard);
+      thisa.cardFromRight = thisa.cardsArray[nextIndex + 1]
+      thisa.shownCard?.classList.add('left')
+      thisa.shownCard?.classList.remove('goLeft')
+      thisa.shownCard?.classList.remove('right')
+      thisa.shownCard?.classList.remove('shown')
+  
+      thisa.cardFromRight.style.left = ''
+      thisa.cardFromRight.style.transform = ''
+      thisa.cardFromRight.classList.remove('right')
+      thisa.cardFromRight.classList.remove('goLeft')
+      thisa.cardFromRight.classList.add('shown')
+      
+      thisa.cardFromRight.removeEventListener('animationend', handleLeftAnimationEnd)
+    }
+
+    this.shownCard = document.querySelector('.shown') 
+    const nextIndex = this.cardsArray.indexOf(this.shownCard);
+    this.cardFromRight = this.cardsArray[nextIndex + 1]
+    this.shownCard?.classList.add('goLeft')
+    this.cardFromRight.classList.add('goLeft')
+    this.cardFromRight.addEventListener('animationend', handleLeftAnimationEnd)
+
+    this.cardPosition = nextIndex + 1;
+
   }
 
 } 
