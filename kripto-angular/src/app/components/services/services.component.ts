@@ -56,68 +56,77 @@ export class ServicesComponent implements AfterViewInit{
   }
 
   cardFromLeft: any;
+  clicked: boolean = false;
   goRight(){
-    const thisa = this;
-    function handleRightAnimation(){
-      thisa.fillArrayFromNodeList()
-      thisa.shownCard = document.querySelector('.shown') 
-      const nextIndex = thisa.cardsArray.indexOf(thisa.shownCard);
-      thisa.cardFromLeft = thisa.cardsArray[nextIndex - 1]
-      thisa.shownCard?.classList.add('right')
-      thisa.shownCard?.classList.remove('goRight')
-      thisa.shownCard?.classList.remove('left')
-      thisa.shownCard?.classList.remove('shown')
+    if(this.clicked == false){
+      console.log("clicked")
+      this.clicked = true;
+      const thisa = this;
+      function handleRightAnimation(){
+        thisa.fillArrayFromNodeList()
+        thisa.shownCard = document.querySelector('.shown') 
+        const nextIndex = thisa.cardsArray.indexOf(thisa.shownCard);
+        thisa.cardFromLeft = thisa.cardsArray[nextIndex - 1]
+        thisa.shownCard?.classList.add('right')
+        thisa.shownCard?.classList.remove('goRight')
+        thisa.shownCard?.classList.remove('left')
+        thisa.shownCard?.classList.remove('shown')
+    
+        thisa.cardFromLeft.style.left = ''
+        thisa.cardFromLeft.style.transform = ''
+        thisa.cardFromLeft.classList.remove('right')
+        thisa.cardFromLeft.classList.remove('left')
+        thisa.cardFromLeft.classList.remove('goRight')
+        thisa.cardFromLeft.classList.add('shown')
+        thisa.cardFromLeft.removeEventListener('animationend', handleRightAnimation)
+        thisa.clicked = false;
+      }
   
-      thisa.cardFromLeft.style.left = ''
-      thisa.cardFromLeft.style.transform = ''
-      thisa.cardFromLeft.classList.remove('right')
-      thisa.cardFromLeft.classList.remove('left')
-      thisa.cardFromLeft.classList.remove('goRight')
-      thisa.cardFromLeft.classList.add('shown')
-      thisa.cardFromLeft.removeEventListener('animationend', handleRightAnimation)
+      this.shownCard = document.querySelector('.shown') 
+      const nextIndex = this.cardsArray.indexOf(this.shownCard);
+      this.cardFromLeft = this.cardsArray[nextIndex - 1]
+      this.shownCard?.classList.add('goRight')
+      this.cardFromLeft.classList.add('goRight')
+      this.cardFromLeft.addEventListener('animationend', handleRightAnimation)
+      this.cardPosition = nextIndex - 1;
     }
-
-    this.shownCard = document.querySelector('.shown') 
-    const nextIndex = this.cardsArray.indexOf(this.shownCard);
-    this.cardFromLeft = this.cardsArray[nextIndex - 1]
-    this.shownCard?.classList.add('goRight')
-    this.cardFromLeft.classList.add('goRight')
-    this.cardFromLeft.addEventListener('animationend', handleRightAnimation)
-    this.cardPosition = nextIndex - 1;
   }
 
   shownCard: any;
   cardFromRight: any;
   goLeft(){
-    const thisa = this;
-    function handleLeftAnimationEnd(){
-      thisa.fillArrayFromNodeList()
-      thisa.shownCard = document.querySelector('.shown') 
-      const nextIndex = thisa.cardsArray.indexOf(thisa.shownCard);
-      thisa.cardFromRight = thisa.cardsArray[nextIndex + 1]
-      thisa.shownCard?.classList.add('left')
-      thisa.shownCard?.classList.remove('goLeft')
-      thisa.shownCard?.classList.remove('right')
-      thisa.shownCard?.classList.remove('shown')
-  
-      thisa.cardFromRight.style.left = ''
-      thisa.cardFromRight.style.transform = ''
-      thisa.cardFromRight.classList.remove('right')
-      thisa.cardFromRight.classList.remove('goLeft')
-      thisa.cardFromRight.classList.add('shown')
-      
-      thisa.cardFromRight.removeEventListener('animationend', handleLeftAnimationEnd)
+    if(this.clicked == false){
+      console.log("clicked")
+      this.clicked = true;
+      const thisa = this;
+      function handleLeftAnimationEnd(){
+        thisa.fillArrayFromNodeList()
+        thisa.shownCard = document.querySelector('.shown') 
+        const nextIndex = thisa.cardsArray.indexOf(thisa.shownCard);
+        thisa.cardFromRight = thisa.cardsArray[nextIndex + 1]
+        thisa.shownCard?.classList.add('left')
+        thisa.shownCard?.classList.remove('goLeft')
+        thisa.shownCard?.classList.remove('right')
+        thisa.shownCard?.classList.remove('shown')
+    
+        thisa.cardFromRight.style.left = ''
+        thisa.cardFromRight.style.transform = ''
+        thisa.cardFromRight.classList.remove('right')
+        thisa.cardFromRight.classList.remove('goLeft')
+        thisa.cardFromRight.classList.add('shown')
+        thisa.clicked = false;
+        thisa.cardFromRight.removeEventListener('animationend', handleLeftAnimationEnd)
+      }
+
+      this.shownCard = document.querySelector('.shown') 
+      const nextIndex = this.cardsArray.indexOf(this.shownCard);
+      this.cardFromRight = this.cardsArray[nextIndex + 1]
+      this.shownCard?.classList.add('goLeft')
+      this.cardFromRight.classList.add('goLeft')
+      this.cardFromRight.addEventListener('animationend', handleLeftAnimationEnd)
+
+      this.cardPosition = nextIndex + 1;
     }
-
-    this.shownCard = document.querySelector('.shown') 
-    const nextIndex = this.cardsArray.indexOf(this.shownCard);
-    this.cardFromRight = this.cardsArray[nextIndex + 1]
-    this.shownCard?.classList.add('goLeft')
-    this.cardFromRight.classList.add('goLeft')
-    this.cardFromRight.addEventListener('animationend', handleLeftAnimationEnd)
-
-    this.cardPosition = nextIndex + 1;
-
   }
 
 } 
