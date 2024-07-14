@@ -348,7 +348,7 @@ ion-icon{
         top: 50%;
         right: 0;
         z-index: -1000;
-        transform: translateY(-37%);
+        transform: translateY(-25%);
     }
 
     .services{
@@ -432,4 +432,11 @@ ion-icon{
         top: 700px;
       }
 
+}
+
+@media screen and (min-width: 1235px){
+    .services{
+        max-width: 1139px;
+        margin-left: -35px;
+    }
 }
