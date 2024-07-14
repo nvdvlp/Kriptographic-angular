@@ -31,8 +31,10 @@ export class ServicesComponent implements AfterViewInit{
   cardPosition: number = 0;
   cardsNodeList: any[] = [];
   cardsArray: any[] = []
+  currentTitle: string = "";
 
   ngAfterViewInit() {
+    this.currentTitle = this.cardArray[0].title
     const windowWidth = window.innerWidth
     //@ts-ignore
     this.cardsNodeList = document.querySelectorAll('.services__showCard');
@@ -79,22 +81,27 @@ export class ServicesComponent implements AfterViewInit{
         thisa.shownCard?.classList.remove('left')
         thisa.shownCard?.classList.remove('shown')
     
+        currentTitleCard?.classList.remove('dissapear')
         thisa.cardFromLeft.style.left = ''
         thisa.cardFromLeft.style.transform = ''
         thisa.cardFromLeft.classList.remove('right')
         thisa.cardFromLeft.classList.remove('left')
         thisa.cardFromLeft.classList.remove('goRight')
         thisa.cardFromLeft.classList.add('shown')
+        thisa.currentTitle = thisa.cardArray[nextIndex - 1].title
         thisa.cardFromLeft.removeEventListener('animationend', handleRightAnimation)
         thisa.clicked = false;
       }
-  
+      
       this.shownCard = document.querySelector('.shown') 
       const nextIndex = this.cardsArray.indexOf(this.shownCard);
+      const currentTitleCard = document.querySelector('.switcher')
+      currentTitleCard?.classList.add('dissapear')
       this.cardFromLeft = this.cardsArray[nextIndex - 1]
       this.shownCard?.classList.add('goRight')
       this.cardFromLeft.classList.add('goRight')
       this.cardFromLeft.addEventListener('animationend', handleRightAnimation)
+      
       this.cardPosition = nextIndex - 1;
     }
   }
@@ -116,17 +123,21 @@ export class ServicesComponent implements AfterViewInit{
         thisa.shownCard?.classList.remove('right')
         thisa.shownCard?.classList.remove('shown')
     
+        currentTitleCard?.classList.remove('dissapear')
         thisa.cardFromRight.style.left = ''
         thisa.cardFromRight.style.transform = ''
         thisa.cardFromRight.classList.remove('right')
         thisa.cardFromRight.classList.remove('goLeft')
         thisa.cardFromRight.classList.add('shown')
+        thisa.currentTitle = thisa.cardArray[nextIndex + 1].title
         thisa.clicked = false;
         thisa.cardFromRight.removeEventListener('animationend', handleLeftAnimationEnd)
       }
 
       this.shownCard = document.querySelector('.shown') 
       const nextIndex = this.cardsArray.indexOf(this.shownCard);
+      const currentTitleCard = document.querySelector('.switcher')
+      currentTitleCard?.classList.add('dissapear')
       this.cardFromRight = this.cardsArray[nextIndex + 1]
       this.shownCard?.classList.add('goLeft')
       this.cardFromRight.classList.add('goLeft')
