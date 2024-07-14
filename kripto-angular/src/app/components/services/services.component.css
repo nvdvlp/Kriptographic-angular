@@ -1,3 +1,9 @@
+:host{
+    display: flex;
+    width: 100%;
+    background-color: #010101;
+    justify-content: center;
+}
 @font-face {
     font-family:'Hypermarket';
     src: url('../../../assets/fonts/hypermarket/Hypermarket-Exp.ttf') format('truetype');
@@ -16,10 +22,11 @@ main{
 .services{
     width: 100%;
     min-height: 100%;
-    background-color: #09090A;
+    background-color: #010101;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1300px;
 }
 
 .services__tittle{
@@ -132,24 +139,25 @@ main{
     height: 425px;
     background-color: #FFFFFF;
     position: absolute;
+    filter:drop-shadow(4px 6px 10px rgba(0,0,0,0.25));
 }
 
 .card1 {
     z-index: 3;
     top: 0;
     transition: transform 0.2s;
-  }
+}
 
-  .card2 {
-    z-index: 2;
-    top: 33px; 
-    transition: transform 0.2s;
-  }
+.card2 {
+  z-index: 2;
+  top: 33px; 
+  transition: transform 0.2s;
+}
 
-  .card3 {
-    z-index: 1;
-    transition: transform 0.2s;
-  }
+.card3 {
+  z-index: 1;
+  transition: transform 0.2s;
+}
 
 .services__cardkeeper{
     display: none;
@@ -160,86 +168,189 @@ ion-icon{
     color: white;
 }
 
-@keyframes shownToLeft{
-    0%{
-        left: 50%;
-        transform: translateX(-50%);
+@media screen and (max-width: 767px){
+    @keyframes shownToLeft{
+        0%{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        100%{
+            left: 0;
+            transform: translateX(-100%);
+        }
     }
-    100%{
+    
+    @keyframes rightToShown{
+        0%{
+            left: 0;
+            transform: translateX(100vw);
+        }
+        100%{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    
+    .shown.goLeft{
+        animation: shownToLeft 500ms ease-out;
         left: 0;
         transform: translateX(-100%);
     }
-}
-
-@keyframes rightToShown{
-    0%{
-        left: 0;
-        transform: translateX(100vw);
-    }
-    100%{
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-.shown.goLeft{
-    animation: shownToLeft 500ms ease-out;
-    left: 0;
-    transform: translateX(-100%);
-}
-
-.left{
-    left: 0;
-    transform: translateX(-100%);
-}
-
-.right.goLeft{
-    animation: rightToShown 500ms ease-out;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-@keyframes leftToShown {
-    0%{
+    
+    .left{
         left: 0;
         transform: translateX(-100%);
     }
-    100%{
+    
+    .right.goLeft{
+        animation: rightToShown 500ms ease-out;
         left: 50%;
         transform: translateX(-50%);
     }
-}
-
-.left.goRight{
-    animation: leftToShown 500ms ease-out;
-}
-
-@keyframes shownToRight {
-    0%{
+    
+    @keyframes leftToShown {
+        0%{
+            left: 0;
+            transform: translateX(-100%);
+        }
+        100%{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    
+    .left.goRight{
+        animation: leftToShown 500ms ease-out;
+    }
+    
+    @keyframes shownToRight {
+        0%{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        100%{
+            left: 0;
+            transform: translateX(100vw);
+        }
+    }
+    
+    .shown.goRight{
+        animation: shownToRight 500ms ease-out;
+    }
+    
+    .right{
+        left: 0;
+        transform: translateX(100vw);
+    }
+    
+    .shown{
         left: 50%;
         transform: translateX(-50%);
     }
-    100%{
+    
+    .services__bgImg{
+        display: none;
+    }
+    
+    .services__showCard.right{
         left: 0;
         transform: translateX(100vw);
     }
 }
-
-.shown.goRight{
-    animation: shownToRight 500ms ease-out;
-}
-
-.right{
-    left: 0;
-    transform: translateX(100vw);
-}
-
-.shown{
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 @media screen and (min-width: 768px){
+    .shown{
+        left: 52px;
+        transform: scale(1);
+    }
+
+    .right{
+        left: 160px;
+        transform: scale(0.9);
+    }
+
+    .left{
+        left: -100vw;
+        transform: scale(1);
+    }
+
+    @keyframes shownToLeft{
+        0%{
+            left: 52px;
+            transform: scale(1);
+        }
+        100%{
+            left: -100vw;
+            transform: scale(0.9);
+        }
+    }
+
+    .shown.goLeft{
+        animation: shownToLeft 500ms ease-in;
+        left: -100vw;
+        transform: scale(1);
+    }
+
+    @keyframes rightToShown {
+        0%{
+            left: 160px;
+            transform: scale(0.9);
+        }
+        100%{
+            left: 52px;
+            transform: scale(1);
+        }
+    }
+
+    .right.goLeft{
+        animation: rightToShown 500ms ease-out;
+        left: 52px;
+        transform: scale(1);
+    }
+
+    @keyframes leftToShown {
+        0%{
+            left: -100vw;
+            transform: scale(1);
+        }
+        100%{
+            left: 52px;
+            transform: scale(1);
+        }
+    }
+
+    .left.goRight{
+        animation: leftToShown 500ms ease-out;
+        left: 52px;
+        transform: scale(1);
+    }
+
+    @keyframes shownToRight {
+        0%{
+            left: 52px;
+            transform: scale(1);
+        }
+        100%{
+            left: 160px;
+            transform: scale(0.9);
+        }
+    }
+
+    .shown.goRight{
+        animation: shownToRight 500ms ease-out;
+        left: 160px;
+        transform: scale(0.9);
+    }
+
+    .services__bgImg{
+        display: block;
+        height: 425px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: -1000;
+        transform: translateY(-37%);
+    }
+
     .services{
         position: relative;
         overflow: visible; 
@@ -253,10 +364,6 @@ ion-icon{
         flex-direction: row;
         align-items: center;
         justify-content: center
-    }
-
-    .services__showCard{
-        position: static;
     }
 
     .services__cardkeeper{
@@ -303,15 +410,6 @@ ion-icon{
         left: 453px;
     }
 
-    .services__background{
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.5); 
-        width: 67%;
-        z-index: 0;
-    }
 
     /* .card1 {
         z-index: 3;

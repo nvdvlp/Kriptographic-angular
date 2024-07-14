@@ -38,15 +38,22 @@ export class ServicesComponent implements AfterViewInit{
     this.cardsNodeList = document.querySelectorAll('.services__showCard');
     this.cardsNodeList.forEach((card: any, index) => {
       if(index > 0){
-        card.style.left = `0`
-        card.style.transform = `translateX(100vw)`
         card.classList.add('right')
       } else{
         card.classList.add('shown')
       }
     })
+    this.addzIndexes()
 
     this.fillArrayFromNodeList()
+  }
+
+  addzIndexes(){
+    let startingIndex = this.cardsNodeList.length - 1 
+    this.cardsNodeList.forEach((card: any, index) => {
+      card.style.zIndex = startingIndex
+      startingIndex -=  1;
+    })
   }
 
   fillArrayFromNodeList(){
