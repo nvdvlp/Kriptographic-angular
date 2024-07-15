@@ -72,11 +72,11 @@
 
 
     <div class="services__buttons">
-        <ion-icon name="chevron-back-outline" class="icon disabled" *ngIf="cardPosition == cardArray.length - 1"></ion-icon>
-        <ion-icon name="chevron-back-outline" class="icon" (click)="goLeft()" *ngIf="cardPosition < cardArray.length - 1"></ion-icon>
+        <ion-icon name="chevron-back" class="icon disabled" *ngIf="cardPosition == 0"></ion-icon>
+        <ion-icon name="chevron-back" class="icon" (click)="goRight()" *ngIf="cardPosition > 0"></ion-icon>
         <h2 class="columnCard__tittle switcher">{{currentTitle}}</h2>
-        <ion-icon name="chevron-forward" class="icon disabled" *ngIf="cardPosition == 0"></ion-icon>
-        <ion-icon name="chevron-forward" class="icon" (click)="goRight()" *ngIf="cardPosition > 0"></ion-icon>
+        <ion-icon name="chevron-forward" class="icon disabled" *ngIf="cardPosition == cardArray.length - 1"></ion-icon>
+        <ion-icon name="chevron-forward" class="icon" (click)="goLeft()" *ngIf="cardPosition < cardArray.length - 1"></ion-icon>
     </div>
     <img class="services__bgImg" src="../../../assets/img/bg-pics/background-768.png" alt="Background render of a lone jacket">
 </section>

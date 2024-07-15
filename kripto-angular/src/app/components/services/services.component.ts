@@ -16,16 +16,16 @@ export class ServicesComponent implements AfterViewInit{
   tarjetaActiva: number = 1;
   cardArray: any[] = [
     {
-      title: 'GAMER INSIGHTS',
-      content: 'Harness the power of consumer behavior data to tailor gaming experiences to player preferences.This data-driven approach informs strategic decisions, ensuring that branded content resonates with gamers, drives engagement, and cultivates lasting brand affinity.'
+      title: 'LICENSING NEGOTIATION',
+      content: 'Navigate the complexities of brand licensing with confidence, ensuring access to coveted intellectual property. From iconic fashion houses to trendsetting labels, we secure rights that enhance authenticity and enrich gameplay, empowering studios to create immersive virtual worlds.'
     },
     {
       title: 'AI 3D ASSET CREATION',
       content: 'Transform brands into digital assets with unparalleled realism and detail. Leveraging cutting-edge AI technology, we meticulously craft 3D models of branded apparel and accessories. These assets replicate the aesthetic appeal of real-world products delivering lifelike visuals and enhancing player immersion.'
     },
     {
-      title: 'LICENSING NEGOTIATION',
-      content: 'Navigate the complexities of brand licensing with confidence, ensuring access to coveted intellectual property. From iconic fashion houses to trendsetting labels, we secure rights that enhance authenticity and enrich gameplay, empowering studios to create immersive virtual worlds.'
+      title: 'GAMER INSIGHTS',
+      content: 'Harness the power of consumer behavior data to tailor gaming experiences to player preferences.This data-driven approach informs strategic decisions, ensuring that branded content resonates with gamers, drives engagement, and cultivates lasting brand affinity.'
     },
   ]
   cardPosition: number = 0;

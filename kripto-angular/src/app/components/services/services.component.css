@@ -3,6 +3,7 @@
     width: 100%;
     background-color: #010101;
     justify-content: center;
+    margin-block: 50px;
 }
 @font-face {
     font-family:'Hypermarket';
@@ -26,7 +27,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1300px;
+    max-width: 1024px;
 }
 
 .services__tittle{
@@ -51,7 +52,6 @@ main{
 }
 
 .showCard__rowCard{
-    margin-top: 22px;
     width: 256px;
     display: flex;
     flex-direction: row;
@@ -138,10 +138,11 @@ main{
 
 .services__showCard{
     width: 256px;
-    height: 425px;
+    min-height: 425px;
     background-color: #FFFFFF;
     position: absolute;
     filter:drop-shadow(4px 6px 10px rgba(0,0,0,0.25));
+    padding-block: 22px;
 }
 
 .card1 {
@@ -285,14 +286,20 @@ ion-icon.disabled{
 }
 
 @media screen and (min-width: 768px){
+    :host{
+        margin-block: 100px;
+    }
+
     .shown{
         left: 52px;
         transform: scale(1);
+        filter: blur(0);
     }
 
     .right{
         left: 160px;
         transform: scale(0.9);
+        filter: blur(2px);
     }
 
     .left{
@@ -321,10 +328,12 @@ ion-icon.disabled{
         0%{
             left: 160px;
             transform: scale(0.9);
+            filter: blur(2px);
         }
         100%{
             left: 52px;
             transform: scale(1);
+            filter: blur(0);
         }
     }
 
@@ -332,6 +341,7 @@ ion-icon.disabled{
         animation: rightToShown 500ms ease-out;
         left: 52px;
         transform: scale(1);
+        filter: blur(0);
     }
 
     @keyframes leftToShown {
@@ -370,12 +380,12 @@ ion-icon.disabled{
 
     .services__bgImg{
         display: block;
-        height: 425px;
+        height: 588px;
         position: absolute;
         top: 50%;
         right: 0;
         z-index: -1000;
-        transform: translateY(-25%);
+        transform: translateY(-33%);
     }
 
     .services{
@@ -463,9 +473,9 @@ ion-icon.disabled{
 
 }
 
-@media screen and (min-width: 1235px){
+/* @media screen and (min-width: 1235px){
     .services{
         max-width: 1139px;
         margin-left: -35px;
     }
-}
+} */
