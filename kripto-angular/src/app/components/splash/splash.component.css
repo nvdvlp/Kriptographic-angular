@@ -46,6 +46,14 @@ header::before {
     z-index: -1;
 }
 
+@media screen and (min-width: 1300px) {
+    header{
+        overflow: hidden;
+        border-bottom-left-radius: 35px;
+        border-bottom-right-radius: 35px;
+    }
+}
+
 .ham-menu{
     width: 35px;
     display: flex;
