@@ -23,7 +23,7 @@
     </div>
 
     <main>
-        <form [formGroup]="userForm">
+        <form [formGroup]="userForm" (ngSubmit)="send()">
             <label for="">Brand, Studio, Gamer?</label>
             <select name="typeBrandStudio&Game" id="" formControlName="typeSelect">
                 <option *ngFor="let option of arraySelect" [value]="option">{{option}}</option>
@@ -37,18 +37,19 @@
 
             <label for="">Email*</label>
             <input class="input" type="text" formControlName="userEmail">
-        </form>
 
+            <div class="contactUs__centerButton">
+                <button type="submit">Submit</button>
+                <!-- <p id="button_text">JUST SUBMIT, FOR NOW</p> -->
+            </div>
+        </form>
+        {{userForm.value | json}}
         <!-- <div class="contactUs__centerCheckbox">
             <input type="checkbox" id="checkb" [(ngModel)]="terms" [ngModelOptions]="{standalone: true}">
             <label for="checkb"></label>
             <p id="aceptTermsConditions">Terms and Conditions</p>
         </div> -->
 
-        <div class="contactUs__centerButton">
-            <button [disabled]="userForm.invalid">Submit</button>
-            <!-- <p id="button_text">JUST SUBMIT, FOR NOW</p> -->
-        </div>
     </main>
 
 

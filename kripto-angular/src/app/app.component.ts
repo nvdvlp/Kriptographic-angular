@@ -21,7 +21,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     FormsModule,
     HamMenuComponent,
     ServicesComponent,
-    LoaderComponent
+    LoaderComponent,
+    
   ] ,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
