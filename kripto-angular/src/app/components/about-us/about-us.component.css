@@ -1,221 +1,210 @@
-h1{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: white;
-}
-
 .aboutUs{
     width: 100%;
     min-height: 100%;
-    background-color: #010101;
+    background: linear-gradient(to bottom, #00040C 54%, #595AA0 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
 
-.aboutUs-container{
-    z-index: 1;
-    max-width: 653px;
-    padding-inline: 25px;
+.aboutUs__container {
+    padding-inline: 43px;
 }
 
-#div{
-    position: relative;
-    top: 100px;
-    z-index: 0;
+.aboutUs__title {
+    font-size: 60px;
+    font-weight: 600;
+    font-family: Lufga;
+    color: #00FFA9;
+    text-align: start;
+    margin-top: 25px;
+    margin-bottom: 41px;
 }
 
-.aboutUs__tittle{
-    font-size: 32px;
+.greenColor {
+    color: #00FFA9 !important;
+}
+
+.fashion {
+    font-family: 'Garmond' !important;
+    color: #7071E7 !important;
+    font-size: 23px !important;
+    font-weight: 500 !important;
+}
+
+.aboutUs__text {
+    text-align: start;
+    font-size: 18px;
     font-weight: 500;
-    font-family: Medium;
-    background-image: linear-gradient(to right, #F8F1F8 50%, #798F83 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    margin-top: 35px;
-    margin-bottom: 35px;
-}
-
-@media screen and (min-width: 520px) and (max-width: 1235px){
-    .aboutUs__tittle{
-        /* position: sticky; */
-        top: 30px; 
-        z-index: 3;
-    }
-}
-
-.aboutUs__text{
-    font-size: 16px;
-    font-weight: 500;
-    font-family: "Poppins", sans-serif;
-    text-align: center;
+    font-family: Lufga;
     color: #fff;
-    margin-bottom:26px;
-    max-width: 497px;
 }
 
-.aboutUs__nextSectionContainer{
-    width: 251px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.a1 {
+    margin-bottom: 17px;
 }
 
-.aboutUs__circleNext{
-    width:23px;
-    height:23px;
-    border-radius: 50%;
-    border: 1px solid #BFDFBC;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.aboutUs__playIcon{
-    padding: 0;
-    height: 10px;
-    width: 10px;
-}
-
-.backward{
-    transform: rotate(-178deg);
-}
-
-.aboutUs__dottedLine{
-    width:203px;
-    height: 1px;
-    background-image: linear-gradient(to right, #BFDFBC 50%, transparent 50%);
-    background-size: 4px 1px;
-}
-
-.imgContainer{
+.aboutUs__jacketsPosition {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 23px;
 }
 
-.aboutUs__3dJacket{
-    width: 300px;
+/* .jacketsPosition__v1{
+    width: 311px;
+    height: 283px;
+} */
+
+.jacketsPosition__v2 {
+    width: 90px;
+    height: 67px;
+    padding-right: 22px;
 }
 
-@media (min-width: 768px) {
-    /* .aboutUs{
-        flex-direction: row;
-        height: auto;
-        position: relative;
-        overflow-x: hidden;
-        overflow-y: hidden;
-    } */
-    .aboutUs__secondTittle {
-        font-size: 16px;
+.aboutUs__textEnd {
+    text-align: end;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Lufga;
+    padding-inline: 43px;
+    color: #fff;
+    margin-bottom:18px;
+}
+
+.aboutUs__pendantContainer {
+    margin-top: 20px;
+}
+
+.aboutUs__pendantContainer {
+    width: 100%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: start; */
+}
+
+.aboutUs__pendant{
+    position: relative;
+    z-index: 1;
+    top: 13px;
+}
+
+.aboutUs__pendantFloor{
+    width: 100%;
+    height: 39px;
+    position: relative;
+    z-index: 0;
+    background-color: #0E0F08;
+}
+
+@media screen and (min-width: 768px) {
+    .aboutUs__title {
+        font-size: 115px;
     }
 
-    .aboutUs__tittle{
+    .aboutUs__container {
+        padding-inline: 104px;
+    }
+
+    .aboutUs__text {    
         font-size: 40px;
-        margin-bottom: 95px;
     }
 
-    .aboutUs__text{
-        font-size: 20px;
-        /* text-align: start; */
+    .aboutUs__textEnd {
+        font-size: 40px;
+        padding-inline: 104px;
     }
 
-    .dott{
-        margin-bottom:34px;
+    .fashion {
+        font-size: 48px !important;
+    }
+    
+    .logoText {
+        width:114px;
+        height: 42px;
+    }
+    
+    .jacketsPosition__v1{
+        width: 311px;
+        height: 283px;
     }
 
-    .aboutUs__nextSectionContainer{
-        padding-left: 37px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
+    .jacketsPosition__v2 {
+        width: 272px;
+        height: 186px;
+        padding-right: 82px;
     }
 
-    .aboutUs__circleNext{
-        width: 39px;
-        height:39px;
-        border-radius: 50%;
-    }
-
-    .aboutUs__playIcon{
-        padding: 0;
-        height: 16px;
-        width: 16px;
-    }
-
-    .aboutUs__dottedLine{
-        width:334px;
-    }
-
-    .midSection{
-        justify-content: center;
+    .aboutUs__pendant {
+        width: 500px;
+        height: 500px;
+        position: relative;
         z-index: 1;
-        position:relative;
+        top: 27px;
     }
-
-    .aboutUs__3dJacket{
-        width: 570px;
-        height: auto;
-        /* position: absolute;
-        top: 50%;
-        right: -328px;
-        transform: translateY(-50%); */
-        margin-top: 80px;
-    }
-
-    #div{
-        position: absolute;
-        top: 40px;
+    
+    .aboutUs__pendantFloor {
+        width: 100%;
+        height: 31px;
+        position: relative;
+        z-index: 0;
+        background-color: #0E0F08;
     }
 }
-@media(min-width: 1024px){
-  .aboutUs__3dJacket{
-      width: 510px;
-      height: auto;
-      /* position: absolute;
-      top: 50%;
-      right: -77px;
-      transform: translateY(-50%); */
-  }
-}
 
-@media (min-width: 1235px) {
-    .aboutUs{
-        flex-direction: row;
-        height: auto;
+@media screen and (min-width: 1728px) {
+    .aboutUs__title {
+        font-size: 200px;
+    }
+
+    .aboutUs__container {
+        padding-left: 120px;
+    }
+
+    .aboutUs__text {    
+        font-size: 40px;
+    }
+
+    .aboutUs__textEnd {
+        font-size: 32px;
+        padding-inline: 200px;
+    }
+
+    .fashion {
+        font-size: 42px !important;
+    }
+    
+    .logoText {
+        width:84px;
+        height: 31px;
+    }
+    
+    .jacketsPosition__v1{
+        width: 311px;
+        height: 283px;
+    }
+
+    .jacketsPosition__v2 {
+        width: 272px;
+        height: 186px;
+        padding-right: 82px;
+    }
+
+    .aboutUs__pendant {
+        width: 500px;
+        height: 500px;
         position: relative;
-        justify-content: center;
-        gap: 55px;
-        align-items: center;
+        z-index: 1;
+        top: 27px;
     }
-
-    .aboutUs__text{
-        font-size: 20px;
-        text-align: start;
-    }
-
-    .aboutUs__tittle{
-        font-size: 54px;
-        text-align: start;
-        margin-bottom: 55px;
-    }
-
-    .aboutUs__3dJacket{
+    
+    .aboutUs__pendantFloor {
+        width: 100%;
+        height: 31px;
         position: relative;
-        top: 50px;
+        z-index: 0;
+        background-color: #0E0F08;
     }
 }

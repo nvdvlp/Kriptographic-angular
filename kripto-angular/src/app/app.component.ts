@@ -31,14 +31,13 @@ export class AppComponent implements OnInit {
   title = 'Kriptographic';
   showLoader: boolean = true;
   fontLoaded: boolean = false;
-  gifLoaded: boolean = false;
 
   ngOnInit(): void {
     const font = new FontFace('Medium', 'url(assets/fonts/Medium/medium.otf)');
     const thisa = this;
 
     const interval = setInterval((): any => {
-      if(this.fontLoaded && this.gifLoaded){
+      if(this.fontLoaded){
         this.showLoader = false;
         console.log("closed interval")
         clearInterval(interval)
@@ -50,7 +49,7 @@ export class AppComponent implements OnInit {
       document.fonts.add(loadedFont);
     
       thisa.fontLoaded = true
-      if(thisa.fontLoaded && thisa.gifLoaded){
+      if(thisa.fontLoaded){
         thisa.showLoader = false;
       }
     }).catch(function(error) {
@@ -59,8 +58,7 @@ export class AppComponent implements OnInit {
   }
 
   checkLoads(){
-    this.gifLoaded = true;
-    if(this.fontLoaded && this.gifLoaded){
+    if(this.fontLoaded){
       this.showLoader = false;
     }
   }

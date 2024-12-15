@@ -1,182 +1,140 @@
-:host{
-    display: flex;
-    width: 100%;
-    background-color: #010101;
-    justify-content: center;
-    margin-block: 50px;
-}
-@font-face {
-    font-family:'Hypermarket';
-    src: url('../../../assets/fonts/hypermarket/Hypermarket-Exp.ttf') format('truetype');
-}
-
-h2, p{
-    margin: 0;
-    padding: 0;
-}
-
-main{
-    width: 100%;
-    max-width: 497px;
-}
-
 .services{
     width: 100%;
     min-height: 100%;
-    background-color: #010101;
+    background-color: #595AA0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    max-width: 1024px;
 }
 
-.services__tittle{
-    font-size: 32px;
-    font-weight: 500;
-    font-family: Medium;
-    background-image: linear-gradient(to right, #F8F1F8 50%, #798F83 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    margin-top: 35px;
-    margin-bottom: 86px;
+.services__title{
+    width: 288px;
+    font-size: 60px;
+    font-weight: 600;
+    font-family: Lufga;
+    color: #00FFA9;
+    text-align: start;
+    margin-top: 38px;
+    margin-bottom: 25px;
 }
 
-.services__cards{
-    width: 100%;
-    max-width: 100%;
-    min-height: 425px;
+.services__cardsContainer{
     position: relative;
-    overflow: hidden;
-}
-
-.showCard__rowCard{
-    width: 256px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.rowCard__xl{
-    padding-left: 28px;
-}
-
-.rowCard__qr{
-    padding-right:20px ;
-}
-
-.rowCard__circle{
-    width:28px;
-    height: 28px;
-    border-radius: 50%;
-    background-color: #0B090E;
-}
-
-.showCard__columnCard{
-    width: 256px;
-    display: flex;
-    flex-direction: column;
-    align-items: center ;
-}
-
-.columnCard__tittle{
-    font-size: 32px;
-    font-weight:500;
-    font-family: 'Hypermarket';
-    color: #000000;
-    padding-left: 18px;
-    margin-bottom: 20px;
-}
-
-.columnCard__text{
-    font-size: 12px;
-    font-weight:500;
-    font-family: 'Hypermarket';
-    align-content: start;
-    color: #050505;
-    padding-inline: 18px;
-    margin-bottom:17px;
-}
-
-.columnCard__barcode{
-    width: 218px;
-}
-
-.services__buttons{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 35px;
-    margin-bottom: 10px;
-    max-width: 256px;
-    max-height: 30px;
-}
-
-.services__left{
-    width:36px;
-    height:36px;
-    border-radius: 50%;
-    background-color: #09090A;
-    border: 1px solid #fff ;
+    min-height:412px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right:44px;
-    transform: rotate(90deg);
 }
 
-.services__right{
-    transform: rotate(90deg);
-}
-
-.services__background{
-    display: none;
-}
-
-.services__showCard{
-    width: 256px;
-    min-height: 425px;
-    background-color: #FFFFFF;
+.cardsContainer__card{
     position: absolute;
-    filter:drop-shadow(4px 6px 10px rgba(0,0,0,0.25));
-    padding-block: 22px;
+    width: 288px;
+    height: 277px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 27px;
+    padding-top: 16px;
+    padding-bottom: 31px;
+    background-color: #FFFFFF;
+    filter: drop-shadow(4px 6px 10px rgba(0, 0, 0, 0.25));
+    
+}
+
+.card__title{
+    font-size: 36px;
+    font-weight:600;
+    font-family: 'Lufga';
+    color: #7071E7;
+    text-align: start;
+    margin-bottom:19px;
+    padding-left:14px;
+    word-spacing: 0px;
+    line-height: 36px;
+
+}
+
+.card__text{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "LufgaLight";
+    align-content: start;
+    color: #1D1D26;
+    padding-left: 14px;
+    word-spacing: -3px;
+    line-height: 17.5px;
+    margin-bottom:27px;
 }
 
 .card1 {
+    transform: rotate(3deg); 
     z-index: 3;
     top: 0;
     transition: transform 0.2s;
 }
 
 .card2 {
-  z-index: 2;
-  top: 33px; 
-  transition: transform 0.2s;
+    transform: rotate(-4.25deg); 
+    z-index: 2;
+    top: 10px;
+    transition: transform 0.2s;
 }
 
 .card3 {
-  z-index: 1;
-  transition: transform 0.2s;
+    transform: rotate(5.21deg); 
+    z-index: 1;
+    top: 0px;
+    transition: transform 0.2s;
 }
 
-.services__cardkeeper{
-    display: none;
+.cardsContainer__divisionLine {
+    border-top: 1px dotted #1D1D26;
+    width: 231.99px;
+    height: 0;
 }
 
-.icon{
+.cardsContainer__barcodeContainer {
+    width: 289px;
+    min-height: 88px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 27px;
+    background-color: #FFFFFF;
+}
+
+.barcodeContainer__barcode{
+    width: 250px; 
+    height: 60px; 
+    object-fit: contain; 
+}
+
+.services__buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 74px;
+}
+
+.right{
     font-size: 30px;
-    color: white;
-    margin-inline: -10px;
+    color: #E7E7E7;
+    margin-right: 36px;
 }
 
-ion-icon.disabled{
-    color: rgb(121, 121, 121);
+.left{
+    font-size: 30px;
+    color: #00FFA9;
 }
 
-.switcher{
+/* .services__cardkeeper{
+    display: none;
+} */
+
+/* .switcher{
     font-size: 19px;
     display: flex;
     justify-content: center;
@@ -192,290 +150,5 @@ ion-icon.disabled{
 
 .dissapear{
     opacity: 0;
-}
-
-
-@media screen and (max-width: 767px){
-    @keyframes shownToLeft{
-        0%{
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        100%{
-            left: 0;
-            transform: translateX(-100%);
-        }
-    }
-    
-    @keyframes rightToShown{
-        0%{
-            left: 0;
-            transform: translateX(100vw);
-        }
-        100%{
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    }
-    
-    .shown.goLeft{
-        animation: shownToLeft 500ms ease-out;
-        left: 0;
-        transform: translateX(-100%);
-    }
-    
-    .left{
-        left: 0;
-        transform: translateX(-100%);
-    }
-    
-    .right.goLeft{
-        animation: rightToShown 500ms ease-out;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    @keyframes leftToShown {
-        0%{
-            left: 0;
-            transform: translateX(-100%);
-        }
-        100%{
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    }
-    
-    .left.goRight{
-        animation: leftToShown 500ms ease-out;
-    }
-    
-    @keyframes shownToRight {
-        0%{
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        100%{
-            left: 0;
-            transform: translateX(100vw);
-        }
-    }
-    
-    .shown.goRight{
-        animation: shownToRight 500ms ease-out;
-    }
-    
-    .right{
-        left: 0;
-        transform: translateX(100vw);
-    }
-    
-    .shown{
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .services__bgImg{
-        display: none;
-    }
-    
-    .services__showCard.right{
-        left: 0;
-        transform: translateX(100vw);
-    }
-}
-
-@media screen and (min-width: 768px){
-    :host{
-        margin-block: 100px;
-    }
-
-    .shown{
-        left: 52px;
-        transform: scale(1);
-        filter: blur(0);
-    }
-
-    .right{
-        left: 160px;
-        transform: scale(0.9);
-        filter: blur(2px);
-    }
-
-    .left{
-        left: -100vw;
-        transform: scale(1);
-    }
-
-    @keyframes shownToLeft{
-        0%{
-            left: 52px;
-            transform: scale(1);
-        }
-        100%{
-            left: -100vw;
-            transform: scale(0.9);
-        }
-    }
-
-    .shown.goLeft{
-        animation: shownToLeft 500ms ease-in;
-        left: -100vw;
-        transform: scale(1);
-    }
-
-    @keyframes rightToShown {
-        0%{
-            left: 160px;
-            transform: scale(0.9);
-            filter: blur(2px);
-        }
-        100%{
-            left: 52px;
-            transform: scale(1);
-            filter: blur(0);
-        }
-    }
-
-    .right.goLeft{
-        animation: rightToShown 500ms ease-out;
-        left: 52px;
-        transform: scale(1);
-        filter: blur(0);
-    }
-
-    @keyframes leftToShown {
-        0%{
-            left: -100vw;
-            transform: scale(1);
-        }
-        100%{
-            left: 52px;
-            transform: scale(1);
-        }
-    }
-
-    .left.goRight{
-        animation: leftToShown 500ms ease-out;
-        left: 52px;
-        transform: scale(1);
-    }
-
-    @keyframes shownToRight {
-        0%{
-            left: 52px;
-            transform: scale(1);
-        }
-        100%{
-            left: 160px;
-            transform: scale(0.9);
-        }
-    }
-
-    .shown.goRight{
-        animation: shownToRight 500ms ease-out;
-        left: 160px;
-        transform: scale(0.9);
-    }
-
-    .services__bgImg{
-        display: block;
-        height: 588px;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        z-index: -1000;
-        transform: translateY(-33%);
-    }
-
-    .services{
-        position: relative;
-        overflow: visible; 
-        width: 100%; 
-        z-index: 1;
-    }
-
-    .services__cards{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center
-    }
-
-    .services__cardkeeper{
-        width: 212px;
-        height: 339px;
-        background-color: #FFF;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        z-index: 1;
-    }
-
-    .services__circle{
-        width:28px;
-        height: 28px;
-        border-radius: 50%;
-        background-color: #0B090E;
-        margin-top: 20px;
-    }
-
-    .services__ia{
-        font-size: 21px;
-        font-weight:500;
-        font-family: 'Hypermarket';
-        align-content: start;
-        color: #000;
-        text-align: center;
-    }
-
-    .services__kriptographic{
-        font-size: 8px;
-        font-weight:500;
-        font-family: 'Hypermarket';
-        align-content: start;
-        color: #050505;
-        margin-bottom:14px;
-    }
-
-    .stackedCards{
-        display: block;
-        position: absolute;
-        z-index: 3;
-        left: 453px;
-    }
-
-
-    /* .card1 {
-        z-index: 3;
-        top: 85px;
-      }
-    
-      .card2 {
-        z-index: 2;
-        top: 42px; 
-      }
-    
-      .card3 {
-        z-index: 1;
-        top: 86px; 
-      } */
-
-      .services__buttons{
-        position: absolute;
-        z-index: 3;
-        bottom: -55px;
-        left: 52px;
-        margin: 0;
-      }
-
-}
-
-/* @media screen and (min-width: 1235px){
-    .services{
-        max-width: 1139px;
-        margin-left: -35px;
-    }
 } */
+

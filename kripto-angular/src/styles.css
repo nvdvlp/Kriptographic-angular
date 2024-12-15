@@ -18,6 +18,11 @@ canvas{
     touch-action: auto !important;
 }
 
+h2, p{
+    margin: 0;
+    padding: 0;
+}
+
 *{
     margin: 0;
     box-sizing: border-box;
@@ -28,4 +33,38 @@ canvas{
     src: url('assets/fonts/Medium/medium.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lufga';
+    src: url('assets/fonts/lufga/LufgaMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LufgaLight';
+    src: url('assets/fonts/lufga/LufgaLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'LufgaBold';
+    src: url('assets/fonts/lufga/LufgaBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Garmond';
+    src: url('assets/fonts/Garamond/ITC\ Garamond\ Std\ Light\ Condensed.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+strong{
+    color: #7071E7;
+    font-family: 'LufgaBold';
 }
