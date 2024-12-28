@@ -33,33 +33,5 @@ export class AppComponent implements OnInit {
   fontLoaded: boolean = false;
 
   ngOnInit(): void {
-    const font = new FontFace('Medium', 'url(assets/fonts/Medium/medium.otf)');
-    const thisa = this;
-
-    const interval = setInterval((): any => {
-      if(this.fontLoaded){
-        this.showLoader = false;
-        console.log("closed interval")
-        clearInterval(interval)
-      }
-    }, 0o5)
-    // Load the font
-    font.load().then(function(loadedFont) {
-      // @ts-ignore
-      document.fonts.add(loadedFont);
-    
-      thisa.fontLoaded = true
-      if(thisa.fontLoaded){
-        thisa.showLoader = false;
-      }
-    }).catch(function(error) {
-      console.error('Font failed to load:', error);
-    });
-  }
-
-  checkLoads(){
-    if(this.fontLoaded){
-      this.showLoader = false;
-    }
   }
 }

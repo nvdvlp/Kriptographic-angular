@@ -1,114 +1,170 @@
+/* CODE MOBILE */
 :host{
     display: block;
-    height: 100%;
+    min-height: 100%;
+    height: 852px;
     width: 100%;
-    background-color: #010101;
+    padding-top: 63.5px;
+    padding-left: 45px;
+    background: linear-gradient(180deg, #070707 46%, #00040C 100%);
+    overflow-x: hidden;
+    position: relative;
+    /* overflow-y: visible; */
 }
 
-#sphere{
-    position: absolute;
-    z-index: 0;
-}
-
-:host > div{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    padding-inline: 25px;
-    padding-block: 30px;
-}
-
-header{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0px;
-    padding-block: 30px;
-    padding-inline: 25px;
-    z-index: 2;
-    max-width: 1300px;
-}
-
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(9, 9, 10, 0.5);
-    backdrop-filter: blur(2px); 
-    z-index: -1;
-}
-
-@media screen and (min-width: 1300px) {
-    header{
-        overflow: hidden;
-        border-bottom-left-radius: 35px;
-        border-bottom-right-radius: 35px;
-    }
-}
-
-.ham-menu{
-    width: 35px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-}
-
-.patty{
-    width: 100%;
-    height: 3px;
-    background-color: #bce3a4;
-}
-
-img{
-    height: 37px;
-}
-
-.splash-title{
-    font-family: 'Medium';
-    color: white;
-    width: min-content;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+.splash__logoSrcSet{
+    position: relative;
     z-index: 1;
 }
 
-.splash-text{
-    font-family: 'Poppins';
-    color: #6C786A;
-    text-align: center;
-    font-size: 12px;
+.splash__bannerText{
+    color: #7071E7;
+    font-size: 29px;
+    font-family: Lufga;
+    font-weight: 400;
+    line-height: 28px;
+    word-wrap: break-word;
+    position: relative;
+    z-index: 1;
+    max-width: 265px;
 }
 
-#splashCanvas{
+.splash__callToAction{
+    color: #E9EDFF;
+    font-size: 47px;
+    font-family: Lufga;
+    font-weight: 700;
+    line-height: 39px;
+    word-wrap: break-word;
+}
+
+.splash__kripto{
+    color: #00FFA9;
+    font-size: 60px;
+    font-family: Lufga;
+    font-weight: 700;
+    line-height: 39px;
+    word-wrap: break-word;
+}
+
+.bannerText__fancy{
+    color: #F0F3FF;
+    font-size: 36px;
+    font-family: Garamond;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.splash__bannerJacket{
+    width: 525px;
+    margin-left: -45px;
     position: absolute;
-    top: 0;
-    filter: blur(50px);
+    right: -65px;
+    top: 327px;
+    z-index: 1;
 }
 
-@media screen and (min-width: 768px){
-    .splash-title{
-        font-size: 91px;
+.splash__kgLogo{
+    position: absolute;
+    top: -14px;
+    right: -57px;
+    width: 218px;
+    z-index: 0;
+}
+
+.splash__balenci{
+    width: 184px;
+    position: absolute;
+    right: 77px;
+    top: 422px;
+
+    transform: rotate(-5.44deg);
+    transform-origin: 0 0;
+    /* box-shadow: 2px 2px 2px; */
+    filter: blur(1px);
+}
+
+.splash__lv{
+    width: 58px;
+    transform: rotate(1.56deg);
+    transform-origin: 0 0;
+    /* box-shadow: 1px 1px 1px; */
+    filter: blur(0.8px);
+    position: absolute;
+    top: 420px;
+    right: 318px;
+}
+
+.splash__northFace{
+    width: 101px;
+    transform: rotate(-7.19deg);
+    transform-origin: 0 0;
+    /* box-shadow: 2px 2px 2px; */
+    filter: blur(1px);
+    position: absolute;
+    top: 770px;
+    right: 232px;
+}
+
+.splash__gucci{
+    width: 52px;
+    transform: rotate(-5.78deg);
+    transform-origin: 0 0;
+    /* box-shadow: 1px 1px 1px; */
+    filter: blur(0.8px);
+    position: absolute;
+    top: 541px;
+    right: 11px;
+}
+
+/* BREAKPOINT MOBILE 2 */
+@media screen and (min-width: 730px) {
+    :host{
+        height: 606px;
+    }
+
+    .splash__bannerJacket{
+        bottom: 0;
+        right: calc(-65px - 42px);
+        top: unset;
+    }
+    
+    .splash__balenci{
+        bottom: 352px;
+        right: calc(77px - 42px);
+        top: unset;
+    }
+    
+    .splash__lv{
+        bottom: 374px;
+        right: calc(420px - 135px);
+        top: unset;
+    }
+    
+    .splash__northFace{
+        bottom: 15px;
+        right: calc(232px - 42px);
+        top: unset;
+    }
+    
+    .splash__gucci{
+        bottom: 255px;
+        top: unset;
     }
 }
 
-app-ham-menu{
-    transition: 300ms left;
-    left: -100%;
-    position: fixed;
-    top: 0
+/* BREAKPOINT TABLET */
+@media screen and (min-width: 1024px) {
+    :host{
+        padding-top: 61.7px;
+        padding-left: 60px;
+    }
 }
 
-.show{
-    left: 0;
+/* BREAKPOINT LANDSCAPER */
+@media screen and (min-width: 1728px) {
+    :host{
+        padding-top: 202.5px;
+        padding-left: 202px;
+    }
 }
