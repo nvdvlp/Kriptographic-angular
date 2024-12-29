@@ -6,10 +6,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
 }
 
 .aboutUs__container {
     padding-inline: 43px;
+    margin-bottom: 220px;
 }
 
 .aboutUs__title {
@@ -39,43 +41,51 @@
     font-weight: 500;
     font-family: Lufga;
     color: #fff;
+    max-width: 307px;
 }
 
 .a1 {
     margin-bottom: 17px;
 }
 
-.aboutUs__jacketsPosition {
+/* .aboutUs__jacketsPosition {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 23px;
-}
-
-/* .jacketsPosition__v1{
-    width: 311px;
-    height: 283px;
 } */
 
+.jacketsPosition__v1 {
+    position: absolute;
+    width: 317px;
+    top: 297px;
+    transform: rotate(-12deg);
+    left: -111px;
+}
+
 .jacketsPosition__v2 {
-    width: 90px;
-    height: 67px;
-    padding-right: 22px;
+    position: absolute;
+    height: 154px;
+    top: 327px;
+    left: 242px;
+    transform: rotate(5deg);
 }
 
 .aboutUs__textEnd {
     text-align: end;
+    width: 100%;
     font-size: 18px;
     font-weight: 500;
     font-family: Lufga;
     padding-inline: 43px;
     color: #fff;
-    margin-bottom:18px;
+    margin-bottom: 18px;
+    max-width: 307px;
+    margin-top: 26px;
 }
 
 .aboutUs__pendantContainer {
-    margin-top: 20px;
 }
 
 .aboutUs__pendantContainer {
@@ -88,33 +98,38 @@
 .aboutUs__pendant{
     position: relative;
     z-index: 1;
-    top: 13px;
+    top: 62px;
+    width: 472px;
+    
 }
 
 .aboutUs__pendantFloor{
     width: 100%;
-    height: 39px;
+    height: 45px;
     position: relative;
     z-index: 0;
-    background-color: #0E0F08;
+    background-color: #080805;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     .aboutUs__title {
         font-size: 115px;
     }
 
     .aboutUs__container {
         padding-inline: 104px;
+        margin-bottom: 362px;
     }
 
     .aboutUs__text {    
         font-size: 40px;
+        max-width: 1024px;
     }
 
     .aboutUs__textEnd {
         font-size: 40px;
         padding-inline: 104px;
+        max-width: 1024px;
     }
 
     .fashion {
@@ -127,14 +142,17 @@
     }
     
     .jacketsPosition__v1{
-        width: 311px;
-        height: 283px;
+        width: 495px;
+        top: 511px;
+        transform: rotate(-12deg);
+        left: -111px;
     }
 
     .jacketsPosition__v2 {
-        width: 272px;
-        height: 186px;
-        padding-right: 82px;
+        height: 297px;
+        top: 511px;
+        left: 772px;
+        transform: rotate(5deg);
     }
 
     .aboutUs__pendant {
@@ -142,12 +160,11 @@
         height: 500px;
         position: relative;
         z-index: 1;
-        top: 27px;
+        top: 69px;
     }
     
     .aboutUs__pendantFloor {
         width: 100%;
-        height: 31px;
         position: relative;
         z-index: 0;
         background-color: #0E0F08;
@@ -164,12 +181,14 @@
     }
 
     .aboutUs__text {    
-        font-size: 40px;
+        font-size: 32px;
+        max-width: 1520px;
     }
 
     .aboutUs__textEnd {
         font-size: 32px;
         padding-inline: 200px;
+        max-width: 1520px;
     }
 
     .fashion {
@@ -208,3 +227,4 @@
         background-color: #0E0F08;
     }
 }
+    
