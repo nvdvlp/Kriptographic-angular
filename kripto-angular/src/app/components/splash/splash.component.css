@@ -1,8 +1,9 @@
 /* CODE MOBILE */
 :host{
-    display: block;
+    display: flex;
+    justify-content: center;
     min-height: 100%;
-    height: 852px;
+    height: 922px;
     width: 100%;
     padding-top: 63.5px;
     padding-left: 45px;
@@ -10,6 +11,12 @@
     overflow-x: hidden;
     position: relative;
     /* overflow-y: visible; */
+}
+
+.splash__globalWrapper{
+    width: 100%;
+    position: relative;
+    max-width: 464px;
 }
 
 .splash__logoSrcSet{
@@ -66,7 +73,7 @@
 
 .splash__kgLogo{
     position: absolute;
-    top: -14px;
+    top: -76px;
     right: -57px;
     width: 218px;
     z-index: 0;
@@ -117,40 +124,8 @@
     right: 11px;
 }
 
-/* BREAKPOINT MOBILE 2 */
-@media screen and (min-width: 730px) {
-    :host{
-        height: 606px;
-    }
-
-    .splash__bannerJacket{
-        bottom: 0;
-        right: calc(-65px - 42px);
-        top: unset;
-    }
-    
-    .splash__balenci{
-        bottom: 352px;
-        right: calc(77px - 42px);
-        top: unset;
-    }
-    
-    .splash__lv{
-        bottom: 374px;
-        right: calc(420px - 135px);
-        top: unset;
-    }
-    
-    .splash__northFace{
-        bottom: 15px;
-        right: calc(232px - 42px);
-        top: unset;
-    }
-    
-    .splash__gucci{
-        bottom: 255px;
-        top: unset;
-    }
+.landscape{
+    display: none;
 }
 
 /* BREAKPOINT TABLET */
@@ -158,6 +133,70 @@
     :host{
         padding-top: 61.7px;
         padding-left: 60px;
+        height: 1484px;
+        display: flex;
+        justify-content: center;
+    }
+    .splash__globalWrapper{
+        max-width: 1024px;
+        position: relative;
+    }
+
+    .splash__bannerText{
+        margin-top: 54px;
+        font-size: 45px;
+        line-height: 39px;
+        max-width: 620px;
+        z-index: 2;
+    }
+
+    .splash__callToAction{
+        font-size: 130px;
+        line-height: 106px;
+    }
+
+    .bannerText__fancy{
+        font-size: 58px;
+    }
+
+    .splash__bannerJacket{
+        width: 895px;
+        right: 130px;
+        top: 522px;
+        z-index: 1;
+    }
+
+    .splash__kgLogo{
+        width: 444px;
+        right: -26px;
+        top: -82px;
+    }
+
+    .splash__balenci{
+        width: 344px;
+        top: 626px;
+        right: 318px;
+        filter: blur(1.8px);
+    }
+
+    .splash__lv{
+        width: 121px;
+        right: 947px;
+        top: 761px;
+        transform: rotate(-16.04deg); transform-origin: 0 0;
+        filter: blur(1px);
+    }
+
+    .splash__northFace{
+        width: 196px;
+        top: 1186px;
+        right: 748px;
+    }
+
+    .splash__gucci{
+        width: 172px;
+        right: 53px;
+        top: 853px;
     }
 }
 
@@ -166,5 +205,71 @@
     :host{
         padding-top: 202.5px;
         padding-left: 202px;
+        height: 1500px;
+    }
+    
+    .splash__globalWrapper{
+        max-width: 1728px;
+    }
+    
+    .splash__callToAction{
+        display: none;
+    }
+    
+    .landscape{
+        display: inline-block;
+        font-size: 65px;
+        line-height: 65px;
+        margin-bottom: 3px;
+    }
+    
+    .splash__bannerText{
+        font-size: 38px;
+        line-height: 34px;
+        margin-top: 41px;
+    }
+
+    .bannerText__fancy{
+        font-size: 52px;
+        line-height: 32px;
+    }
+
+    .splash__bannerJacket{
+        width: 1139px;
+        top: -223px;
+        right: -263px;
+    }
+
+    .splash__kgLogo{
+        width: 434px;
+        top: -207px;
+        left: -213px;
+        right: unset;
+    }
+
+    .splash__balenci{
+        width: 515px;
+        top: calc(881px - 202px);
+        right: 831px;
+        filter: blur(1px);
+    }
+
+    .splash__lv{
+        width: 160px;
+        right: 1352px;
+        top: calc(656px - 202px);
+    }
+
+    .splash__northFace{
+        width: 283px;
+        right: 525px;
+        top: calc(663px - 202px);
+        transform: rotate(22.56deg); transform-origin: 0 0
+    }
+
+    .splash__gucci{
+        width: 195px;
+        top: calc(39px - 202px);
+        right: 275px;
     }
 }
