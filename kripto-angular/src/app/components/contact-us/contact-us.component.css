@@ -1,345 +1,177 @@
-h2, p{
-    margin: 0;
-    padding: 0;
-}
-
-main{
-    width: 100%;
-    max-width: 497px;
-    margin-top: 77px;
-}
-
-.contactUs{
-    width: 100%;
+:host{
+    display: block;
+    position: relative;
     min-height: 100%;
-    background: linear-gradient(to bottom, #010101, #1F3325);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: 852px;
+    background-image: url('/assets/pages/waitlist/landscape/bg-pattern.png');
+    background-color: #595AA0;
+    padding-left: 40px;
+    padding-top: 136px;
 }
 
-.contactUs__centerText{
+.contact__banner, .contact__form{
+    position: relative;
+    z-index: 2;
+}
+
+.contact__banner{
+    max-width: 240px;
+    margin-bottom: 58px;
+}
+
+.contact__bg{
+    mix-blend-mode: multiply;
+    background: linear-gradient(0deg, rgba(29, 29, 38, 0) 0%, #1D1D26 17%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
-    max-width: 497px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    z-index: 0;
 }
 
-.contactUs__Tittle {
-    padding-right: 40px;
-    margin-block:35px;
-    font-size: 32px;
-    font-weight: 500;
-    font-family: "Medium";
-    background: linear-gradient(to right, #F8F1F8, #798F83);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.banner__h1{
+    color: #7071E7;
+    font-size: 60px;
+    font-family: Lufga;
+    font-weight: 700;
+    line-height: 39px;
+    word-wrap: break-word;
+    margin-bottom: 20px;
 }
 
-@media screen and (min-width: 520px){
-    .contactUs__Tittle{
-        /* position: sticky; */
-        top: 30px; 
-        /* z-index: 3; */
-    }
+.banner__h2{
+    color: #1D1D26;
+    font-size: 18px;
+    font-family: Lufga;
+    font-weight: 300;
+    line-height: 16px;
+    word-wrap: break-word;
 }
 
-.bottom{
-    margin-bottom: 15px;
+.banner__h2 > span{
+    display: inline-block;
+    /* margin-top: 5px; */
+    line-height: 21px;
 }
 
-.bottomForm{
-    margin-bottom: 24px
-}
-
-.contactUs__text{
-    line-height: 157%;
-    padding-inline: 35px;
-    font-size: 16px;
-    font-weight: 400;
-    font-family: "Poppins";
-    color: #B9C3B8;
-}
-
-span{
-    font-size: 16px;
+.h2__developments{
     font-weight: 600;
-    font-family: "Poppins";
-    color: #C6C6C6;
 }
 
-.icon{
-    font-size: 29px;
-    color: white;
+.h2__accentuation{
+    font-weight: 600;
+    background-color: #00FFA9;
+    border-radius: 3px;
+    padding-inline: 4px;
 }
 
-.disabled{
-    color: #4e5650;
-}
-
-.icon.disabled{
-    color: #4e5650;
+.contact__folderBg{
+    position: absolute;
+    z-index: 1;
+    top: 91px;
+    left: 23px;
 }
 
 form{
-    width: 100%;
+    padding: 30px;
+    background-color: #7071E7;
+    width: min-content;
     display: flex;
+    gap: 20px;
     flex-direction: column;
-    margin-top: 30px;
+    align-items: flex-end;
+    border-radius: 15px;
 }
 
-@media (max-width: 767px){
-    form{
-        padding-inline: 35px;
-    }
+.form__buttons{
+    display: flex;
+    gap: 14px;
 }
 
-label{
-    font-size: 14px;
-    font-weight: 400;
-    font-family: "Poppins";
-    color: #B2B2B2;
-    margin-bottom: 21px;
-}
-
-.input, select{
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0);
+.form__selector{
+    border-radius: 5px;
+    text-align: center;
+    color: #1D1D26;
+    font-size: 18px;
+    font-family: Lufga;
+    font-weight: 600;
+    line-height: 16px;
+    word-wrap: break-word;
+    padding-top: 4.3px;
+    padding-bottom: 3.7px;
+    padding-inline: 5px;
+    background-color: #00FFA9;
     border: none;
-    border-bottom: 1px solid #B2B2B2;
-    margin-bottom: 37px;
-    color: #FFF;
-    font-weight: 500;
-    font-family: "Poppins";
 }
 
-input:focus{
-    outline: none;
+.form__field{
+    font-family: Lufga;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 16px;
+    color: #F0F3FF;
+    display: inline-block;
+    width: min-content;
+    padding-left: 8px;
 }
 
-select option{
-    color: #747171; 
-    font-weight: 500;
-    font-family: "Poppins";
+
+.form__field > span{
+    color: #00FFA9;
 }
 
-.contactUs__centerCheckbox{
+.form__field > input{
+    border-radius: 6px;
+    height: 25px;
+    width: 253px;
+    padding-left: 8px;
+    margin-left: -8px;
+    border: none;
+    margin-top: 10px;
+}
+
+.form__field > input::placeholder{
+    font-size: 15px;
+    color: #A7A7A7;
+}
+
+.form__submit{
+    font-family: Lufga;
+    background-color: #4F42B3;
+    padding: 4px 12px;
+    width: fit-content;
+    font-size: 18px;
+    color: #6865DA;
+    border-radius: 8px;
+    border: none;
     display: flex;
-    width: 320px;
-    flex-direction: row;
     align-items: center;
-    margin-bottom:37px;
-    padding-left:40px;
+    gap: 11px;
 }
 
-#aceptTermsConditions{
-    margin-left: 11px;
-    color: #FFFFFF; 
-    font-weight: 500;
-    font-size: 12px;
-    font-family: "Poppins";
-    text-decoration-line: underline;
+.form__submit:disabled{
+    background-color: #4F42B3;
+    color: #6865DA;
 }
 
-#checkb {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    border: 1px solid #B2B2B2; 
-    border-radius: 3px; 
+.contact__connect{
+    position: relative;
+    z-index: 1;
+    margin-top: 32px;
 }
 
-.contactUs__centerButton{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 92px;
+.connect__title{
+    font-size: 24px;
+    font-family: Lufga;
+    font-weight: 600;
+    color: #00FFA9;
 }
 
-button{
-    width:237px;
-    height:41px;
-    border-radius: 11px;
-    background-color: #F2F9F4;
-    color: #1F2122;
-    border-style: none;
-    font-weight: 500;
-    font-size: 16px;
-    font-family: "Poppins";
-    margin-bottom: 18px;   
+.connect__text{
+    font-family: Lufga;
+    font-size: 13px;
+    font-weight: 300;
+    color: #F0F3FF;
+    width: 210px;
 }
-
-button:disabled{
-    background-color: #878C88;
-    color: #fdfdfd;
-}
-
-#button_text{
-    font-weight: 500;
-    font-size: 14px;
-    font-family: "Poppins";
-    color: #fff; 
-}
-
-#termsConditionsText{
-    font-weight: 500;
-    font-size: 10px;
-    font-family: "Poppins";
-    margin-bottom: 15px; 
-    color: #fff; 
-}
-
-.iconsContainer{
-    width: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 27px;
-    gap: 30px;
-}
-
-img{
-    padding-inline: 10px;
-}
-
-.none{
-    display: none;
-}
-
-@media screen and (min-width: 768px) {
-    .contactUs__text{
-        text-align: center;
-        padding: 0;
-        max-width: 300px;
-    }
-    
-    .contactUs__Tittle{
-        padding: 0;
-        text-align: center;
-    }
-
-    .contactUs{
-        padding-inline: 25px;
-        gap: 100px;
-    }
-
-    form, main{
-        width: 255px;
-    }
-
-    .contactUs__centerText{
-        max-width: 252px;
-    }
-
-    .contactUs__centerButton{
-        margin: 0;
-    }
-
-    .contactUs{
-        position: relative;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .contactUs__Tittle{
-        font-size: 40px;
-        margin: 0;
-    }
-
-    .contactUs__text{
-        text-align: end;
-    }
-
-    .contactUs__centerText{
-        align-items: flex-end;
-    }
-
-    #termsConditionsText {
-        display:none;
-        /* position: absolute;
-        top: 37%;
-        right: 54%;
-        transform: translateY(-50%); */
-    }
-
-    .iconsContainer {
-        display:none;
-        /* position: absolute;
-        top: 43%;
-        right: 48%;
-        transform: translateY(-50%); */
-    }
-
-    .termsConditionsTextLandscape{
-        display: block;
-        font-weight: 500;
-        font-size: 10px;
-        font-family: "Poppins";
-        color: #fff; 
-        margin-bottom:19px;
-    }
-
-    .iconsContainerLandscape {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-block:20px;
-        gap: 20px;
-    }
-}
-
-/* @media screen and (min-width: 1440px) {
-    .termsConditionsTextLandscape{
-        font-size: 13px;
-        padding-right:20px;
-    }
-
-    .contactUs__Tittle{
-        padding-right:20px;
-        font-size: 48px;
-        margin: 0;
-    }
-
-    .iconsContainerLandscape {
-        padding-right: 20px;
-    }
-
-    .contactUs__centerText{
-        font-size:20px;
-        padding-right: 20px;
-    }
-
-    .contactUs__centerText{
-        padding: 0;
-    }
-
-    label{
-        font-size: 20px;
-    }
-
-    select, .input{
-        font-size: 25px;
-    }
-
-    button{
-        height: 50px;
-        font-size:18px;
-    }
-
-    #button_text{
-        font-size: 16px;
-    }
-
-    #checkb{
-        width: 20px;
-        height: 20px;
-    }
-
-    #aceptTermsConditions{
-        font-size: 14px;
-    }
-} */

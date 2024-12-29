@@ -1,65 +1,48 @@
-<section class="contactUs" id="joinUs">
-
-    <div class="contactUs__centerText">
-        <p class="termsConditionsTextLandscape none">© 2024 INFINITE ON THE UPSIDE INC.  </p>
-
-        <h2 class="contactUs__Tittle">Join Us</h2>
-
-        <div class="iconsContainerLandscape none">
-            <ion-icon name="logo-linkedin" class="icon linkedin" (click)="openLinkedin()"></ion-icon>
-            <ion-icon name="logo-discord" class="icon discord disabled"></ion-icon>
-            <ion-icon name="logo-instagram" class="icon instagram disabled"></ion-icon>
-            <ion-icon name="logo-twitter" class="icon twitter disabled"></ion-icon>
-        </div>
-
-
-        <p class="contactUs__text bottom">
-            Want to explore or otherwise stay on top of the latest developments in <span>virtual branding?</span>
-        </p>
-        <p class="contactUs__text bottomForm">
-            <span>Sign up</span> here for more on how to become a player in the ever-evolving world of fashion in gaming.
-        </p>
-
-    </div>
-
-    <main>
-        <form [formGroup]="userForm" (ngSubmit)="send()">
-            <label for="">Brand, Studio, Gamer?</label>
-            <select name="typeBrandStudio&Game" id="" formControlName="typeSelect">
-                <option *ngFor="let option of arraySelect" [value]="option">{{option}}</option>
-            </select>
-
-            <label for="">{{defaultUser}} Name*</label>
-            <input class="input" type="text" formControlName="templateName"> 
-
-            <label for="">Your Name*</label>
-            <input class="input" type="text" formControlName="userName">
-
-            <label for="">Email*</label>
-            <input class="input" type="text" formControlName="userEmail">
-
-            <div class="contactUs__centerButton">
-                <button type="submit">Submit</button>
-                <!-- <p id="button_text">JUST SUBMIT, FOR NOW</p> -->
-            </div>
-        </form>
-        {{userForm.value | json}}
-        <!-- <div class="contactUs__centerCheckbox">
-            <input type="checkbox" id="checkb" [(ngModel)]="terms" [ngModelOptions]="{standalone: true}">
-            <label for="checkb"></label>
-            <p id="aceptTermsConditions">Terms and Conditions</p>
-        </div> -->
-
-    </main>
-
-
-    <div class="iconsContainer">
-        <ion-icon name="logo-linkedin" class="icon linkedin" (click)="openLinkedin()"></ion-icon>
-        <ion-icon name="logo-discord" class="icon discord disabled"></ion-icon>
-        <ion-icon name="logo-instagram" class="icon instagram disabled"></ion-icon>
-        <ion-icon name="logo-twitter" class="icon twitter disabled"></ion-icon>
-    </div>
-
-        <p id="termsConditionsText">© 2024 INFINITE ON THE UPSIDE INC.  </p>
-
+<section class="contact__banner">
+    <h1 class="banner__h1">Waitlist</h1>
+    <h2 class="banner__h2">Want to explore or
+        otherwise stay on top
+        <br/>of the latest <span class="h2__developments">developments</span>
+        <span>in <span class="h2__accentuation">virtual branding?</span></span>
+    </h2>
 </section>
+<picture>
+    <source media="(min-width: 1728px)"
+            srcset="assets/img/KRIPTOGRAPHIC_logo-desktop.png"> 
+    
+    <source media="(min-width: 1024px)"
+            srcset="assets/img/KRIPTOGRAPHIC_logo-laptop.png"> 
+    
+    <source media="(min-width: 393px)"
+            srcset="assets/pages/waitlist/mobile/folder-bg_mobile.png"> 
+
+    <img class="contact__folderBg" src="assets/pages/waitlist/mobile/folder-bg_mobile.png" alt="KRIPTOGRAPHIC logo">
+</picture>
+<section class="contact__form">
+     <!-- <div class="form__buttons">
+        <button class="form__selector">Studio</button>
+        <button class="form__selector">Brand</button>
+     </div> -->
+     <form>
+        <label for="name" class="form__field">
+            I am
+            <input type="text" name="name" id="name" placeholder="Your Name">
+        </label>
+        <label for="email" class="form__field">
+            Email <span>*</span>
+            <input type="text" name="email" id="email" placeholder="example@mail.com">
+        </label>
+        <button class="form__submit">
+            Submit 
+            <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.41201 14.682L2.60296 15.7488C2.21281 15.9889 1.74563 16.0605 1.30398 15.948C0.862323 15.8355 0.482284 15.548 0.247283 15.1487C0.0849649 14.8706 -0.000510834 14.5526 2.29679e-06 14.2286L1.24291 10.3747C1.3442 10.0616 1.53598 9.78739 1.79282 9.58853C2.04966 9.38967 2.35943 9.2755 2.68104 9.26116L7.17765 9.0878C7.43872 9.05812 7.67993 8.93084 7.85512 8.73031C8.03032 8.52979 8.12719 8.2701 8.12719 8.00097C8.12719 7.73183 8.03032 7.47215 7.85512 7.27163C7.67993 7.0711 7.43872 6.94382 7.17765 6.91414L2.68104 6.73412C2.35943 6.71978 2.04966 6.6056 1.79282 6.40674C1.53598 6.20788 1.3442 5.93372 1.24291 5.62062L0.00650983 1.78006C0.00424041 1.46715 0.0831113 1.15924 0.235059 0.887802C0.387006 0.616367 0.606578 0.391146 0.871327 0.235167C1.13608 0.0791875 1.4365 -0.00195509 1.74189 3.57718e-05C2.04728 0.00202663 2.34667 0.0870797 2.60946 0.246498L7.86743 3.34695L13.1254 6.46074C13.5235 6.69296 13.8155 7.07739 13.9375 7.52982C14.0595 7.98224 14.0015 8.46576 13.7761 8.87443C13.6235 9.15402 13.3983 9.38482 13.1254 9.5412L7.86743 12.615L7.00195 13.1284L4.41201 14.682Z" fill="#7071E7"/>
+            </svg>
+        </button>
+     </form>
+</section>
+<section class="contact__connect">
+    <h3 class="connect__title">Connect with us</h3>
+    <h4 class="connect__text">Follow us on social media to stay updated on our latest projects.</h4>
+    <a href="">lnkdn</a>
+ </section>
+<div class="contact__bg"></div>
