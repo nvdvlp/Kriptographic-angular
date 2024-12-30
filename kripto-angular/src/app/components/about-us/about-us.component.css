@@ -141,7 +141,7 @@
     
     .jacketsPosition__v1{
         width: 495px;
-        top: 511px;
+        top: 438px;
         transform: rotate(-12deg);
         left: -111px;
     }
@@ -166,6 +166,16 @@
         position: relative;
         z-index: 0;
         background-color: #0E0F08;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .jacketsPosition__v1 {
+        left: -27px;
+    }
+    
+    .jacketsPosition__v2 {
+        right: 69px;
     }
 }
 
