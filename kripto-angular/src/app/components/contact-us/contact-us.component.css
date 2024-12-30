@@ -8,6 +8,10 @@
     padding-left: 40px;
     padding-top: 136px;
 }
+.contact__globalContainer{
+    height: 100%;
+    width: 100%;
+}
 
 .contact__banner, .contact__form{
     position: relative;
@@ -138,11 +142,11 @@ form{
 
 .form__submit{
     font-family: Lufga;
-    background-color: #4F42B3;
+    background-color: #0C0C1A;
     padding: 4px 12px;
     width: fit-content;
     font-size: 18px;
-    color: #6865DA;
+    color: #00FFA9;
     border-radius: 8px;
     border: none;
     display: flex;
@@ -150,9 +154,17 @@ form{
     gap: 11px;
 }
 
+.form__submit > svg > path{
+    fill: #00FFA9;
+}
+
 .form__submit:disabled{
     background-color: #4F42B3;
     color: #6865DA;
+}
+
+.form__submit:disabled > svg > path{
+    fill: #6865DA;
 }
 
 .contact__connect{
@@ -174,4 +186,18 @@ form{
     font-weight: 300;
     color: #F0F3FF;
     width: 210px;
+}
+
+.contact__trademark{
+    width: 84px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.linkedinLogo{
+    display: inline-block;
+    margin-top: 15px;
 }

@@ -38,39 +38,31 @@ export class ContactUsComponent {
     userEmail: "",
   })  
    
-  async send(){
-    console.log("a")
-    //USER ID santiago
-    emailjs.init("QPAQHaEGZSShP1t5v");
-    let response = await emailjs.send("service_c8cgns1","template_37eq9wc",{
-      from_name: this.userForm.value.from_name,
-      typeSelect: this.userForm.value.typeSelect,
-      templateName: this.userForm.value.templateName,
-      userName: this.userForm.value.userName,
-      userEmail:this.userForm.value.userEmail,
-      });
-      alert("message has been send");
-      this.userForm.reset();
-  }
+  // async send(){
+  //   console.log("a")
+  //   //USER ID santiago
+  //   emailjs.init("QPAQHaEGZSShP1t5v");
+  //   let response = await emailjs.send("service_c8cgns1","template_37eq9wc",{
+  //     from_name: this.userForm.value.from_name,
+  //     typeSelect: this.userForm.value.typeSelect,
+  //     templateName: this.userForm.value.templateName,
+  //     userName: this.userForm.value.userName,
+  //     userEmail:this.userForm.value.userEmail,
+  //     });
+  //     alert("message has been send");
+  //     this.userForm.reset();
+  // }
 
   ngOnInit(){
     this.userForm = this.fb.group({
-      userEmail: ['', [Validators.required, Validators.email]],
-      templateName: ['', Validators.required],
-      userName: ['', Validators.required],
-      typeSelect: [this.defaultUser],
-    })
-    
-    
-    this.userForm.get('typeSelect')?.valueChanges.subscribe(value => {
-      this.defaultUser = value;
-      console.log("Form loaded")
+      email: ['', [Validators.required, Validators.email]],
+      name: [''],
     })
 
     console.log(this.userForm)
   }
 
-  openLinkedin(){
-    window.open('https://www.linkedin.com/company/mobilemetamarketing/' , '_blank')
+  onSubmit() {
+    console.log('Form Submitted', this.userForm.value);
   }
 }
