@@ -68,7 +68,7 @@
     position: absolute;
     height: 154px;
     top: 327px;
-    left: 242px;
+    right: 4px;
     transform: rotate(5deg);
 }
 
@@ -78,7 +78,6 @@
     font-size: 18px;
     font-weight: 500;
     font-family: Lufga;
-    padding-inline: 43px;
     color: #fff;
     margin-bottom: 18px;
     max-width: 307px;
@@ -98,9 +97,8 @@
 .aboutUs__pendant{
     position: relative;
     z-index: 1;
-    top: 62px;
-    width: 472px;
-    
+    top: 48px;
+    width: 376px;
 }
 
 .aboutUs__pendantFloor{
@@ -151,7 +149,7 @@
     .jacketsPosition__v2 {
         height: 297px;
         top: 511px;
-        left: 772px;
+        right: 54px;
         transform: rotate(5deg);
     }
 
@@ -172,23 +170,28 @@
 }
 
 @media screen and (min-width: 1728px) {
+    .aboutUs {
+        align-items: start;
+    }
+
     .aboutUs__title {
         font-size: 200px;
     }
 
     .aboutUs__container {
         padding-left: 120px;
+        margin-bottom: 36px;
     }
 
     .aboutUs__text {    
         font-size: 32px;
-        max-width: 1520px;
     }
 
     .aboutUs__textEnd {
         font-size: 32px;
-        padding-inline: 200px;
-        max-width: 1520px;
+        padding-right: 120px;
+        padding-left: 800px;
+        max-width: 100%;
     }
 
     .fashion {
@@ -201,22 +204,27 @@
     }
     
     .jacketsPosition__v1{
-        width: 311px;
-        height: 283px;
+        width: 673px;
+        height: 552px;
+        top: 570px;
+        left: 345px;
     }
 
     .jacketsPosition__v2 {
-        width: 272px;
-        height: 186px;
+        width: 676px;
+        height: 452px;
+        transform: rotate(8deg);
         padding-right: 82px;
+        top: 150px;
+        right: 6px;
     }
 
     .aboutUs__pendant {
-        width: 500px;
-        height: 500px;
+        width: 493px;
+        height: 489px;
         position: relative;
         z-index: 1;
-        top: 27px;
+        top: 69px;
     }
     
     .aboutUs__pendantFloor {
