@@ -2,9 +2,9 @@
     display: flex;
     justify-content: center;
     position: relative;
-    min-height: 100%;
     width: 100%;
     height: 852px;
+    max-height: 852px;
     background-image: url('/assets/pages/waitlist/landscape/bg-pattern.png');
     background-color: #595AA0;
     padding-left: 40px;
@@ -228,6 +228,7 @@ form{
         padding-top: 284px;
         overflow: hidden;
         height: 1366px;
+        max-height: 1366px;
     }
 
     .contact__globalContainer{
@@ -342,6 +343,7 @@ form{
         padding-top: 207px;
         overflow: hidden;
         height: 1117px;
+        max-height: 1117px;
     }
 
     .contact__globalContainer{
