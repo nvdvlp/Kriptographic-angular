@@ -1,6 +1,10 @@
-<app-splash></app-splash>
-<app-about-us></app-about-us>
-<app-services></app-services>
-<app-contact-us></app-contact-us>
-<!-- <app-loader *ngIf="showLoader"></app-loader> -->
-<router-outlet />
+<app-splash id="splash" class="section"></app-splash>
+<app-about-us id="about-us" class="section"></app-about-us>
+<app-services id="services" class="section"></app-services>
+<app-contact-us id="waitlist" class="section"></app-contact-us>
+<nav>
+    <a href="#splash" class="nav-item first" id="nav-home">Home</a>
+    <a href="#about-us" class="nav-item" id="nav-about-us">About Us</a>
+    <a href="#services" class="nav-item" id="nav-services">Services</a>
+    <a href="#waitlist" class="nav-item last" id="nav-waitlist">Waitlist</a>
+</nav>

@@ -3,3 +3,45 @@
     height: 100%;
     width: 100%;
 }
+
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 64px;
+    right: 30px;
+    z-index: 1000;
+    gap: -2px;
+}
+
+.nav-item{
+    font-family: Lufga;
+    font-weight: 700;
+    font-size: 17.5px;
+    color: #20194F;
+    background-color: #00FFA9;
+    border-radius: 5px;
+    padding: 3.5px 6px;
+    text-decoration: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.nav-item.first{
+    border-top-right-radius: 6px;
+}
+
+.nav-item.last{
+    border-bottom-right-radius: 6px;
+}
+
+.nav-item.active{
+    position: relative;
+    right: -16px;
+    background-color: #F0F3FF;
+    font-size: 23px;
+    font-weight: 300;
+    font-style: italic;
+    color: #7071E7;
+}

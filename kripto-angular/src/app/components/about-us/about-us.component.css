@@ -129,7 +129,7 @@
 @media screen and (min-width: 1024px) {
     :host{
         height: 1428px;
-        max-height: 1392px;
+        max-height: 1428px;
         padding-top: 100px;
         padding-left: 100px;
     }

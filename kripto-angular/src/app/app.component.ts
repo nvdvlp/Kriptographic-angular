@@ -14,15 +14,11 @@ import { LoaderComponent } from './components/loader/loader.component';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
     AboutUsComponent,
     SplashComponent,
     ContactUsComponent, 
     FormsModule,
-    HamMenuComponent,
     ServicesComponent,
-    LoaderComponent,
-    
   ] ,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -33,5 +29,35 @@ export class AppComponent implements OnInit {
   fontLoaded: boolean = false;
 
   ngOnInit(): void {
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('.nav-item');
+  
+      function highlightCurrentSection() {
+          let currentSectionId = '';
+          sections.forEach((section) => {
+            //@ts-ignore
+            const sectionTop = section.offsetTop - 50; // Adjust offset if needed
+            //@ts-ignore
+            const sectionHeight = section.offsetHeight;
+            //@ts-ignore
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+              //@ts-ignore
+              currentSectionId = section.getAttribute('id');
+            }
+          });
+          
+          navLinks.forEach((link) => {
+            //@ts-ignore
+              if (link.getAttribute('href').substring(1) === currentSectionId) {
+                  link.classList.add('active');
+              } else {
+                  link.classList.remove('active');
+              }
+          });
+      }
+  
+      window.addEventListener('scroll', highlightCurrentSection);
+  });
   }
 }

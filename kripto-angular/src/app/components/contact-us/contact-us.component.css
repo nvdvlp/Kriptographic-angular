@@ -86,6 +86,35 @@ input:focus{
     left: -20px;
 }
 
+.contact__backToTop{
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    font-family: Lufga;
+    font-weight: 300;
+    color: #00FFA9;
+    font-size: 18px;
+    line-height: 14px;
+    flex-direction: column;
+    position: absolute;
+    top: calc(28px - 136px);
+    right: 35px;
+    z-index: 1;
+    text-decoration: none;
+}
+
+.contact__backToTop > span{
+    font-size: 16px;
+}
+
+.contact__backToTop > svg{
+    width: 34px;
+    height: 34px;
+    margin-bottom: 5px;
+}
+
 form{
     padding: 30px;
     background-color: #7071E7;
@@ -257,6 +286,23 @@ form{
         line-height: 32px;
     }
 
+    .contact__backToTop{
+        font-size: 30px;
+        line-height: 22px;
+        top: calc(80px - 284px);
+        right: 82px;
+    }
+    
+    .contact__backToTop > span{
+        font-size: 26px;
+    }
+    
+    .contact__backToTop > svg{
+        width: 69px;
+        height: 69px;
+        margin-bottom: 10px;
+    }
+
     .banner__h2 > .accentuation{
         margin-top: 20px;
     }
@@ -348,6 +394,11 @@ form{
 
     .contact__globalContainer{
         max-width: 1728px;
+    }
+
+    .contact__backToTop{
+        top: calc(26px - 207px);
+        right: 120px;
     }
 
     .contact__folderBg{

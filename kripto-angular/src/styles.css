@@ -9,6 +9,10 @@ body{
     background-color: #010101;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     display: flex;
     justify-content: center;
