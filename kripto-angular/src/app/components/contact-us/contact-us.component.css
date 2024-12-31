@@ -197,6 +197,7 @@ form{
     display: flex;
     align-items: center;
     gap: 11px;
+    cursor: pointer;
 }
 
 .form__submit > svg > path{
