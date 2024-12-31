@@ -301,9 +301,50 @@
         color: #00FFA9;
     }
 }
-/* 
-@media screen and (min-width: 1137px) {
-    .services{
-        overflow: visible;
+
+@media screen and (min-width: 1728px) {
+    :host{
+        height: 1117px;
     }
-} */
+
+    .services{
+        max-width: 1728px;
+        justify-content: flex-start;
+        padding-left: 120px;
+        /* overflow: hidden; */
+    }
+
+    .services__title{
+        margin-top: 120px;
+        margin-bottom: 42px;
+        font-size: 200px;
+        line-height: 133px;
+        letter-spacing: -8px;
+    }
+
+    .services__cardsContainer{
+        left: 130px;
+    }
+
+    .services__gucchiMan{
+        width: 643px;
+        height: 774px;
+        left: 760px;
+        bottom: 0;
+    }
+
+    .bgLogoContainer__bgLogos{
+        width: 555px;
+        height: auto;
+    }
+
+    .gradient{
+        right: 460px;
+    }
+
+    .services__buttons{
+        left: 132px;
+        top: 600px;
+        gap: 593px;
+    }
+}
