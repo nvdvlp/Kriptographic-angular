@@ -2,20 +2,25 @@ import { AfterViewInit, ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, El
 import { AppComponent } from '../../app.component';
 import {FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [AppComponent, FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './services.component.html',
   styleUrl: './services.component.css'
 })
 export class ServicesComponent{
+
+  constructor(private sanitizer: DomSanitizer){
+
+  }
   cardArray: any[] = [
     {
       title: 'LICENSING NEGOTIATION',
-      content: 'We help navigate brand licensing, securing rights to valuable intellectual property. From famous fashion housesto trendy labels, we ensure authenticity and enhance gameplay, enabling studios to create immersive <strong> virtual worlds</strong>'
+      content: this.sanitizer.bypassSecurityTrustHtml('We help navigate brand licensing, securing rights to valuable intellectual property.<br /><br />From famous fashion houses to trendy labels, we ensure authenticity and enhance gameplay, enabling studios to create immersive <strong> virtual worlds</strong>')
     },
     {
       title: 'AI 3D ASSET CREATION',

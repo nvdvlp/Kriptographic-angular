@@ -1,11 +1,22 @@
+:host{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 914px;
+    height: 914px;
+    position: relative;
+    background-color: #595AA0;
+}
+
 .services{
     width: 100%;
-    min-height: 100%;
-    background-color: #595AA0;
+    max-width: 393px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: visible;
 }
 
 .services__bgLogoContainer{
@@ -15,9 +26,22 @@
     justify-content: end;
 }
 
+.gradient{
+    position: absolute;
+    top: 0;
+    right: 66px;
+    width: 188px;
+    height: 100%;
+    background: linear-gradient(90deg, #595AA0 29%, rgba(89, 90, 160, 0) 100%);
+    z-index: 1;
+}
+
 .bgLogoContainer__bgLogos {
     position: absolute;
     z-index: 0;
+    top: 0;
+    right: -58px;
+    height: 100%;
 }   
 
 .services__title{
@@ -29,6 +53,8 @@
     text-align: start;
     margin-top: 38px;
     margin-bottom: 25px;
+    z-index: 2;
+    position: relative;
 }
 
 .services__cardsContainer{
@@ -47,11 +73,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 27px;
-    padding-top: 16px;
-    padding-bottom: 31px;
-    background-color: #FFFFFF;
     filter: drop-shadow(4px 6px 10px rgba(0, 0, 0, 0.25));
+}
+
+.card__first{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 27px;
+    padding-top: 26px;
+    padding-inline: 18px;
+    padding-bottom: 10px;
+    background-color: #FFFFFF;
 }
 
 .card__title{
@@ -61,22 +96,19 @@
     color: #7071E7;
     text-align: start;
     margin-bottom:19px;
-    padding-left:14px;
     word-spacing: 0px;
-    line-height: 36px;
+    line-height: 30px;
+    letter-spacing: 0;
 
 }
 
 .card__text{
     font-size: 18px;
     font-weight: 500;
-    font-family: "LufgaLight";
+    font-family: Lufga;
     align-content: start;
     color: #1D1D26;
-    padding-left: 14px;
-    word-spacing: -3px;
     line-height: 17.5px;
-    margin-bottom:27px;
 }
 
 .card1 {
@@ -95,7 +127,7 @@
 
 .card3 {
     transform: rotate(5.21deg); 
-    z-index: 1;
+    z-index: 2;
     top: 0px;
     transition: transform 0.2s;
 }
@@ -123,7 +155,7 @@
 }
 
 .services__gucchiMan {
-    z-index: 1;
+    z-index: 2;
 }
 
 .services__buttons{
@@ -143,6 +175,12 @@
 .left{
     font-size: 30px;
     color: #00FFA9;
+}
+
+.services__gucchiMan{
+    width: 297px;
+    left: 50px;
+    position: relative;
 }
 
 @media screen and (min-width: 768px) {
