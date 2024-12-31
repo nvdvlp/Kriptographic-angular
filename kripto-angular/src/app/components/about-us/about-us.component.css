@@ -128,8 +128,8 @@
 
 @media screen and (min-width: 1024px) {
     :host{
-        height: 1511px;
-        max-height: 1511px;
+        height: 1428px;
+        max-height: 1428px;
         padding-top: 100px;
         padding-left: 100px;
     }
@@ -201,7 +201,7 @@
 
     .aboutUs__pendantFloor{
         height: 60px;
-        bottom: 23px;
+        bottom: 0;
     }
 }
 @media screen and (min-width: 1728px) {
