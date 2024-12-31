@@ -19,13 +19,14 @@ import { LoaderComponent } from './components/loader/loader.component';
     ContactUsComponent, 
     FormsModule,
     ServicesComponent,
+    LoaderComponent
   ] ,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
   title = 'Kriptographic';
-  showLoader: boolean = true;
+  isLoading: boolean = true;
   fontLoaded: boolean = false;
 
   ngOnInit(): void {
@@ -59,5 +60,21 @@ export class AppComponent implements OnInit {
   
       window.addEventListener('scroll', highlightCurrentSection);
   });
+  }
+
+  loadedSections: { [key: string]: boolean } = {
+    splash: false,
+    aboutUs: false,
+    services: false,
+    contactUs: false,
+  };
+
+  onLoaded(section: string) {
+    console.log("loaded" + section)
+    this.loadedSections[section] = true;
+
+    // Check if all sections have loaded
+    const allLoaded = Object.values(this.loadedSections).every((loaded) => loaded);
+    this.isLoading = !allLoaded;
   }
 }

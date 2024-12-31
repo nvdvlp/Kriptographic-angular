@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import emailjs from 'emailjs-com';
@@ -23,6 +23,9 @@ export class ContactUsComponent {
   email = '';
   terms = false;
   dissapear = false;
+  @Output() loaded = new EventEmitter<void>();
+  private imagesToLoad = 2;
+  private imagesLoaded = 0;
 
   
   arraySelect: any[] = [
@@ -30,6 +33,16 @@ export class ContactUsComponent {
     "Studio",
     "Gamer"
   ]
+
+  onImageLoad() {
+    console.log("LOOOOOL")
+    this.imagesLoaded++;
+    console.log(this.imagesLoaded)
+    console.log(this.imagesToLoad)
+    if (this.imagesLoaded === this.imagesToLoad) {
+      this.loaded.emit();
+    }
+  }
 
   userForm: FormGroup = this.fb.group({
     from_name: "Kriptogrhapic landing page",

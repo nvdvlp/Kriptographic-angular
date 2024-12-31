@@ -17,7 +17,7 @@
         <source media="(min-width: 393px)"
                 srcset="assets/pages/waitlist/mobile/folder-bg_mobile.png"> 
     
-        <img class="contact__folderBg" src="assets/pages/waitlist/mobile/folder-bg_mobile.png" alt="folder img">
+        <img (load)="onImageLoad()" class="contact__folderBg" src="assets/pages/waitlist/mobile/folder-bg_mobile.png" alt="folder img">
     </picture>
     <a href="#splash" class="contact__backToTop">
         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,6 +82,6 @@
             </svg>
         </a>
      </section>
-     <img class="contact__trademark" src="assets/pages/waitlist/landscape/kriptographic-rights.png" alt="trademark for KG" srcset="">
+     <img (load)="onImageLoad()" class="contact__trademark" src="assets/pages/waitlist/landscape/kriptographic-rights.png" alt="trademark for KG" srcset="">
 </div>
 <div class="contact__bg"></div>

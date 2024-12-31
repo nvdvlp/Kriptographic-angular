@@ -1,11 +1,11 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 import { HamMenuComponent } from '../ham-menu/ham-menu.component';
 import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-splash',
   standalone: true,
-  imports: [HamMenuComponent, NgClass, NgIf ],
+  // imports: [HamMenuComponent, NgClass, NgIf ],
   templateUrl: './splash.component.html',
   styleUrl: './splash.component.css'
 })
@@ -14,6 +14,20 @@ export class SplashComponent implements AfterViewInit{
   slide: boolean = false;
   // constructor(private window: Window) { }
   canvas!: HTMLCanvasElement
+
+  @Output() loaded = new EventEmitter<void>();
+  private imagesToLoad = 7; // Number of images to load (adjust as needed)
+  private imagesLoaded = 0;
+
+  onImageLoad() {
+    console.log("LOOOOOL")
+    this.imagesLoaded++;
+    console.log(this.imagesLoaded)
+    console.log(this.imagesToLoad)
+    if (this.imagesLoaded === this.imagesToLoad) {
+      this.loaded.emit();
+    }
+  }
 
   toggleHam(){
     this.slide = true;

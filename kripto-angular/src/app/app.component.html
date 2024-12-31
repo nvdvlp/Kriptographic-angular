@@ -1,10 +1,16 @@
-<app-splash id="splash" class="section"></app-splash>
-<app-about-us id="about-us" class="section"></app-about-us>
-<app-services id="services" class="section"></app-services>
-<app-contact-us id="waitlist" class="section"></app-contact-us>
-<nav>
+<!-- Loader -->
+<app-loader [ngClass]="{ 'hidden': !isLoading }"></app-loader>
+
+<!-- Main Content -->
+<div [ngClass]="{ 'hidden': isLoading }">
+  <app-splash (loaded)="onLoaded('splash')" id="splash" class="section"></app-splash>
+  <app-about-us (loaded)="onLoaded('aboutUs')" id="about-us" class="section"></app-about-us>
+  <app-services (loaded)="onLoaded('services')" id="services" class="section"></app-services>
+  <app-contact-us (loaded)="onLoaded('contactUs')" id="waitlist" class="section"></app-contact-us>
+  <nav>
     <a href="#splash" class="nav-item first" id="nav-home">Home</a>
     <a href="#about-us" class="nav-item" id="nav-about-us">About Us</a>
     <a href="#services" class="nav-item" id="nav-services">Services</a>
     <a href="#waitlist" class="nav-item last" id="nav-waitlist">Waitlist</a>
-</nav>
+  </nav>
+</div>

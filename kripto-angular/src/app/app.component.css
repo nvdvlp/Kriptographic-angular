@@ -45,3 +45,7 @@ nav{
     font-style: italic;
     color: #7071E7;
 }
+
+.hidden{
+    display: none;
+}

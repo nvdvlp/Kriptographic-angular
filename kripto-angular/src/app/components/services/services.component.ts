@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, EventEmitter, Output, QueryList, ViewChildren } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import {FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -31,6 +31,47 @@ export class ServicesComponent{
       content: 'Use consumer behavior data to customize gaming experiences based on player preferences. This approach helps make <strong>strategic decisions</strong>, ensuring branded content connects with gamers, boosts <strong>engagement</strong>, and builds lasting brand loyalty.'
     },
   ] 
+
+  @Output() loaded = new EventEmitter<void>();
+
+  ngAfterViewInit() {
+    this.checkIfResourcesLoaded();
+  }
+
+  private checkIfResourcesLoaded() {
+    const images = document.querySelectorAll('img');
+    const totalImages = images.length;
+    let loadedImages = 0;
+
+    images.forEach((img) => {
+      if (img.complete) {
+        loadedImages++;
+      } else {
+        img.addEventListener('load', () => {
+          loadedImages++;
+          if (loadedImages === totalImages) {
+            this.emitLoaded();
+          }
+        });
+
+        img.addEventListener('error', () => {
+          loadedImages++;
+          if (loadedImages === totalImages) {
+            this.emitLoaded();
+          }
+        });
+      }
+    });
+
+    // If all images are already loaded, emit the event immediately
+    if (loadedImages === totalImages) {
+      this.emitLoaded();
+    }
+  }
+
+  private emitLoaded() {
+    this.loaded.emit();
+  }
 
   goRight(){
     // ultima carta al inicio

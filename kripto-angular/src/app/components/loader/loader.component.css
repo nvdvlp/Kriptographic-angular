@@ -20,18 +20,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-  } */
+  } */ 
   .bar {
     width: 10px;
     height: 70px;
-    background: #fff;
+    background: transparent; /* Initially transparent */
     display: inline-block;
     transform-origin: bottom center;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
-    /*   box-shadow:5px 10px 20px inset rgba(255,23,25.2); */
     animation: loader 1.2s linear infinite;
   }
+
   .bar1 {
     animation-delay: 0.1s;
   }
@@ -59,18 +59,19 @@
   
   @keyframes loader {
     0% {
-      transform: scaleY(0.1);
-      background: transparent;
+      transform: scaleY(0); /* Start with no height */
+      background: transparent; /* Ensure background is transparent at start */
     }
     50% {
-      transform: scaleY(1);
-      background: #416b4e;
+      transform: scaleY(1); /* Full height at midpoint */
+      background: #00FFA9; /* Color for the bar */
     }
     100% {
-      transform: scaleY(0.1);
-      background: transparent;
+      transform: scaleY(0); /* End with no height */
+      background: transparent; /* Background transparent at end */
     }
   }
+  
 
 .loader__title{
     color: #a8ccb3;

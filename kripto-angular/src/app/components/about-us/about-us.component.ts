@@ -16,5 +16,16 @@ import { CommonModule } from '@angular/common';
 export class AboutUsComponent {
   constructor(private window: Window) { }
 
+  @Output() loaded = new EventEmitter<void>();
+
+  imagesToLoad = 4; // Number of images in this component
+  imagesLoaded = 0;
+
+  onImageLoad() {
+    this.imagesLoaded++;
+    if (this.imagesLoaded === this.imagesToLoad) {
+      this.loaded.emit(); // Emit event when all images are loaded
+    }
+  }
 
 }
